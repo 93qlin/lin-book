@@ -1,0 +1,2222 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>树形数据扁平化，扁平化数据树形化 ✔ · lin 的文档库</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="lin">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-okaidia.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../public-repertory/css/gitbook-configure.css">
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="图片上传.html" />
+    
+    
+    <link rel="prev" href="事件绑定、事件监听、事件委托（事件代理）.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"93qlin","repo":"gitbook","type":"star","count":true,"size":"small"},{"user":"93qlin","width":"160","type":"follow","count":true,"size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../CssAndHtml/">
+            
+                <a href="../CssAndHtml/">
+            
+                    
+                    Html和Css
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../CssAndHtml/Interview/">
+            
+                <a href="../CssAndHtml/Interview/">
+            
+                    
+                    面试必问 ✘
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="../CssAndHtml/Interview/Html.html">
+            
+                <a href="../CssAndHtml/Interview/Html.html">
+            
+                    
+                    Html ✘
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2" data-path="../CssAndHtml/Interview/Css.html">
+            
+                <a href="../CssAndHtml/Interview/Css.html">
+            
+                    
+                    Css ✘
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../HttpAndBrowerAndPerformanceSafety/README.md">
+            
+                <span>
+            
+                    
+                    Http和浏览器以及安全
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../HttpAndBrowerAndPerformanceSafety/Interview/">
+            
+                <a href="../HttpAndBrowerAndPerformanceSafety/Interview/">
+            
+                    
+                    面试必问 ✘
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../HttpAndBrowerAndPerformanceSafety/Interview/HttpAndBrower/">
+            
+                <a href="../HttpAndBrowerAndPerformanceSafety/Interview/HttpAndBrower/">
+            
+                    
+                    Http和浏览器相关 ✘
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1.1" data-path="../HttpAndBrowerAndPerformanceSafety/Interview/HttpAndBrower/用户输入URL到浏览器呈现页面.html">
+            
+                <a href="../HttpAndBrowerAndPerformanceSafety/Interview/HttpAndBrower/用户输入URL到浏览器呈现页面.html">
+            
+                    
+                    用户输入URL到浏览器呈现页面 ✘
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.1.2" data-path="../HttpAndBrowerAndPerformanceSafety/Interview/HttpAndBrower/浏览器多进程到JS单线程，JS运行机制.html">
+            
+                <a href="../HttpAndBrowerAndPerformanceSafety/Interview/HttpAndBrower/浏览器多进程到JS单线程，JS运行机制.html">
+            
+                    
+                    浏览器多进程到JS单线程，JS运行机制 ✘
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.1.3" data-path="../HttpAndBrowerAndPerformanceSafety/Interview/HttpAndBrower/Axios.html">
+            
+                <a href="../HttpAndBrowerAndPerformanceSafety/Interview/HttpAndBrower/Axios.html">
+            
+                    
+                    Axios ✘
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.1.4" data-path="../HttpAndBrowerAndPerformanceSafety/Interview/HttpAndBrower/OSI七层模型.html">
+            
+                <a href="../HttpAndBrowerAndPerformanceSafety/Interview/HttpAndBrower/OSI七层模型.html">
+            
+                    
+                    OSI七层模型 ✘
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="../HttpAndBrowerAndPerformanceSafety/Interview/safe/">
+            
+                <a href="../HttpAndBrowerAndPerformanceSafety/Interview/safe/">
+            
+                    
+                    网络安全相关 ✘
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.2.1" data-path="../HttpAndBrowerAndPerformanceSafety/Interview/safe/safe.html">
+            
+                <a href="../HttpAndBrowerAndPerformanceSafety/Interview/safe/safe.html">
+            
+                    
+                    网络安全相关 ✘
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" data-path="../HttpAndBrowerAndPerformanceSafety/Interview/performance/">
+            
+                <a href="../HttpAndBrowerAndPerformanceSafety/Interview/performance/">
+            
+                    
+                    性能相关 ✘
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.3.1" data-path="../HttpAndBrowerAndPerformanceSafety/Interview/performance/">
+            
+                <a href="../HttpAndBrowerAndPerformanceSafety/Interview/performance/">
+            
+                    
+                    总览 ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Javascript
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="基础1.1JavaScript声明变量详解.html">
+            
+                <a href="基础1.1JavaScript声明变量详解.html">
+            
+                    
+                    基础1.1JavaScript声明变量详解 ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="基础1.2:变量（变量提升,暂时性死区）、执行（上下文）环境、执行栈、事件循环机制、作用域、作用域链.html">
+            
+                <a href="基础1.2:变量（变量提升,暂时性死区）、执行（上下文）环境、执行栈、事件循环机制、作用域、作用域链.html">
+            
+                    
+                    基础1.2:变量（变量提升,暂时性死区）、执行（上下文）环境、执行栈、事件循环机制、作用域、作用域链 ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="基础1.3：面向对象之理解对象.html">
+            
+                <a href="基础1.3：面向对象之理解对象.html">
+            
+                    
+                    基础1.3：面向对象之理解对象 ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="基础1.4：面向对象之创建对象的八种模式.html">
+            
+                <a href="基础1.4：面向对象之创建对象的八种模式.html">
+            
+                    
+                    基础1.4：面向对象之创建对象的八种模式 ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="基础1.5：面向对象之继承的的八种方式.html">
+            
+                <a href="基础1.5：面向对象之继承的的八种方式.html">
+            
+                    
+                    基础1.5：面向对象之继承的的八种方式 ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="基础2.1：原型和原型链(继承">
+            
+                <span>
+            
+                    
+                    基础2.1：原型和原型链(继承) ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="基础2.2：作用域和作用域链.html">
+            
+                <a href="基础2.2：作用域和作用域链.html">
+            
+                    
+                    基础2.2：作用域和作用域链 ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="基础2.3：闭包，作用域链理解闭包.html">
+            
+                <a href="基础2.3：闭包，作用域链理解闭包.html">
+            
+                    
+                    基础2.3：闭包，作用域链理解闭包 ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="基础2.4：this.html">
+            
+                <a href="基础2.4：this.html">
+            
+                    
+                    基础2.4：this ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="基础3.1：js内存与内存泄漏.html">
+            
+                <a href="基础3.1：js内存与内存泄漏.html">
+            
+                    
+                    基础3.1：js内存与内存泄漏 ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="多个连续的箭头函数与柯里化.html">
+            
+                <a href="多个连续的箭头函数与柯里化.html">
+            
+                    
+                    多个连续的箭头函数与柯里化 ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.12" data-path="函数式编程.html">
+            
+                <a href="函数式编程.html">
+            
+                    
+                    函数式编程 ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.13" data-path="判断数据类型.html">
+            
+                <a href="判断数据类型.html">
+            
+                    
+                    判断数据类型 ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.14" data-path="事件绑定、事件监听、事件委托（事件代理）.html">
+            
+                <a href="事件绑定、事件监听、事件委托（事件代理）.html">
+            
+                    
+                    事件绑定、事件监听、事件委托（事件代理） ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.15" data-path="树形数据扁平化，扁平化数据树形化.html">
+            
+                <a href="树形数据扁平化，扁平化数据树形化.html">
+            
+                    
+                    树形数据扁平化，扁平化数据树形化 ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.16" data-path="图片上传.html">
+            
+                <a href="图片上传.html">
+            
+                    
+                    图片上传 ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.17" data-path="项目中第一次向数据库连续添加多条数据.html">
+            
+                <a href="项目中第一次向数据库连续添加多条数据.html">
+            
+                    
+                    项目中第一次向数据库连续添加多条数据 ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.18" data-path="原型和闭包.html">
+            
+                <a href="原型和闭包.html">
+            
+                    
+                    原型和闭包 ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.19" data-path="指数化退避.html">
+            
+                <a href="指数化退避.html">
+            
+                    
+                    指数化退避 ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.20" data-path="JavaScript常用数组操作方法，包含ES6方法.html">
+            
+                <a href="JavaScript常用数组操作方法，包含ES6方法.html">
+            
+                    
+                    JavaScript常用数组操作方法，包含ES6方法 ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../Coding/">
+            
+                <a href="../Coding/">
+            
+                    
+                    手写代码
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../Coding/js/">
+            
+                <a href="../Coding/js/">
+            
+                    
+                    js ✘
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1.1" data-path="../Coding/js/手写代码.html">
+            
+                <a href="../Coding/js/手写代码.html">
+            
+                    
+                    js手写代码 ✘
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../UseInJob/">
+            
+                <a href="../UseInJob/">
+            
+                    
+                    工作常用代码
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../UseInJob/Js.html">
+            
+                <a href="../UseInJob/Js.html">
+            
+                    
+                    Js ✘
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >树形数据扁平化，扁平化数据树形化 ✔</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#&#x6241;&#x5E73;&#x5316;&#x6570;&#x636E;&#x6811;&#x5F62;&#x5316;"><b></b>&#x6241;&#x5E73;&#x5316;&#x6570;&#x636E;&#x6811;&#x5F62;&#x5316;</a></li><li><span class="title-icon "></span><a href="#&#x6811;&#x5F62;&#x6570;&#x636E;&#x6241;&#x5E73;&#x5316;"><b></b>&#x6811;&#x5F62;&#x6570;&#x636E;&#x6241;&#x5E73;&#x5316;</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="&#x6241;&#x5E73;&#x5316;&#x6570;&#x636E;&#x6811;&#x5F62;&#x5316;"><a name="&#x6241;&#x5E73;&#x5316;&#x6570;&#x636E;&#x6811;&#x5F62;&#x5316;" class="anchor-navigation-ex-anchor" href="#&#x6241;&#x5E73;&#x5316;&#x6570;&#x636E;&#x6811;&#x5F62;&#x5316;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6241;&#x5E73;&#x5316;&#x6570;&#x636E;&#x6811;&#x5F62;&#x5316;</h3>
+<pre class="language-"><code>var  list = [
+  {&quot;Id&quot;: 19,
+  &quot;Name&quot;: &quot;App&quot;,
+  &quot;PId&quot;: null,
+  &quot;Order&quot;: 1,
+  &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+},
+  {&quot;Id&quot;: 1025,
+  &quot;Name&quot;: &quot;&#x4F01;&#x4E1A;&#x67E5;&#x8BE2;&quot;,
+  &quot;PId&quot;: 19,
+  &quot;Order&quot;: 1,
+  &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+},
+{
+  &quot;Id&quot;: 1051,
+  &quot;Name&quot;: &quot;&#x4F01;&#x4E1A;&#x5217;&#x8868;&quot;,
+  &quot;PId&quot;: 1025,
+  &quot;Order&quot;: 1,
+  &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+},
+{
+    &quot;Id&quot;: 1029,
+    &quot;Name&quot;: &quot;&#x4F01;&#x4E1A;&#x660E;&#x7EC6;&quot;,
+    &quot;PId&quot;: 1025,
+    &quot;Order&quot;: 2,
+    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+},{
+     &quot;Id&quot;: 1030,
+     &quot;Name&quot;: &quot;&#x6295;&#x6807;&#x6218;&#x7EE9;&quot;,
+     &quot;PId&quot;: 1025,
+     &quot;Order&quot;: 3,
+     &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+ },
+ {
+     &quot;Id&quot;: 1026,
+     &quot;Name&quot;: &quot;&#x4E1A;&#x7EE9;&#x67E5;&#x8BE2;&quot;,
+     &quot;PId&quot;: 19,
+     &quot;Order&quot;: 2,
+     &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+ },
+ {
+     &quot;Id&quot;: 1031,
+     &quot;Name&quot;: &quot;&#x4E1A;&#x7EE9;&#x5217;&#x8868;&quot;,
+     &quot;PId&quot;: 1026,
+     &quot;Order&quot;: 1,
+     &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+ },
+ {
+     &quot;Id&quot;: 1032,
+     &quot;Name&quot;: &quot;&#x4E1A;&#x7EE9;&#x660E;&#x7EC6;&quot;,
+     &quot;PId&quot;: 1026,
+     &quot;Order&quot;: 2,
+     &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+
+     &quot;Children&quot;: []
+ },
+ {
+     &quot;Id&quot;: 1,
+     &quot;Name&quot;: &quot;&#x540E;&#x53F0;&quot;,
+     &quot;PId&quot;: null,
+     &quot;Order&quot;: 2,
+     &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+ },
+ {
+     &quot;Id&quot;: 22,
+     &quot;Name&quot;: &quot;&#x9996;&#x9875;&quot;,
+     &quot;PId&quot;: &quot;1&quot;,
+     &quot;Order&quot;: 1,
+     &quot;Class&quot;: &quot;iconfont icon-home&quot;,
+ },
+ {
+     &quot;Id&quot;: 38,
+     &quot;Name&quot;: &quot;&#x67E5;&#x8BE2;&quot;,
+     &quot;PId&quot;: &quot;1&quot;,
+     &quot;Order&quot;: 3,
+     &quot;Class&quot;: &quot;iconfont icon-home&quot;,
+ },
+ {
+     &quot;Id&quot;: 2,
+     &quot;Name&quot;: &quot;&#x7BA1;&#x7406;&quot;,
+     &quot;PId&quot;: &quot;1&quot;,
+     &quot;Order&quot;: 99,
+     &quot;Class&quot;: &quot;iconfont icon-home&quot;
+  },
+  {
+      &quot;Id&quot;: 12,
+      &quot;Name&quot;: &quot;&#x7528;&#x6237;&#x7BA1;&#x7406;&quot;,
+      &quot;PId&quot;: 2,
+      &quot;Order&quot;: 1,
+      &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+  },
+  {
+      &quot;Id&quot;: 3,
+      &quot;Name&quot;: &quot;&#x7528;&#x6237;&#x7BA1;&#x7406;&quot;,
+      &quot;PId&quot;: 12,
+      &quot;Order&quot;: 1,
+      &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+  },
+  {
+      &quot;Id&quot;: 4,
+      &quot;Name&quot;: &quot;&#x6DFB;&#x52A0;&#x7528;&#x6237;&quot;,
+      &quot;PId&quot;: 3,
+      &quot;Order&quot;: 2,
+      &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+      &quot;Code&quot;: &quot;1001&quot;,
+  },
+  {
+      &quot;Id&quot;: 5,
+      &quot;Name&quot;: &quot;&#x4FEE;&#x6539;&#x7528;&#x6237;&quot;,
+      &quot;PId&quot;: 3,
+      &quot;Order&quot;: 3,
+      &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+      &quot;Code&quot;: &quot;1002&quot;,
+  },
+  {
+      &quot;Id&quot;: 8,
+      &quot;Name&quot;: &quot;&#x5F00;&#x542F;&#x3001;&#x5173;&#x95ED;&#x7528;&#x6237;&quot;,
+      &quot;PId&quot;: 3,
+      &quot;Order&quot;: 6,
+      &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+      &quot;Code&quot;: &quot;1009&quot;,
+  },
+  {
+      &quot;Id&quot;: 9,
+      &quot;Name&quot;: &quot;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;&quot;,
+      &quot;PId&quot;: 3,
+      &quot;Order&quot;: 7,
+      &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+      &quot;Code&quot;: &quot;2001&quot;,
+  },
+  {
+      &quot;Id&quot;: 10,
+      &quot;Name&quot;: &quot;&#x5BFC;&#x51FA;&#x7528;&#x6237;&#x4FE1;&#x606F;&quot;,
+      &quot;PId&quot;: 3,
+      &quot;Order&quot;: 8,
+      &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+      &quot;Code&quot;: &quot;1008&quot;,
+  },
+  {
+      &quot;Id&quot;: 39,
+      &quot;Name&quot;: &quot;&#x91D1;&#x5E01;&#x7BA1;&#x7406;&quot;,
+      &quot;PId&quot;: 12,
+      &quot;Order&quot;: 2,
+      &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+  },
+  {
+      &quot;Id&quot;: 40,
+      &quot;Name&quot;: &quot;&#x4F7F;&#x7528;&#x91CF;&quot;,
+      &quot;PId&quot;: 12,
+      &quot;Order&quot;: 3,
+      &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+  },
+  {
+      &quot;Id&quot;: 41,
+      &quot;Name&quot;: &quot;&#x4E1A;&#x4F59;&#x91C7;&#x96C6;&quot;,
+      &quot;PId&quot;: 12,
+      &quot;Order&quot;: 4,
+      &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+  },
+  {
+    &quot;Id&quot;: 14,
+    &quot;Name&quot;: &quot;&#x76F8;&#x5173;&#x8BBE;&#x7F6E;&quot;,
+    &quot;PId&quot;: 2,
+    &quot;Order&quot;: 2,
+    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+  },
+  {
+      &quot;Id&quot;: 42,
+      &quot;Name&quot;: &quot;&#x9884;&#x6D4B;&#x53C2;&#x6570;&#x7BA1;&#x7406;&quot;,
+      &quot;PId&quot;: 14,
+      &quot;Order&quot;: 1,
+      &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+
+  },
+  {
+      &quot;Id&quot;: 43,
+      &quot;Name&quot;: &quot;&#x4F18;&#x60E0;&#x6D3B;&#x52A8;&quot;,
+      &quot;PId&quot;: 14,
+      &quot;Order&quot;: 2,
+      &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+
+  },
+  {
+      &quot;Id&quot;: 44,
+      &quot;Name&quot;: &quot;&#x7EDF;&#x8BA1;&#x5206;&#x6790;&quot;,
+      &quot;PId&quot;: 14,
+      &quot;Order&quot;: 3,
+      &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+
+  },
+  {
+      &quot;Id&quot;: 45,
+      &quot;Name&quot;: &quot;CA&#x8BBE;&#x7F6E;&quot;,
+      &quot;PId&quot;: 14,
+      &quot;Order&quot;: 4,
+      &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+
+  },
+  {
+      &quot;Id&quot;: 46,
+      &quot;Name&quot;: &quot;VIP&#x4EF7;&#x683C;&quot;,
+      &quot;PId&quot;: 14,
+      &quot;Order&quot;: 5,
+      &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+
+  }
+]
+</code></pre><pre class="language-"><code>function listChangeTree(data) {
+         // &#x5220;&#x9664; &#x6240;&#x6709; children,&#x4EE5;&#x9632;&#x6B62;&#x591A;&#x6B21;&#x8C03;&#x7528;
+        data.forEach(function (item) {
+          delete item.child;
+        });
+        // &#x5C06;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x4E3A; &#x4EE5; id &#x4E3A; KEY &#x7684; map &#x7D22;&#x5F15;&#x6570;&#x636E;&#x5217;
+        let map = {};
+        data.forEach(function (item) {
+          map[item.Id] = item;
+        });
+        let val = [];
+        data.forEach(function (item) {
+          // &#x4EE5;&#x5F53;&#x524D;&#x904D;&#x5386;&#x9879;&#xFF0C;&#x7684;pid,&#x53BB;map&#x5BF9;&#x8C61;&#x4E2D;&#x627E;&#x5230;&#x7D22;&#x5F15;&#x7684;id
+          let parent = map[item.PId];
+          // &#x5982;&#x679C;&#x627E;&#x5230;&#x7D22;&#x5F15;&#xFF0C;&#x90A3;&#x4E48;&#x8BF4;&#x660E;&#x6B64;&#x9879;&#x4E0D;&#x5728;&#x9876;&#x7EA7;&#x5F53;&#x4E2D;,&#x90A3;&#x4E48;&#x9700;&#x8981;&#x628A;&#x6B64;&#x9879;&#x6DFB;&#x52A0;&#x5230;&#xFF0C;&#x4ED6;&#x5BF9;&#x5E94;&#x7684;&#x7236;&#x7EA7;&#x4E2D;
+          if (parent) {
+            (parent.child || (parent.child = [])).push(item);
+          } else {
+            //&#x5982;&#x679C;&#x6CA1;&#x6709;&#x5728;map&#x4E2D;&#x627E;&#x5230;&#x5BF9;&#x5E94;&#x7684;&#x7D22;&#x5F15;ID,&#x90A3;&#x4E48;&#x76F4;&#x63A5;&#x628A; &#x5F53;&#x524D;&#x7684;item&#x6DFB;&#x52A0;&#x5230; val&#x7ED3;&#x679C;&#x96C6;&#x4E2D;&#xFF0C;&#x4F5C;&#x4E3A;&#x9876;&#x7EA7;
+            val.push(item);
+          }
+        });
+        return val;
+      }
+</code></pre><pre class="language-"><code>listChangeTree(list)
+</code></pre><blockquote>
+<p>&#x7ED3;&#x679C;&#x5F97;&#x5230;&#xFF1A;</p>
+</blockquote>
+<pre class="language-"><code>[{
+    &quot;Id&quot;: 19,
+    &quot;Name&quot;: &quot;App&quot;,
+    &quot;PId&quot;: null,
+    &quot;Order&quot;: 1,
+    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+    &quot;child&quot;: [{
+        &quot;Id&quot;: 1025,
+        &quot;Name&quot;: &quot;&#x4F01;&#x4E1A;&#x67E5;&#x8BE2;&quot;,
+        &quot;PId&quot;: 19,
+        &quot;Order&quot;: 1,
+        &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+        &quot;child&quot;: [{
+            &quot;Id&quot;: 1051,
+            &quot;Name&quot;: &quot;&#x4F01;&#x4E1A;&#x5217;&#x8868;&quot;,
+            &quot;PId&quot;: 1025,
+            &quot;Order&quot;: 1,
+            &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+        },
+        {
+            &quot;Id&quot;: 1029,
+            &quot;Name&quot;: &quot;&#x4F01;&#x4E1A;&#x660E;&#x7EC6;&quot;,
+            &quot;PId&quot;: 1025,
+            &quot;Order&quot;: 2,
+            &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+        },
+        {
+            &quot;Id&quot;: 1030,
+            &quot;Name&quot;: &quot;&#x6295;&#x6807;&#x6218;&#x7EE9;&quot;,
+            &quot;PId&quot;: 1025,
+            &quot;Order&quot;: 3,
+            &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+        }]
+    },
+    {
+        &quot;Id&quot;: 1026,
+        &quot;Name&quot;: &quot;&#x4E1A;&#x7EE9;&#x67E5;&#x8BE2;&quot;,
+        &quot;PId&quot;: 19,
+        &quot;Order&quot;: 2,
+        &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+        &quot;child&quot;: [{
+            &quot;Id&quot;: 1031,
+            &quot;Name&quot;: &quot;&#x4E1A;&#x7EE9;&#x5217;&#x8868;&quot;,
+            &quot;PId&quot;: 1026,
+            &quot;Order&quot;: 1,
+            &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+        },
+        {
+            &quot;Id&quot;: 1032,
+            &quot;Name&quot;: &quot;&#x4E1A;&#x7EE9;&#x660E;&#x7EC6;&quot;,
+            &quot;PId&quot;: 1026,
+            &quot;Order&quot;: 2,
+            &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+            &quot;Children&quot;: []
+        }]
+    }]
+},
+{
+    &quot;Id&quot;: 1,
+    &quot;Name&quot;: &quot;&#x540E;&#x53F0;&quot;,
+    &quot;PId&quot;: null,
+    &quot;Order&quot;: 2,
+    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+    &quot;child&quot;: [{
+        &quot;Id&quot;: 22,
+        &quot;Name&quot;: &quot;&#x9996;&#x9875;&quot;,
+        &quot;PId&quot;: &quot;1&quot;,
+        &quot;Order&quot;: 1,
+        &quot;Class&quot;: &quot;iconfont icon-home&quot;
+    },
+    {
+        &quot;Id&quot;: 38,
+        &quot;Name&quot;: &quot;&#x67E5;&#x8BE2;&quot;,
+        &quot;PId&quot;: &quot;1&quot;,
+        &quot;Order&quot;: 3,
+        &quot;Class&quot;: &quot;iconfont icon-home&quot;
+    },
+    {
+        &quot;Id&quot;: 2,
+        &quot;Name&quot;: &quot;&#x7BA1;&#x7406;&quot;,
+        &quot;PId&quot;: &quot;1&quot;,
+        &quot;Order&quot;: 99,
+        &quot;Class&quot;: &quot;iconfont icon-home&quot;,
+        &quot;child&quot;: [{
+            &quot;Id&quot;: 12,
+            &quot;Name&quot;: &quot;&#x7528;&#x6237;&#x7BA1;&#x7406;&quot;,
+            &quot;PId&quot;: 2,
+            &quot;Order&quot;: 1,
+            &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+            &quot;child&quot;: [{
+                &quot;Id&quot;: 3,
+                &quot;Name&quot;: &quot;&#x7528;&#x6237;&#x7BA1;&#x7406;&quot;,
+                &quot;PId&quot;: 12,
+                &quot;Order&quot;: 1,
+                &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+                &quot;child&quot;: [{
+                    &quot;Id&quot;: 4,
+                    &quot;Name&quot;: &quot;&#x6DFB;&#x52A0;&#x7528;&#x6237;&quot;,
+                    &quot;PId&quot;: 3,
+                    &quot;Order&quot;: 2,
+                    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+                    &quot;Code&quot;: &quot;1001&quot;
+                },
+                {
+                    &quot;Id&quot;: 5,
+                    &quot;Name&quot;: &quot;&#x4FEE;&#x6539;&#x7528;&#x6237;&quot;,
+                    &quot;PId&quot;: 3,
+                    &quot;Order&quot;: 3,
+                    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+                    &quot;Code&quot;: &quot;1002&quot;
+                },
+                {
+                    &quot;Id&quot;: 8,
+                    &quot;Name&quot;: &quot;&#x5F00;&#x542F;&#x3001;&#x5173;&#x95ED;&#x7528;&#x6237;&quot;,
+                    &quot;PId&quot;: 3,
+                    &quot;Order&quot;: 6,
+                    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+                    &quot;Code&quot;: &quot;1009&quot;
+                },
+                {
+                    &quot;Id&quot;: 9,
+                    &quot;Name&quot;: &quot;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;&quot;,
+                    &quot;PId&quot;: 3,
+                    &quot;Order&quot;: 7,
+                    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+                    &quot;Code&quot;: &quot;2001&quot;
+                },
+                {
+                    &quot;Id&quot;: 10,
+                    &quot;Name&quot;: &quot;&#x5BFC;&#x51FA;&#x7528;&#x6237;&#x4FE1;&#x606F;&quot;,
+                    &quot;PId&quot;: 3,
+                    &quot;Order&quot;: 8,
+                    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+                    &quot;Code&quot;: &quot;1008&quot;
+                }]
+            },
+            {
+                &quot;Id&quot;: 39,
+                &quot;Name&quot;: &quot;&#x91D1;&#x5E01;&#x7BA1;&#x7406;&quot;,
+                &quot;PId&quot;: 12,
+                &quot;Order&quot;: 2,
+                &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+            },
+            {
+                &quot;Id&quot;: 40,
+                &quot;Name&quot;: &quot;&#x4F7F;&#x7528;&#x91CF;&quot;,
+                &quot;PId&quot;: 12,
+                &quot;Order&quot;: 3,
+                &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+            },
+            {
+                &quot;Id&quot;: 41,
+                &quot;Name&quot;: &quot;&#x4E1A;&#x4F59;&#x91C7;&#x96C6;&quot;,
+                &quot;PId&quot;: 12,
+                &quot;Order&quot;: 4,
+                &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+            }]
+        },
+        {
+            &quot;Id&quot;: 14,
+            &quot;Name&quot;: &quot;&#x76F8;&#x5173;&#x8BBE;&#x7F6E;&quot;,
+            &quot;PId&quot;: 2,
+            &quot;Order&quot;: 2,
+            &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+            &quot;child&quot;: [{
+                &quot;Id&quot;: 42,
+                &quot;Name&quot;: &quot;&#x9884;&#x6D4B;&#x53C2;&#x6570;&#x7BA1;&#x7406;&quot;,
+                &quot;PId&quot;: 14,
+                &quot;Order&quot;: 1,
+                &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+            },
+            {
+                &quot;Id&quot;: 43,
+                &quot;Name&quot;: &quot;&#x4F18;&#x60E0;&#x6D3B;&#x52A8;&quot;,
+                &quot;PId&quot;: 14,
+                &quot;Order&quot;: 2,
+                &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+            },
+            {
+                &quot;Id&quot;: 44,
+                &quot;Name&quot;: &quot;&#x7EDF;&#x8BA1;&#x5206;&#x6790;&quot;,
+                &quot;PId&quot;: 14,
+                &quot;Order&quot;: 3,
+                &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+            },
+            {
+                &quot;Id&quot;: 45,
+                &quot;Name&quot;: &quot;CA&#x8BBE;&#x7F6E;&quot;,
+                &quot;PId&quot;: 14,
+                &quot;Order&quot;: 4,
+                &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+            },
+            {
+                &quot;Id&quot;: 46,
+                &quot;Name&quot;: &quot;VIP&#x4EF7;&#x683C;&quot;,
+                &quot;PId&quot;: 14,
+                &quot;Order&quot;: 5,
+                &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+            }]
+        }]
+    }]
+}]
+</code></pre><h3 id="&#x6811;&#x5F62;&#x6570;&#x636E;&#x6241;&#x5E73;&#x5316;"><a name="&#x6811;&#x5F62;&#x6570;&#x636E;&#x6241;&#x5E73;&#x5316;" class="anchor-navigation-ex-anchor" href="#&#x6811;&#x5F62;&#x6570;&#x636E;&#x6241;&#x5E73;&#x5316;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6811;&#x5F62;&#x6570;&#x636E;&#x6241;&#x5E73;&#x5316;</h3>
+<pre class="language-"><code>var list = [{
+    &quot;Id&quot;: 19,
+    &quot;Name&quot;: &quot;App&quot;,
+    &quot;PId&quot;: null,
+    &quot;Order&quot;: 1,
+    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+    &quot;child&quot;: [{
+        &quot;Id&quot;: 1025,
+        &quot;Name&quot;: &quot;&#x4F01;&#x4E1A;&#x67E5;&#x8BE2;&quot;,
+        &quot;PId&quot;: 19,
+        &quot;Order&quot;: 1,
+        &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+        &quot;child&quot;: [{
+            &quot;Id&quot;: 1051,
+            &quot;Name&quot;: &quot;&#x4F01;&#x4E1A;&#x5217;&#x8868;&quot;,
+            &quot;PId&quot;: 1025,
+            &quot;Order&quot;: 1,
+            &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+        },
+        {
+            &quot;Id&quot;: 1029,
+            &quot;Name&quot;: &quot;&#x4F01;&#x4E1A;&#x660E;&#x7EC6;&quot;,
+            &quot;PId&quot;: 1025,
+            &quot;Order&quot;: 2,
+            &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+        },
+        {
+            &quot;Id&quot;: 1030,
+            &quot;Name&quot;: &quot;&#x6295;&#x6807;&#x6218;&#x7EE9;&quot;,
+            &quot;PId&quot;: 1025,
+            &quot;Order&quot;: 3,
+            &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+        }]
+    },
+    {
+        &quot;Id&quot;: 1026,
+        &quot;Name&quot;: &quot;&#x4E1A;&#x7EE9;&#x67E5;&#x8BE2;&quot;,
+        &quot;PId&quot;: 19,
+        &quot;Order&quot;: 2,
+        &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+        &quot;child&quot;: [{
+            &quot;Id&quot;: 1031,
+            &quot;Name&quot;: &quot;&#x4E1A;&#x7EE9;&#x5217;&#x8868;&quot;,
+            &quot;PId&quot;: 1026,
+            &quot;Order&quot;: 1,
+            &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+        },
+        {
+            &quot;Id&quot;: 1032,
+            &quot;Name&quot;: &quot;&#x4E1A;&#x7EE9;&#x660E;&#x7EC6;&quot;,
+            &quot;PId&quot;: 1026,
+            &quot;Order&quot;: 2,
+            &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+        }]
+    }]
+},
+{
+    &quot;Id&quot;: 1,
+    &quot;Name&quot;: &quot;&#x540E;&#x53F0;&quot;,
+    &quot;PId&quot;: null,
+    &quot;Order&quot;: 2,
+    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+    &quot;child&quot;: [{
+        &quot;Id&quot;: 22,
+        &quot;Name&quot;: &quot;&#x9996;&#x9875;&quot;,
+        &quot;PId&quot;: &quot;1&quot;,
+        &quot;Order&quot;: 1,
+        &quot;Class&quot;: &quot;iconfont icon-home&quot;
+    },
+    {
+        &quot;Id&quot;: 38,
+        &quot;Name&quot;: &quot;&#x67E5;&#x8BE2;&quot;,
+        &quot;PId&quot;: &quot;1&quot;,
+        &quot;Order&quot;: 3,
+        &quot;Class&quot;: &quot;iconfont icon-home&quot;
+    },
+    {
+        &quot;Id&quot;: 2,
+        &quot;Name&quot;: &quot;&#x7BA1;&#x7406;&quot;,
+        &quot;PId&quot;: &quot;1&quot;,
+        &quot;Order&quot;: 99,
+        &quot;Class&quot;: &quot;iconfont icon-home&quot;,
+        &quot;child&quot;: [{
+            &quot;Id&quot;: 12,
+            &quot;Name&quot;: &quot;&#x7528;&#x6237;&#x7BA1;&#x7406;&quot;,
+            &quot;PId&quot;: 2,
+            &quot;Order&quot;: 1,
+            &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+            &quot;child&quot;: [{
+                &quot;Id&quot;: 3,
+                &quot;Name&quot;: &quot;&#x7528;&#x6237;&#x7BA1;&#x7406;&quot;,
+                &quot;PId&quot;: 12,
+                &quot;Order&quot;: 1,
+                &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+                &quot;child&quot;: [{
+                    &quot;Id&quot;: 4,
+                    &quot;Name&quot;: &quot;&#x6DFB;&#x52A0;&#x7528;&#x6237;&quot;,
+                    &quot;PId&quot;: 3,
+                    &quot;Order&quot;: 2,
+                    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+                    &quot;Code&quot;: &quot;1001&quot;
+                },
+                {
+                    &quot;Id&quot;: 5,
+                    &quot;Name&quot;: &quot;&#x4FEE;&#x6539;&#x7528;&#x6237;&quot;,
+                    &quot;PId&quot;: 3,
+                    &quot;Order&quot;: 3,
+                    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+                    &quot;Code&quot;: &quot;1002&quot;
+                },
+                {
+                    &quot;Id&quot;: 8,
+                    &quot;Name&quot;: &quot;&#x5F00;&#x542F;&#x3001;&#x5173;&#x95ED;&#x7528;&#x6237;&quot;,
+                    &quot;PId&quot;: 3,
+                    &quot;Order&quot;: 6,
+                    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+                    &quot;Code&quot;: &quot;1009&quot;
+                },
+                {
+                    &quot;Id&quot;: 9,
+                    &quot;Name&quot;: &quot;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;&quot;,
+                    &quot;PId&quot;: 3,
+                    &quot;Order&quot;: 7,
+                    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+                    &quot;Code&quot;: &quot;2001&quot;
+                },
+                {
+                    &quot;Id&quot;: 10,
+                    &quot;Name&quot;: &quot;&#x5BFC;&#x51FA;&#x7528;&#x6237;&#x4FE1;&#x606F;&quot;,
+                    &quot;PId&quot;: 3,
+                    &quot;Order&quot;: 8,
+                    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+                    &quot;Code&quot;: &quot;1008&quot;
+                }]
+            },
+            {
+                &quot;Id&quot;: 39,
+                &quot;Name&quot;: &quot;&#x91D1;&#x5E01;&#x7BA1;&#x7406;&quot;,
+                &quot;PId&quot;: 12,
+                &quot;Order&quot;: 2,
+                &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+            },
+            {
+                &quot;Id&quot;: 40,
+                &quot;Name&quot;: &quot;&#x4F7F;&#x7528;&#x91CF;&quot;,
+                &quot;PId&quot;: 12,
+                &quot;Order&quot;: 3,
+                &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+            },
+            {
+                &quot;Id&quot;: 41,
+                &quot;Name&quot;: &quot;&#x4E1A;&#x4F59;&#x91C7;&#x96C6;&quot;,
+                &quot;PId&quot;: 12,
+                &quot;Order&quot;: 4,
+                &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+            }]
+        },
+        {
+            &quot;Id&quot;: 14,
+            &quot;Name&quot;: &quot;&#x76F8;&#x5173;&#x8BBE;&#x7F6E;&quot;,
+            &quot;PId&quot;: 2,
+            &quot;Order&quot;: 2,
+            &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+            &quot;child&quot;: [{
+                &quot;Id&quot;: 42,
+                &quot;Name&quot;: &quot;&#x9884;&#x6D4B;&#x53C2;&#x6570;&#x7BA1;&#x7406;&quot;,
+                &quot;PId&quot;: 14,
+                &quot;Order&quot;: 1,
+                &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+            },
+            {
+                &quot;Id&quot;: 43,
+                &quot;Name&quot;: &quot;&#x4F18;&#x60E0;&#x6D3B;&#x52A8;&quot;,
+                &quot;PId&quot;: 14,
+                &quot;Order&quot;: 2,
+                &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+            },
+            {
+                &quot;Id&quot;: 44,
+                &quot;Name&quot;: &quot;&#x7EDF;&#x8BA1;&#x5206;&#x6790;&quot;,
+                &quot;PId&quot;: 14,
+                &quot;Order&quot;: 3,
+                &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+            },
+            {
+                &quot;Id&quot;: 45,
+                &quot;Name&quot;: &quot;CA&#x8BBE;&#x7F6E;&quot;,
+                &quot;PId&quot;: 14,
+                &quot;Order&quot;: 4,
+                &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+            },
+            {
+                &quot;Id&quot;: 46,
+                &quot;Name&quot;: &quot;VIP&#x4EF7;&#x683C;&quot;,
+                &quot;PId&quot;: 14,
+                &quot;Order&quot;: 5,
+                &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+            }]
+        }]
+    }]
+}]
+</code></pre><pre class="language-"><code>function formatConversion (parent, child, index = 0, family = [], elderIdentity = &apos;x&apos;) {
+      // child&#x5982;&#x679C;&#x957F;&#x5EA6;&#x7B49;&#x4E8E;0&#xFF0C;&#x5219;&#x4EE3;&#x8868;&#x5DF2;&#x7ECF;&#x5230;&#x4E86;&#x6700;&#x4F4E;&#x5C42;
+      // let page = (this.startPage - 1) * 10
+      if (child&amp;&amp;child.length &gt; 0) {
+        child.map((x, i) =&gt; {
+          // &#x8BBE;&#x7F6E; __level &#x6807;&#x5FD7;&#x4F4D; &#x7528;&#x4E8E;&#x5C55;&#x793A;&#x533A;&#x5206;&#x5C42;&#x7EA7;
+          // Vue.set(x, &apos;__level&apos;, index)
+          // &#x8BBE;&#x7F6E; __family &#x4E3A;&#x5BB6;&#x65CF;&#x5173;&#x7CFB; &#x4E3A;&#x6240;&#x6709;&#x7236;&#x7EA7;&#xFF0C;&#x5305;&#x542B;&#x672C;&#x8EAB;&#x5728;&#x5185;
+          // Vue.set(x, &apos;__family&apos;, [...family, elderIdentity + &apos;_&apos; + i])
+          // &#x672C;&#x8EAB;&#x7684;&#x552F;&#x4E00;&#x6807;&#x8BC6;  &#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x4E2A;&#x4EBA;&#x7684;&#x8EAB;&#x4EFD;&#x8BC1;&#x54AF; &#x4E00;&#x5B9A;&#x552F;&#x4E00;&#x3002;
+          // Vue.set(x, &apos;__identity&apos;, elderIdentity + &apos;_&apos; + i)
+          parent.push(x)
+          // &#x5982;&#x679C;&#x4ECD;&#x6709;&#x5B50;&#x96C6;&#xFF0C;&#x5219;&#x8FDB;&#x884C;&#x9012;&#x5F52;
+          if (x.child&amp;&amp;x.child.length &gt; 0) this.formatConversion(parent, x.child, index + 1, [...family, elderIdentity + &apos;_&apos; + i], elderIdentity + &apos;_&apos; + i)
+        })
+      } return parent
+    }
+</code></pre><pre class="language-"><code>formatConversion([],list)
+</code></pre><blockquote>
+<p>&#x7ED3;&#x679C;&#x5F97;&#x5230;&#xFF1A;</p>
+</blockquote>
+<pre class="language-"><code>[{
+    &quot;Id&quot;: 19,
+    &quot;Name&quot;: &quot;App&quot;,
+    &quot;PId&quot;: null,
+    &quot;Order&quot;: 1,
+    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+    &quot;child&quot;: [{
+        &quot;Id&quot;: 1025,
+        &quot;Name&quot;: &quot;&#x4F01;&#x4E1A;&#x67E5;&#x8BE2;&quot;,
+        &quot;PId&quot;: 19,
+        &quot;Order&quot;: 1,
+        &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+        &quot;child&quot;: [{
+            &quot;Id&quot;: 1051,
+            &quot;Name&quot;: &quot;&#x4F01;&#x4E1A;&#x5217;&#x8868;&quot;,
+            &quot;PId&quot;: 1025,
+            &quot;Order&quot;: 1,
+            &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+        },
+        {
+            &quot;Id&quot;: 1029,
+            &quot;Name&quot;: &quot;&#x4F01;&#x4E1A;&#x660E;&#x7EC6;&quot;,
+            &quot;PId&quot;: 1025,
+            &quot;Order&quot;: 2,
+            &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+        },
+        {
+            &quot;Id&quot;: 1030,
+            &quot;Name&quot;: &quot;&#x6295;&#x6807;&#x6218;&#x7EE9;&quot;,
+            &quot;PId&quot;: 1025,
+            &quot;Order&quot;: 3,
+            &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+        }]
+    },
+    {
+        &quot;Id&quot;: 1026,
+        &quot;Name&quot;: &quot;&#x4E1A;&#x7EE9;&#x67E5;&#x8BE2;&quot;,
+        &quot;PId&quot;: 19,
+        &quot;Order&quot;: 2,
+        &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+        &quot;child&quot;: [{
+            &quot;Id&quot;: 1031,
+            &quot;Name&quot;: &quot;&#x4E1A;&#x7EE9;&#x5217;&#x8868;&quot;,
+            &quot;PId&quot;: 1026,
+            &quot;Order&quot;: 1,
+            &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+        },
+        {
+            &quot;Id&quot;: 1032,
+            &quot;Name&quot;: &quot;&#x4E1A;&#x7EE9;&#x660E;&#x7EC6;&quot;,
+            &quot;PId&quot;: 1026,
+            &quot;Order&quot;: 2,
+            &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+        }]
+    }]
+},
+{
+    &quot;Id&quot;: 1025,
+    &quot;Name&quot;: &quot;&#x4F01;&#x4E1A;&#x67E5;&#x8BE2;&quot;,
+    &quot;PId&quot;: 19,
+    &quot;Order&quot;: 1,
+    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+    &quot;child&quot;: [{
+        &quot;Id&quot;: 1051,
+        &quot;Name&quot;: &quot;&#x4F01;&#x4E1A;&#x5217;&#x8868;&quot;,
+        &quot;PId&quot;: 1025,
+        &quot;Order&quot;: 1,
+        &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+    },
+    {
+        &quot;Id&quot;: 1029,
+        &quot;Name&quot;: &quot;&#x4F01;&#x4E1A;&#x660E;&#x7EC6;&quot;,
+        &quot;PId&quot;: 1025,
+        &quot;Order&quot;: 2,
+        &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+    },
+    {
+        &quot;Id&quot;: 1030,
+        &quot;Name&quot;: &quot;&#x6295;&#x6807;&#x6218;&#x7EE9;&quot;,
+        &quot;PId&quot;: 1025,
+        &quot;Order&quot;: 3,
+        &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+    }]
+},
+{
+    &quot;Id&quot;: 1051,
+    &quot;Name&quot;: &quot;&#x4F01;&#x4E1A;&#x5217;&#x8868;&quot;,
+    &quot;PId&quot;: 1025,
+    &quot;Order&quot;: 1,
+    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+},
+{
+    &quot;Id&quot;: 1029,
+    &quot;Name&quot;: &quot;&#x4F01;&#x4E1A;&#x660E;&#x7EC6;&quot;,
+    &quot;PId&quot;: 1025,
+    &quot;Order&quot;: 2,
+    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+},
+{
+    &quot;Id&quot;: 1030,
+    &quot;Name&quot;: &quot;&#x6295;&#x6807;&#x6218;&#x7EE9;&quot;,
+    &quot;PId&quot;: 1025,
+    &quot;Order&quot;: 3,
+    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+},
+{
+    &quot;Id&quot;: 1026,
+    &quot;Name&quot;: &quot;&#x4E1A;&#x7EE9;&#x67E5;&#x8BE2;&quot;,
+    &quot;PId&quot;: 19,
+    &quot;Order&quot;: 2,
+    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+    &quot;child&quot;: [{
+        &quot;Id&quot;: 1031,
+        &quot;Name&quot;: &quot;&#x4E1A;&#x7EE9;&#x5217;&#x8868;&quot;,
+        &quot;PId&quot;: 1026,
+        &quot;Order&quot;: 1,
+        &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+    },
+    {
+        &quot;Id&quot;: 1032,
+        &quot;Name&quot;: &quot;&#x4E1A;&#x7EE9;&#x660E;&#x7EC6;&quot;,
+        &quot;PId&quot;: 1026,
+        &quot;Order&quot;: 2,
+        &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+    }]
+},
+{
+    &quot;Id&quot;: 1031,
+    &quot;Name&quot;: &quot;&#x4E1A;&#x7EE9;&#x5217;&#x8868;&quot;,
+    &quot;PId&quot;: 1026,
+    &quot;Order&quot;: 1,
+    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+},
+{
+    &quot;Id&quot;: 1032,
+    &quot;Name&quot;: &quot;&#x4E1A;&#x7EE9;&#x660E;&#x7EC6;&quot;,
+    &quot;PId&quot;: 1026,
+    &quot;Order&quot;: 2,
+    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+},
+{
+    &quot;Id&quot;: 1,
+    &quot;Name&quot;: &quot;&#x540E;&#x53F0;&quot;,
+    &quot;PId&quot;: null,
+    &quot;Order&quot;: 2,
+    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+    &quot;child&quot;: [{
+        &quot;Id&quot;: 22,
+        &quot;Name&quot;: &quot;&#x9996;&#x9875;&quot;,
+        &quot;PId&quot;: &quot;1&quot;,
+        &quot;Order&quot;: 1,
+        &quot;Class&quot;: &quot;iconfont icon-home&quot;
+    },
+    {
+        &quot;Id&quot;: 38,
+        &quot;Name&quot;: &quot;&#x67E5;&#x8BE2;&quot;,
+        &quot;PId&quot;: &quot;1&quot;,
+        &quot;Order&quot;: 3,
+        &quot;Class&quot;: &quot;iconfont icon-home&quot;
+    },
+    {
+        &quot;Id&quot;: 2,
+        &quot;Name&quot;: &quot;&#x7BA1;&#x7406;&quot;,
+        &quot;PId&quot;: &quot;1&quot;,
+        &quot;Order&quot;: 99,
+        &quot;Class&quot;: &quot;iconfont icon-home&quot;,
+        &quot;child&quot;: [{
+            &quot;Id&quot;: 12,
+            &quot;Name&quot;: &quot;&#x7528;&#x6237;&#x7BA1;&#x7406;&quot;,
+            &quot;PId&quot;: 2,
+            &quot;Order&quot;: 1,
+            &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+            &quot;child&quot;: [{
+                &quot;Id&quot;: 3,
+                &quot;Name&quot;: &quot;&#x7528;&#x6237;&#x7BA1;&#x7406;&quot;,
+                &quot;PId&quot;: 12,
+                &quot;Order&quot;: 1,
+                &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+                &quot;child&quot;: [{
+                    &quot;Id&quot;: 4,
+                    &quot;Name&quot;: &quot;&#x6DFB;&#x52A0;&#x7528;&#x6237;&quot;,
+                    &quot;PId&quot;: 3,
+                    &quot;Order&quot;: 2,
+                    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+                    &quot;Code&quot;: &quot;1001&quot;
+                },
+                {
+                    &quot;Id&quot;: 5,
+                    &quot;Name&quot;: &quot;&#x4FEE;&#x6539;&#x7528;&#x6237;&quot;,
+                    &quot;PId&quot;: 3,
+                    &quot;Order&quot;: 3,
+                    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+                    &quot;Code&quot;: &quot;1002&quot;
+                },
+                {
+                    &quot;Id&quot;: 8,
+                    &quot;Name&quot;: &quot;&#x5F00;&#x542F;&#x3001;&#x5173;&#x95ED;&#x7528;&#x6237;&quot;,
+                    &quot;PId&quot;: 3,
+                    &quot;Order&quot;: 6,
+                    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+                    &quot;Code&quot;: &quot;1009&quot;
+                },
+                {
+                    &quot;Id&quot;: 9,
+                    &quot;Name&quot;: &quot;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;&quot;,
+                    &quot;PId&quot;: 3,
+                    &quot;Order&quot;: 7,
+                    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+                    &quot;Code&quot;: &quot;2001&quot;
+                },
+                {
+                    &quot;Id&quot;: 10,
+                    &quot;Name&quot;: &quot;&#x5BFC;&#x51FA;&#x7528;&#x6237;&#x4FE1;&#x606F;&quot;,
+                    &quot;PId&quot;: 3,
+                    &quot;Order&quot;: 8,
+                    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+                    &quot;Code&quot;: &quot;1008&quot;
+                }]
+            },
+            {
+                &quot;Id&quot;: 39,
+                &quot;Name&quot;: &quot;&#x91D1;&#x5E01;&#x7BA1;&#x7406;&quot;,
+                &quot;PId&quot;: 12,
+                &quot;Order&quot;: 2,
+                &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+            },
+            {
+                &quot;Id&quot;: 40,
+                &quot;Name&quot;: &quot;&#x4F7F;&#x7528;&#x91CF;&quot;,
+                &quot;PId&quot;: 12,
+                &quot;Order&quot;: 3,
+                &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+            },
+            {
+                &quot;Id&quot;: 41,
+                &quot;Name&quot;: &quot;&#x4E1A;&#x4F59;&#x91C7;&#x96C6;&quot;,
+                &quot;PId&quot;: 12,
+                &quot;Order&quot;: 4,
+                &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+            }]
+        },
+        {
+            &quot;Id&quot;: 14,
+            &quot;Name&quot;: &quot;&#x76F8;&#x5173;&#x8BBE;&#x7F6E;&quot;,
+            &quot;PId&quot;: 2,
+            &quot;Order&quot;: 2,
+            &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+            &quot;child&quot;: [{
+                &quot;Id&quot;: 42,
+                &quot;Name&quot;: &quot;&#x9884;&#x6D4B;&#x53C2;&#x6570;&#x7BA1;&#x7406;&quot;,
+                &quot;PId&quot;: 14,
+                &quot;Order&quot;: 1,
+                &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+            },
+            {
+                &quot;Id&quot;: 43,
+                &quot;Name&quot;: &quot;&#x4F18;&#x60E0;&#x6D3B;&#x52A8;&quot;,
+                &quot;PId&quot;: 14,
+                &quot;Order&quot;: 2,
+                &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+            },
+            {
+                &quot;Id&quot;: 44,
+                &quot;Name&quot;: &quot;&#x7EDF;&#x8BA1;&#x5206;&#x6790;&quot;,
+                &quot;PId&quot;: 14,
+                &quot;Order&quot;: 3,
+                &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+            },
+            {
+                &quot;Id&quot;: 45,
+                &quot;Name&quot;: &quot;CA&#x8BBE;&#x7F6E;&quot;,
+                &quot;PId&quot;: 14,
+                &quot;Order&quot;: 4,
+                &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+            },
+            {
+                &quot;Id&quot;: 46,
+                &quot;Name&quot;: &quot;VIP&#x4EF7;&#x683C;&quot;,
+                &quot;PId&quot;: 14,
+                &quot;Order&quot;: 5,
+                &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+            }]
+        }]
+    }]
+},
+{
+    &quot;Id&quot;: 22,
+    &quot;Name&quot;: &quot;&#x9996;&#x9875;&quot;,
+    &quot;PId&quot;: &quot;1&quot;,
+    &quot;Order&quot;: 1,
+    &quot;Class&quot;: &quot;iconfont icon-home&quot;
+},
+{
+    &quot;Id&quot;: 38,
+    &quot;Name&quot;: &quot;&#x67E5;&#x8BE2;&quot;,
+    &quot;PId&quot;: &quot;1&quot;,
+    &quot;Order&quot;: 3,
+    &quot;Class&quot;: &quot;iconfont icon-home&quot;
+},
+{
+    &quot;Id&quot;: 2,
+    &quot;Name&quot;: &quot;&#x7BA1;&#x7406;&quot;,
+    &quot;PId&quot;: &quot;1&quot;,
+    &quot;Order&quot;: 99,
+    &quot;Class&quot;: &quot;iconfont icon-home&quot;,
+    &quot;child&quot;: [{
+        &quot;Id&quot;: 12,
+        &quot;Name&quot;: &quot;&#x7528;&#x6237;&#x7BA1;&#x7406;&quot;,
+        &quot;PId&quot;: 2,
+        &quot;Order&quot;: 1,
+        &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+        &quot;child&quot;: [{
+            &quot;Id&quot;: 3,
+            &quot;Name&quot;: &quot;&#x7528;&#x6237;&#x7BA1;&#x7406;&quot;,
+            &quot;PId&quot;: 12,
+            &quot;Order&quot;: 1,
+            &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+            &quot;child&quot;: [{
+                &quot;Id&quot;: 4,
+                &quot;Name&quot;: &quot;&#x6DFB;&#x52A0;&#x7528;&#x6237;&quot;,
+                &quot;PId&quot;: 3,
+                &quot;Order&quot;: 2,
+                &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+                &quot;Code&quot;: &quot;1001&quot;
+            },
+            {
+                &quot;Id&quot;: 5,
+                &quot;Name&quot;: &quot;&#x4FEE;&#x6539;&#x7528;&#x6237;&quot;,
+                &quot;PId&quot;: 3,
+                &quot;Order&quot;: 3,
+                &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+                &quot;Code&quot;: &quot;1002&quot;
+            },
+            {
+                &quot;Id&quot;: 8,
+                &quot;Name&quot;: &quot;&#x5F00;&#x542F;&#x3001;&#x5173;&#x95ED;&#x7528;&#x6237;&quot;,
+                &quot;PId&quot;: 3,
+                &quot;Order&quot;: 6,
+                &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+                &quot;Code&quot;: &quot;1009&quot;
+            },
+            {
+                &quot;Id&quot;: 9,
+                &quot;Name&quot;: &quot;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;&quot;,
+                &quot;PId&quot;: 3,
+                &quot;Order&quot;: 7,
+                &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+                &quot;Code&quot;: &quot;2001&quot;
+            },
+            {
+                &quot;Id&quot;: 10,
+                &quot;Name&quot;: &quot;&#x5BFC;&#x51FA;&#x7528;&#x6237;&#x4FE1;&#x606F;&quot;,
+                &quot;PId&quot;: 3,
+                &quot;Order&quot;: 8,
+                &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+                &quot;Code&quot;: &quot;1008&quot;
+            }]
+        },
+        {
+            &quot;Id&quot;: 39,
+            &quot;Name&quot;: &quot;&#x91D1;&#x5E01;&#x7BA1;&#x7406;&quot;,
+            &quot;PId&quot;: 12,
+            &quot;Order&quot;: 2,
+            &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+        },
+        {
+            &quot;Id&quot;: 40,
+            &quot;Name&quot;: &quot;&#x4F7F;&#x7528;&#x91CF;&quot;,
+            &quot;PId&quot;: 12,
+            &quot;Order&quot;: 3,
+            &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+        },
+        {
+            &quot;Id&quot;: 41,
+            &quot;Name&quot;: &quot;&#x4E1A;&#x4F59;&#x91C7;&#x96C6;&quot;,
+            &quot;PId&quot;: 12,
+            &quot;Order&quot;: 4,
+            &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+        }]
+    },
+    {
+        &quot;Id&quot;: 14,
+        &quot;Name&quot;: &quot;&#x76F8;&#x5173;&#x8BBE;&#x7F6E;&quot;,
+        &quot;PId&quot;: 2,
+        &quot;Order&quot;: 2,
+        &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+        &quot;child&quot;: [{
+            &quot;Id&quot;: 42,
+            &quot;Name&quot;: &quot;&#x9884;&#x6D4B;&#x53C2;&#x6570;&#x7BA1;&#x7406;&quot;,
+            &quot;PId&quot;: 14,
+            &quot;Order&quot;: 1,
+            &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+        },
+        {
+            &quot;Id&quot;: 43,
+            &quot;Name&quot;: &quot;&#x4F18;&#x60E0;&#x6D3B;&#x52A8;&quot;,
+            &quot;PId&quot;: 14,
+            &quot;Order&quot;: 2,
+            &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+        },
+        {
+            &quot;Id&quot;: 44,
+            &quot;Name&quot;: &quot;&#x7EDF;&#x8BA1;&#x5206;&#x6790;&quot;,
+            &quot;PId&quot;: 14,
+            &quot;Order&quot;: 3,
+            &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+        },
+        {
+            &quot;Id&quot;: 45,
+            &quot;Name&quot;: &quot;CA&#x8BBE;&#x7F6E;&quot;,
+            &quot;PId&quot;: 14,
+            &quot;Order&quot;: 4,
+            &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+        },
+        {
+            &quot;Id&quot;: 46,
+            &quot;Name&quot;: &quot;VIP&#x4EF7;&#x683C;&quot;,
+            &quot;PId&quot;: 14,
+            &quot;Order&quot;: 5,
+            &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+        }]
+    }]
+},
+{
+    &quot;Id&quot;: 12,
+    &quot;Name&quot;: &quot;&#x7528;&#x6237;&#x7BA1;&#x7406;&quot;,
+    &quot;PId&quot;: 2,
+    &quot;Order&quot;: 1,
+    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+    &quot;child&quot;: [{
+        &quot;Id&quot;: 3,
+        &quot;Name&quot;: &quot;&#x7528;&#x6237;&#x7BA1;&#x7406;&quot;,
+        &quot;PId&quot;: 12,
+        &quot;Order&quot;: 1,
+        &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+        &quot;child&quot;: [{
+            &quot;Id&quot;: 4,
+            &quot;Name&quot;: &quot;&#x6DFB;&#x52A0;&#x7528;&#x6237;&quot;,
+            &quot;PId&quot;: 3,
+            &quot;Order&quot;: 2,
+            &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+            &quot;Code&quot;: &quot;1001&quot;
+        },
+        {
+            &quot;Id&quot;: 5,
+            &quot;Name&quot;: &quot;&#x4FEE;&#x6539;&#x7528;&#x6237;&quot;,
+            &quot;PId&quot;: 3,
+            &quot;Order&quot;: 3,
+            &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+            &quot;Code&quot;: &quot;1002&quot;
+        },
+        {
+            &quot;Id&quot;: 8,
+            &quot;Name&quot;: &quot;&#x5F00;&#x542F;&#x3001;&#x5173;&#x95ED;&#x7528;&#x6237;&quot;,
+            &quot;PId&quot;: 3,
+            &quot;Order&quot;: 6,
+            &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+            &quot;Code&quot;: &quot;1009&quot;
+        },
+        {
+            &quot;Id&quot;: 9,
+            &quot;Name&quot;: &quot;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;&quot;,
+            &quot;PId&quot;: 3,
+            &quot;Order&quot;: 7,
+            &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+            &quot;Code&quot;: &quot;2001&quot;
+        },
+        {
+            &quot;Id&quot;: 10,
+            &quot;Name&quot;: &quot;&#x5BFC;&#x51FA;&#x7528;&#x6237;&#x4FE1;&#x606F;&quot;,
+            &quot;PId&quot;: 3,
+            &quot;Order&quot;: 8,
+            &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+            &quot;Code&quot;: &quot;1008&quot;
+        }]
+    },
+    {
+        &quot;Id&quot;: 39,
+        &quot;Name&quot;: &quot;&#x91D1;&#x5E01;&#x7BA1;&#x7406;&quot;,
+        &quot;PId&quot;: 12,
+        &quot;Order&quot;: 2,
+        &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+    },
+    {
+        &quot;Id&quot;: 40,
+        &quot;Name&quot;: &quot;&#x4F7F;&#x7528;&#x91CF;&quot;,
+        &quot;PId&quot;: 12,
+        &quot;Order&quot;: 3,
+        &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+    },
+    {
+        &quot;Id&quot;: 41,
+        &quot;Name&quot;: &quot;&#x4E1A;&#x4F59;&#x91C7;&#x96C6;&quot;,
+        &quot;PId&quot;: 12,
+        &quot;Order&quot;: 4,
+        &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+    }]
+},
+{
+    &quot;Id&quot;: 3,
+    &quot;Name&quot;: &quot;&#x7528;&#x6237;&#x7BA1;&#x7406;&quot;,
+    &quot;PId&quot;: 12,
+    &quot;Order&quot;: 1,
+    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+    &quot;child&quot;: [{
+        &quot;Id&quot;: 4,
+        &quot;Name&quot;: &quot;&#x6DFB;&#x52A0;&#x7528;&#x6237;&quot;,
+        &quot;PId&quot;: 3,
+        &quot;Order&quot;: 2,
+        &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+        &quot;Code&quot;: &quot;1001&quot;
+    },
+    {
+        &quot;Id&quot;: 5,
+        &quot;Name&quot;: &quot;&#x4FEE;&#x6539;&#x7528;&#x6237;&quot;,
+        &quot;PId&quot;: 3,
+        &quot;Order&quot;: 3,
+        &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+        &quot;Code&quot;: &quot;1002&quot;
+    },
+    {
+        &quot;Id&quot;: 8,
+        &quot;Name&quot;: &quot;&#x5F00;&#x542F;&#x3001;&#x5173;&#x95ED;&#x7528;&#x6237;&quot;,
+        &quot;PId&quot;: 3,
+        &quot;Order&quot;: 6,
+        &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+        &quot;Code&quot;: &quot;1009&quot;
+    },
+    {
+        &quot;Id&quot;: 9,
+        &quot;Name&quot;: &quot;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;&quot;,
+        &quot;PId&quot;: 3,
+        &quot;Order&quot;: 7,
+        &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+        &quot;Code&quot;: &quot;2001&quot;
+    },
+    {
+        &quot;Id&quot;: 10,
+        &quot;Name&quot;: &quot;&#x5BFC;&#x51FA;&#x7528;&#x6237;&#x4FE1;&#x606F;&quot;,
+        &quot;PId&quot;: 3,
+        &quot;Order&quot;: 8,
+        &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+        &quot;Code&quot;: &quot;1008&quot;
+    }]
+},
+{
+    &quot;Id&quot;: 4,
+    &quot;Name&quot;: &quot;&#x6DFB;&#x52A0;&#x7528;&#x6237;&quot;,
+    &quot;PId&quot;: 3,
+    &quot;Order&quot;: 2,
+    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+    &quot;Code&quot;: &quot;1001&quot;
+},
+{
+    &quot;Id&quot;: 5,
+    &quot;Name&quot;: &quot;&#x4FEE;&#x6539;&#x7528;&#x6237;&quot;,
+    &quot;PId&quot;: 3,
+    &quot;Order&quot;: 3,
+    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+    &quot;Code&quot;: &quot;1002&quot;
+},
+{
+    &quot;Id&quot;: 8,
+    &quot;Name&quot;: &quot;&#x5F00;&#x542F;&#x3001;&#x5173;&#x95ED;&#x7528;&#x6237;&quot;,
+    &quot;PId&quot;: 3,
+    &quot;Order&quot;: 6,
+    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+    &quot;Code&quot;: &quot;1009&quot;
+},
+{
+    &quot;Id&quot;: 9,
+    &quot;Name&quot;: &quot;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;&quot;,
+    &quot;PId&quot;: 3,
+    &quot;Order&quot;: 7,
+    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+    &quot;Code&quot;: &quot;2001&quot;
+},
+{
+    &quot;Id&quot;: 10,
+    &quot;Name&quot;: &quot;&#x5BFC;&#x51FA;&#x7528;&#x6237;&#x4FE1;&#x606F;&quot;,
+    &quot;PId&quot;: 3,
+    &quot;Order&quot;: 8,
+    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+    &quot;Code&quot;: &quot;1008&quot;
+},
+{
+    &quot;Id&quot;: 39,
+    &quot;Name&quot;: &quot;&#x91D1;&#x5E01;&#x7BA1;&#x7406;&quot;,
+    &quot;PId&quot;: 12,
+    &quot;Order&quot;: 2,
+    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+},
+{
+    &quot;Id&quot;: 40,
+    &quot;Name&quot;: &quot;&#x4F7F;&#x7528;&#x91CF;&quot;,
+    &quot;PId&quot;: 12,
+    &quot;Order&quot;: 3,
+    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+},
+{
+    &quot;Id&quot;: 41,
+    &quot;Name&quot;: &quot;&#x4E1A;&#x4F59;&#x91C7;&#x96C6;&quot;,
+    &quot;PId&quot;: 12,
+    &quot;Order&quot;: 4,
+    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+},
+{
+    &quot;Id&quot;: 14,
+    &quot;Name&quot;: &quot;&#x76F8;&#x5173;&#x8BBE;&#x7F6E;&quot;,
+    &quot;PId&quot;: 2,
+    &quot;Order&quot;: 2,
+    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;,
+    &quot;child&quot;: [{
+        &quot;Id&quot;: 42,
+        &quot;Name&quot;: &quot;&#x9884;&#x6D4B;&#x53C2;&#x6570;&#x7BA1;&#x7406;&quot;,
+        &quot;PId&quot;: 14,
+        &quot;Order&quot;: 1,
+        &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+    },
+    {
+        &quot;Id&quot;: 43,
+        &quot;Name&quot;: &quot;&#x4F18;&#x60E0;&#x6D3B;&#x52A8;&quot;,
+        &quot;PId&quot;: 14,
+        &quot;Order&quot;: 2,
+        &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+    },
+    {
+        &quot;Id&quot;: 44,
+        &quot;Name&quot;: &quot;&#x7EDF;&#x8BA1;&#x5206;&#x6790;&quot;,
+        &quot;PId&quot;: 14,
+        &quot;Order&quot;: 3,
+        &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+    },
+    {
+        &quot;Id&quot;: 45,
+        &quot;Name&quot;: &quot;CA&#x8BBE;&#x7F6E;&quot;,
+        &quot;PId&quot;: 14,
+        &quot;Order&quot;: 4,
+        &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+    },
+    {
+        &quot;Id&quot;: 46,
+        &quot;Name&quot;: &quot;VIP&#x4EF7;&#x683C;&quot;,
+        &quot;PId&quot;: 14,
+        &quot;Order&quot;: 5,
+        &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+    }]
+},
+{
+    &quot;Id&quot;: 42,
+    &quot;Name&quot;: &quot;&#x9884;&#x6D4B;&#x53C2;&#x6570;&#x7BA1;&#x7406;&quot;,
+    &quot;PId&quot;: 14,
+    &quot;Order&quot;: 1,
+    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+},
+{
+    &quot;Id&quot;: 43,
+    &quot;Name&quot;: &quot;&#x4F18;&#x60E0;&#x6D3B;&#x52A8;&quot;,
+    &quot;PId&quot;: 14,
+    &quot;Order&quot;: 2,
+    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+},
+{
+    &quot;Id&quot;: 44,
+    &quot;Name&quot;: &quot;&#x7EDF;&#x8BA1;&#x5206;&#x6790;&quot;,
+    &quot;PId&quot;: 14,
+    &quot;Order&quot;: 3,
+    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+},
+{
+    &quot;Id&quot;: 45,
+    &quot;Name&quot;: &quot;CA&#x8BBE;&#x7F6E;&quot;,
+    &quot;PId&quot;: 14,
+    &quot;Order&quot;: 4,
+    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+},
+{
+    &quot;Id&quot;: 46,
+    &quot;Name&quot;: &quot;VIP&#x4EF7;&#x683C;&quot;,
+    &quot;PId&quot;: 14,
+    &quot;Order&quot;: 5,
+    &quot;Class&quot;: &quot;iconfont icon-tuichu&quot;
+}]
+</code></pre><footer class="page-footer"><span class="copyright">Copyright &#xA9; lin 2019 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2019-09-13 23:42:41
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="事件绑定、事件监听、事件委托（事件代理）.html" class="navigation navigation-prev " aria-label="Previous page: 事件绑定、事件监听、事件委托（事件代理） ✔">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="图片上传.html" class="navigation navigation-next " aria-label="Next page: 图片上传 ✔">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"树形数据扁平化，扁平化数据树形化 ✔","categories":"扁平化数据树形化 ,树形数据扁平化","tags":["javascript","tree"],"level":"1.4.15","depth":2,"next":{"title":"图片上传 ✔","level":"1.4.16","depth":2,"path":"Javascript/图片上传.md","ref":"./Javascript/图片上传.md","articles":[]},"previous":{"title":"事件绑定、事件监听、事件委托（事件代理） ✔","level":"1.4.14","depth":2,"path":"Javascript/事件绑定、事件监听、事件委托（事件代理）.md","ref":"./Javascript/事件绑定、事件监听、事件委托（事件代理）.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","prism","-highlight","copy-code-button","search-pro","-search","-lunr","expandable-chapters","splitter","-sharing","github-buttons","donate","tbfed-pagefooter","baidu-tongji","anchor-navigation-ex","livereload"],"styles":{"website":"./public-repertory/css/gitbook-configure.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy lin 2019","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"shell":"bash"}},"livereload":{},"baidu-tongji":{"url":"https://hm.baidu.com/hm.js","token":"1c61bbd36ae979753ea33d5469a3151b"},"splitter":{},"search-pro":{},"donate":{"alipay":"http://www.93lin.cn/img/wechat.png","alipayText":"支付宝打赏","button":"打赏","title":"","wechat":"http://www.93lin.cn/img/alipay.png","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"theme-comscore":{},"github-buttons":{"buttons":[{"user":"93qlin","repo":"gitbook","type":"star","count":true,"size":"small"},{"user":"93qlin","width":"160","type":"follow","count":true,"size":"small"}]},"copy-code-button":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"lin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"lin 的文档库","language":"zh-hans","gitbook":"*","description":"lin 的文档库."},"file":{"path":"Javascript/树形数据扁平化，扁平化数据树形化.md","mtime":"2019-09-13T15:42:41.875Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-13T08:08:41.880Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-baidu-tongji/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

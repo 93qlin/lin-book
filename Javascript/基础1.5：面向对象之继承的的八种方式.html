@@ -1,0 +1,1452 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>基础1.5：面向对象之继承的的八种方式 ✔ · lin 的文档库</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="lin">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-okaidia.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../public-repertory/css/gitbook-configure.css">
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="基础2.1：原型和原型链(继承" />
+    
+    
+    <link rel="prev" href="基础1.4：面向对象之创建对象的八种模式.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"93qlin","repo":"gitbook","type":"star","count":true,"size":"small"},{"user":"93qlin","width":"160","type":"follow","count":true,"size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../CssAndHtml/">
+            
+                <a href="../CssAndHtml/">
+            
+                    
+                    Html和Css
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../CssAndHtml/Interview/">
+            
+                <a href="../CssAndHtml/Interview/">
+            
+                    
+                    面试必问 ✘
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="../CssAndHtml/Interview/Html.html">
+            
+                <a href="../CssAndHtml/Interview/Html.html">
+            
+                    
+                    Html ✘
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2" data-path="../CssAndHtml/Interview/Css.html">
+            
+                <a href="../CssAndHtml/Interview/Css.html">
+            
+                    
+                    Css ✘
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../HttpAndBrowerAndPerformanceSafety/README.md">
+            
+                <span>
+            
+                    
+                    Http和浏览器以及安全
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../HttpAndBrowerAndPerformanceSafety/Interview/">
+            
+                <a href="../HttpAndBrowerAndPerformanceSafety/Interview/">
+            
+                    
+                    面试必问 ✘
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../HttpAndBrowerAndPerformanceSafety/Interview/HttpAndBrower/">
+            
+                <a href="../HttpAndBrowerAndPerformanceSafety/Interview/HttpAndBrower/">
+            
+                    
+                    Http和浏览器相关 ✘
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1.1" data-path="../HttpAndBrowerAndPerformanceSafety/Interview/HttpAndBrower/用户输入URL到浏览器呈现页面.html">
+            
+                <a href="../HttpAndBrowerAndPerformanceSafety/Interview/HttpAndBrower/用户输入URL到浏览器呈现页面.html">
+            
+                    
+                    用户输入URL到浏览器呈现页面 ✘
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.1.2" data-path="../HttpAndBrowerAndPerformanceSafety/Interview/HttpAndBrower/浏览器多进程到JS单线程，JS运行机制.html">
+            
+                <a href="../HttpAndBrowerAndPerformanceSafety/Interview/HttpAndBrower/浏览器多进程到JS单线程，JS运行机制.html">
+            
+                    
+                    浏览器多进程到JS单线程，JS运行机制 ✘
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.1.3" data-path="../HttpAndBrowerAndPerformanceSafety/Interview/HttpAndBrower/Axios.html">
+            
+                <a href="../HttpAndBrowerAndPerformanceSafety/Interview/HttpAndBrower/Axios.html">
+            
+                    
+                    Axios ✘
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.1.4" data-path="../HttpAndBrowerAndPerformanceSafety/Interview/HttpAndBrower/OSI七层模型.html">
+            
+                <a href="../HttpAndBrowerAndPerformanceSafety/Interview/HttpAndBrower/OSI七层模型.html">
+            
+                    
+                    OSI七层模型 ✘
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="../HttpAndBrowerAndPerformanceSafety/Interview/safe/">
+            
+                <a href="../HttpAndBrowerAndPerformanceSafety/Interview/safe/">
+            
+                    
+                    网络安全相关 ✘
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.2.1" data-path="../HttpAndBrowerAndPerformanceSafety/Interview/safe/safe.html">
+            
+                <a href="../HttpAndBrowerAndPerformanceSafety/Interview/safe/safe.html">
+            
+                    
+                    网络安全相关 ✘
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" data-path="../HttpAndBrowerAndPerformanceSafety/Interview/performance/">
+            
+                <a href="../HttpAndBrowerAndPerformanceSafety/Interview/performance/">
+            
+                    
+                    性能相关 ✘
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.3.1" data-path="../HttpAndBrowerAndPerformanceSafety/Interview/performance/">
+            
+                <a href="../HttpAndBrowerAndPerformanceSafety/Interview/performance/">
+            
+                    
+                    总览 ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Javascript
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="基础1.1JavaScript声明变量详解.html">
+            
+                <a href="基础1.1JavaScript声明变量详解.html">
+            
+                    
+                    基础1.1JavaScript声明变量详解 ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="基础1.2:变量（变量提升,暂时性死区）、执行（上下文）环境、执行栈、事件循环机制、作用域、作用域链.html">
+            
+                <a href="基础1.2:变量（变量提升,暂时性死区）、执行（上下文）环境、执行栈、事件循环机制、作用域、作用域链.html">
+            
+                    
+                    基础1.2:变量（变量提升,暂时性死区）、执行（上下文）环境、执行栈、事件循环机制、作用域、作用域链 ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="基础1.3：面向对象之理解对象.html">
+            
+                <a href="基础1.3：面向对象之理解对象.html">
+            
+                    
+                    基础1.3：面向对象之理解对象 ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="基础1.4：面向对象之创建对象的八种模式.html">
+            
+                <a href="基础1.4：面向对象之创建对象的八种模式.html">
+            
+                    
+                    基础1.4：面向对象之创建对象的八种模式 ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.5" data-path="基础1.5：面向对象之继承的的八种方式.html">
+            
+                <a href="基础1.5：面向对象之继承的的八种方式.html">
+            
+                    
+                    基础1.5：面向对象之继承的的八种方式 ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="基础2.1：原型和原型链(继承">
+            
+                <span>
+            
+                    
+                    基础2.1：原型和原型链(继承) ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="基础2.2：作用域和作用域链.html">
+            
+                <a href="基础2.2：作用域和作用域链.html">
+            
+                    
+                    基础2.2：作用域和作用域链 ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="基础2.3：闭包，作用域链理解闭包.html">
+            
+                <a href="基础2.3：闭包，作用域链理解闭包.html">
+            
+                    
+                    基础2.3：闭包，作用域链理解闭包 ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="基础2.4：this.html">
+            
+                <a href="基础2.4：this.html">
+            
+                    
+                    基础2.4：this ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="基础3.1：js内存与内存泄漏.html">
+            
+                <a href="基础3.1：js内存与内存泄漏.html">
+            
+                    
+                    基础3.1：js内存与内存泄漏 ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="多个连续的箭头函数与柯里化.html">
+            
+                <a href="多个连续的箭头函数与柯里化.html">
+            
+                    
+                    多个连续的箭头函数与柯里化 ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.12" data-path="函数式编程.html">
+            
+                <a href="函数式编程.html">
+            
+                    
+                    函数式编程 ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.13" data-path="判断数据类型.html">
+            
+                <a href="判断数据类型.html">
+            
+                    
+                    判断数据类型 ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.14" data-path="事件绑定、事件监听、事件委托（事件代理）.html">
+            
+                <a href="事件绑定、事件监听、事件委托（事件代理）.html">
+            
+                    
+                    事件绑定、事件监听、事件委托（事件代理） ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.15" data-path="树形数据扁平化，扁平化数据树形化.html">
+            
+                <a href="树形数据扁平化，扁平化数据树形化.html">
+            
+                    
+                    树形数据扁平化，扁平化数据树形化 ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.16" data-path="图片上传.html">
+            
+                <a href="图片上传.html">
+            
+                    
+                    图片上传 ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.17" data-path="项目中第一次向数据库连续添加多条数据.html">
+            
+                <a href="项目中第一次向数据库连续添加多条数据.html">
+            
+                    
+                    项目中第一次向数据库连续添加多条数据 ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.18" data-path="原型和闭包.html">
+            
+                <a href="原型和闭包.html">
+            
+                    
+                    原型和闭包 ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.19" data-path="指数化退避.html">
+            
+                <a href="指数化退避.html">
+            
+                    
+                    指数化退避 ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.20" data-path="JavaScript常用数组操作方法，包含ES6方法.html">
+            
+                <a href="JavaScript常用数组操作方法，包含ES6方法.html">
+            
+                    
+                    JavaScript常用数组操作方法，包含ES6方法 ✔
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../Coding/">
+            
+                <a href="../Coding/">
+            
+                    
+                    手写代码
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../Coding/js/">
+            
+                <a href="../Coding/js/">
+            
+                    
+                    js ✘
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1.1" data-path="../Coding/js/手写代码.html">
+            
+                <a href="../Coding/js/手写代码.html">
+            
+                    
+                    js手写代码 ✘
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../UseInJob/">
+            
+                <a href="../UseInJob/">
+            
+                    
+                    工作常用代码
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../UseInJob/Js.html">
+            
+                <a href="../UseInJob/Js.html">
+            
+                    
+                    Js ✘
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >基础1.5：面向对象之继承的的八种方式 ✔</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <blockquote>
+<p>&#x516B;&#x79CD;&#x65B9;&#x5F0F;&#xFF1A;</p>
+</blockquote>
+<p>1 .&#x539F;&#x578B;&#x94FE;&#x7EE7;&#x627F;</p>
+<p>2 .&#x501F;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7EE7;&#x627F;</p>
+<p>3 .&#x7EC4;&#x5408;&#x7EE7;&#x627F;</p>
+<p>4 .&#x539F;&#x578B;&#x5F0F;&#x7EE7;&#x627F;</p>
+<p>5 .&#x5BC4;&#x751F;&#x5F0F;&#x7EE7;&#x627F;</p>
+<p>6 .&#x5BC4;&#x751F;&#x7EC4;&#x5408;&#x5F0F;&#x7EE7;&#x627F;(<strong>&#x6700;&#x4F73;&#x65B9;&#x5F0F;</strong>)</p>
+<p>7 .&#x6DF7;&#x5165;&#x65B9;&#x5F0F;&#x7EE7;&#x627F;&#x591A;&#x4E2A;&#x5BF9;&#x8C61;</p>
+<p>8 .ES6&#x7C7B;&#x7EE7;&#x627F;extends</p>
+<h4 id="&#x4E00;&#x539F;&#x578B;&#x94FE;&#x7EE7;&#x627F;"><a name="&#x4E00;&#x539F;&#x578B;&#x94FE;&#x7EE7;&#x627F;" class="anchor-navigation-ex-anchor" href="#&#x4E00;&#x539F;&#x578B;&#x94FE;&#x7EE7;&#x627F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E00;.&#x539F;&#x578B;&#x94FE;&#x7EE7;&#x627F;</h4>
+<p><strong>&#x57FA;&#x672C;&#x601D;&#x60F3;&#xFF1A;</strong></p>
+<blockquote>
+<p>&#x5176;&#x57FA;&#x672C;&#x601D;&#x60F3;&#x662F;&#x5229;&#x7528;&#x539F;&#x578B;&#x8BA9;&#x4E00;&#x4E2A;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#x7EE7;&#x627F;&#x53E6;&#x4E00;&#x4E2A;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#x3002;</p>
+</blockquote>
+<p><strong>1.1&#x6784;&#x9020;&#x51FD;&#x6570;&#x3001;&#x539F;&#x578B;&#x548C;&#x5B9E;&#x4F8B;&#x7684;&#x5173;&#x7CFB;&#xFF1A;</strong></p>
+<blockquote>
+<p>&#x6BCF;&#x4E2A;&#x6784;&#x9020;&#x51FD;&#x6570;&#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#xFF0C;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x90FD;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x6307;&#x5411;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x6307;&#x9488;&#xFF0C;&#x800C;&#x5B9E;&#x4F8B;&#x90FD;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x6307;&#x5411;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x7684;&#x5185;&#x90E8;&#x6307;&#x9488;&#x3002;&#x6211;&#x4EEC;&#x8BA9;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x7B49;&#x4E8E;&#x53E6;&#x4E00;&#x4E2A;&#x7C7B;&#x578B;&#x7684;&#x5B9E;&#x4F8B;,&#x6B64;&#x65F6;&#x7684;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x5C06;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x6307;&#x5411;&#x53E6;&#x4E00;&#x4E2A;&#x539F;&#x578B;&#x7684;&#x6307;&#x9488;&#xFF0C;&#x76F8;&#x5E94;&#x5730;&#xFF0C;&#x53E6;&#x4E00;&#x4E2A;&#x539F;&#x578B;&#x4E2D;&#x4E5F;&#x5305;&#x542B;&#x7740;&#x4E00;&#x4E2A;&#x6307;&#x5411;&#x53E6;&#x4E00;&#x4E2A;&#x6784;&#x9020;&#x51FD;&#x6570;
+&#x7684;&#x6307;&#x9488;&#x3002;&#x5047;&#x5982;&#x53E6;&#x4E00;&#x4E2A;&#x539F;&#x578B;&#x53C8;&#x662F;&#x53E6;&#x4E00;&#x4E2A;&#x7C7B;&#x578B;&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x90A3;&#x4E48;&#x4E0A;&#x8FF0;&#x5173;&#x7CFB;&#x4F9D;&#x7136;&#x6210;&#x7ACB;&#xFF0C;&#x5982;&#x6B64;&#x5C42;&#x5C42;&#x9012;&#x8FDB;,&#x5C31;&#x6784;&#x6210;&#x4E86;&#x5B9E;&#x4F8B;&#x4E0E;&#x539F;&#x578B;&#x7684;&#x94FE;&#x6761;&#x3002;&#x8FD9;&#x5C31;&#x662F;&#x6240;&#x8C13;<strong>&#x539F;&#x578B;&#x94FE;&#x7684;&#x57FA;&#x672C;&#x6982;&#x5FF5;</strong>&#x3002;</p>
+<pre class="language-"><code>function SuperType(){
+ this.property = true;
+}
+SuperType.prototype.getSuperValue = function(){
+ return this.property;
+};
+function SubType(){
+ this.subproperty = false;
+}
+//&#x7EE7;&#x627F;&#x4E86; SuperType
+SubType.prototype = new SuperType();
+SubType.prototype.getSubValue = function (){
+ return this.subproperty;
+};
+var instance = new SubType();
+alert(instance.getSuperValue()); //true
+</code></pre><p><img src="https://note.youdao.com/yws/api/personal/file/038BF7E3A3D84C8BA17770C539240107?method=download&amp;shareKey=e09951823cbe593973b9abf9d32be85d" alt="img"></p>
+</blockquote>
+<p><strong>1.2&#x641C;&#x7D22;&#x673A;&#x5236;</strong></p>
+<blockquote>
+<p>&#x4E0A;&#x4E00;&#x8282;&#x4E2D;&#x8BF4;&#x5230;&#xFF0C;&#x5F53;&#x4EE5;&#x8BFB;&#x53D6;&#x6A21;&#x5F0F;&#x8BBF;&#x95EE;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x65F6;&#xFF0C;&#x9996;&#x5148;&#x4F1A;&#x5728;&#x5B9E;&#x4F8B;&#x4E2D;&#x641C;&#x7D22;&#x8BE5;&#x5C5E;&#x6027;&#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x627E;&#x5230;&#x8BE5;&#x5C5E;&#x6027;&#xFF0C;&#x5219;&#x4F1A;&#x7EE7;&#x7EED;&#x641C;&#x7D22;&#x5B9E;&#x4F8B;&#x7684;&#x539F;&#x578B;&#x3002;&#x5728;
+&#x901A;&#x8FC7;&#x539F;&#x578B;&#x94FE;&#x5B9E;&#x73B0;&#x7EE7;&#x627F;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x641C;&#x7D22;&#x8FC7;&#x7A0B;&#x5C31;&#x5F97;&#x4EE5;&#x6CBF;&#x7740;&#x539F;&#x578B;&#x94FE;&#x7EE7;&#x7EED;&#x5411;&#x4E0A;&#x3002;&#x5C31;&#x62FF;&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x6765;&#x8BF4;&#xFF0C;&#x8C03;&#x7528;
+instance.getSuperValue()&#x4F1A;&#x7ECF;&#x5386;&#x4E09;&#x4E2A;&#x641C;&#x7D22;&#x6B65;&#x9AA4;&#xFF1A;1&#xFF09;&#x641C;&#x7D22;&#x5B9E;&#x4F8B;&#xFF1B;2&#xFF09;&#x641C;&#x7D22; SubType.prototype&#xFF1B;
+3&#xFF09;
+<strong>1.3&#x786E;&#x5B9A;&#x539F;&#x578B;&#x548C;&#x5B9E;&#x4F8B;&#x7684;&#x5173;&#x7CFB;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;</strong></p>
+<pre class="language-"><code>alert(instance instanceof Object); //true
+alert(instance instanceof SuperType); //true
+alert(instance instanceof SubType); //true
+</code></pre><p>&#x7531;&#x4E8E;&#x539F;&#x578B;&#x94FE;&#x7684;&#x5173;&#x7CFB;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8BF4; instance &#x662F; Object&#x3001;SuperType &#x6216;SubType&#x4E2D;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x7C7B;&#x578B;&#x7684;&#x5B9E;&#x4F8B;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x6D4B;&#x8BD5;&#x8FD9;&#x4E09;&#x4E2A;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x7ED3;&#x679C;&#x90FD;&#x8FD4;&#x56DE;&#x4E86; true&#x3002;
+&#x7B2C;&#x4E8C;&#x79CD;&#x65B9;&#x5F0F;&#x662F;&#x4F7F;&#x7528; isPrototypeOf()&#x65B9;&#x6CD5;&#x3002;&#x540C;&#x6837;&#xFF0C;&#x53EA;&#x8981;&#x662F;&#x539F;&#x578B;&#x94FE;&#x4E2D;&#x51FA;&#x73B0;&#x8FC7;&#x7684;&#x539F;&#x578B;&#xFF0C;&#x90FD;&#x53EF;&#x4EE5;&#x8BF4;&#x662F;&#x8BE5;
+&#x539F;&#x578B;&#x94FE;&#x6240;&#x6D3E;&#x751F;&#x7684;&#x5B9E;&#x4F8B;&#x7684;&#x539F;&#x578B;&#xFF0C;&#x56E0;&#x6B64; isPrototypeOf()&#x65B9;&#x6CD5;&#x4E5F;&#x4F1A;&#x8FD4;&#x56DE; true&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#x3002;</p>
+<pre class="language-"><code>alert(Object.prototype.isPrototypeOf(instance)); //true
+alert(SuperType.prototype.isPrototypeOf(instance)); //true
+alert(SubType.prototype.isPrototypeOf(instance)); //true
+</code></pre><p><strong>1.3 &#x8C28;&#x614E;&#x5730;&#x5B9A;&#x4E49;&#x65B9;&#x6CD5;</strong>
+&#x5B50;&#x7C7B;&#x578B;&#x6709;&#x65F6;&#x5019;&#x9700;&#x8981;&#x91CD;&#x5199;&#x8D85;&#x7C7B;&#x578B;&#x4E2D;&#x7684;&#x67D0;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x6216;&#x8005;&#x9700;&#x8981;&#x6DFB;&#x52A0;&#x8D85;&#x7C7B;&#x578B;&#x4E2D;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x67D0;&#x4E2A;&#x65B9;&#x6CD5;&#x3002;&#x4F46;&#x4E0D;&#x7BA1;&#x600E;
+&#x6837;&#xFF0C;&#x7ED9;&#x539F;&#x578B;&#x6DFB;&#x52A0;&#x65B9;&#x6CD5;&#x7684;&#x4EE3;&#x7801;&#x4E00;&#x5B9A;&#x8981;&#x653E;&#x5728;<strong>&#x66FF;&#x6362;&#x539F;&#x578B;&#x7684;&#x8BED;&#x53E5;&#x4E4B;&#x540E;</strong>&#x3002;&#x6765;&#x770B;&#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x3002;</p>
+<pre class="language-"><code>function SuperType(){
+ this.property = true;
+}
+SuperType.prototype.getSuperValue = function(){
+ return this.property;
+};
+function SubType(){
+ this.subproperty = false;
+}
+//&#x7EE7;&#x627F;&#x4E86; SuperType
+SubType.prototype = new SuperType();
+//&#x6DFB;&#x52A0;&#x65B0;&#x65B9;&#x6CD5;
+SubType.prototype.getSubValue = function (){
+ return this.subproperty;
+};
+//&#x91CD;&#x5199;&#x8D85;&#x7C7B;&#x578B;&#x4E2D;&#x7684;&#x65B9;&#x6CD5;
+SubType.prototype.getSuperValue = function (){
+ return false;
+};
+var instance = new SubType();
+alert(instance.getSuperValue()); //false
+</code></pre><p><strong>1.4 &#x7F3A;&#x70B9;(&#x4E3B;&#x8981;&#x4E24;&#x65B9;&#x9762;)</strong></p>
+</blockquote>
+<p>&#x6700;&#x4E3B;&#x8981;&#x7684;&#x95EE;&#x9898;&#x6765;&#x81EA;&#x5305;&#x542B;&#x5F15;
+&#x7528;&#x7C7B;&#x578B;&#x503C;&#x7684;&#x539F;&#x578B;&#x3002;&#x4E0A;&#x4E00;&#x8282;&#x8BF4;&#x8FC7;&#x5305;&#x542B;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#x503C;&#x7684;&#x539F;&#x578B;&#x5C5E;&#x6027;&#x4F1A;&#x88AB;&#x6240;&#x6709;&#x5B9E;&#x4F8B;&#x5171;&#x4EAB;&#xFF1B;&#x800C;
+<strong>&#x8FD9;&#x4E5F;&#x6B63;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x5728;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E2D;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5728;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x4E2D;&#x5B9A;&#x4E49;&#x5C5E;&#x6027;&#x7684;&#x539F;&#x56E0;</strong>&#x3002;&#x5728;&#x901A;&#x8FC7;&#x539F;&#x578B;&#x6765;&#x5B9E;&#x73B0;&#x7EE7;&#x627F;&#x65F6;&#xFF0C;&#x539F;&#x578B;&#x5B9E;&#x9645;&#x4E0A;&#x4F1A;&#x53D8;&#x6210;&#x53E6;&#x4E00;&#x4E2A;&#x7C7B;&#x578B;&#x7684;&#x5B9E;&#x4F8B;&#x3002;&#x4E8E;&#x662F;&#xFF0C;&#x539F;&#x5148;&#x7684;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x4E5F;&#x5C31;&#x987A;&#x7406;&#x6210;&#x7AE0;&#x5730;&#x53D8;&#x6210;&#x4E86;&#x73B0;&#x5728;&#x7684;&#x539F;&#x578B;&#x5C5E;&#x6027;&#x4E86;&#x3002;</p>
+<pre class="language-"><code>function SuperType(){
+ this.colors = [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;];
+}
+function SubType(){
+}
+//&#x7EE7;&#x627F;&#x4E86; SuperType
+SubType.prototype = new SuperType();
+var instance1 = new SubType();
+instance1.colors.push(&quot;black&quot;);
+alert(instance1.colors); //&quot;red,blue,green,black&quot;
+var instance2 = new SubType();
+alert(instance2.colors); //&quot;red,blue,green,black&quot;
+</code></pre><blockquote>
+<p>&#x5F53; SubType &#x901A;&#x8FC7;&#x539F;&#x578B;&#x94FE;&#x7EE7;&#x627F;&#x4E86;
+SuperType &#x4E4B;&#x540E;&#xFF0C;SubType.prototype &#x5C31;&#x53D8;&#x6210;&#x4E86; SuperType &#x7684;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#xFF0C;&#x56E0;&#x6B64;&#x5B83;&#x4E5F;&#x62E5;&#x6709;&#x4E86;&#x4E00;&#x4E2A;&#x5B83;&#x81EA;
+&#x5DF1;&#x7684; colors &#x5C5E;&#x6027;&#x2014;&#x2014;&#x5C31;&#x8DDF;&#x4E13;&#x95E8;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A; SubType.prototype.colors &#x5C5E;&#x6027;&#x4E00;&#x6837;&#x3002;&#x4F46;&#x7ED3;&#x679C;&#x662F;&#x4EC0;&#x4E48;
+&#x5462;&#xFF1F;&#x7ED3;&#x679C;&#x662F; SubType &#x7684;&#x6240;&#x6709;&#x5B9E;&#x4F8B;&#x90FD;&#x4F1A;&#x5171;&#x4EAB;&#x8FD9;&#x4E00;&#x4E2A; colors &#x5C5E;&#x6027;&#x3002;
+&#x7B2C;&#x4E8C;&#x4E2A;&#x95EE;&#x9898;&#x662F;&#xFF1A;&#x5728;&#x521B;&#x5EFA;&#x5B50;&#x7C7B;&#x578B;&#x7684;&#x5B9E;&#x4F8B;&#x65F6;&#xFF0C;&#x4E0D;&#x80FD;&#x5411;&#x8D85;&#x7C7B;&#x578B;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E2D;&#x4F20;&#x9012;&#x53C2;&#x6570;&#x3002;&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;
+&#x5E94;&#x8BE5;&#x8BF4;&#x662F;&#x6CA1;&#x6709;&#x529E;&#x6CD5;&#x5728;&#x4E0D;&#x5F71;&#x54CD;&#x6240;&#x6709;&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x7ED9;&#x8D85;&#x7C7B;&#x578B;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4F20;&#x9012;&#x53C2;&#x6570;&#x3002;&#x6709;&#x9274;&#x4E8E;&#x6B64;&#xFF0C;&#x518D;&#x52A0;&#x4E0A;
+&#x524D;&#x9762;&#x521A;&#x521A;&#x8BA8;&#x8BBA;&#x8FC7;&#x7684;&#x7531;&#x4E8E;&#x539F;&#x578B;&#x4E2D;&#x5305;&#x542B;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#x503C;&#x6240;&#x5E26;&#x6765;&#x7684;&#x95EE;&#x9898;&#xFF0C;<strong>&#x5B9E;&#x8DF5;&#x4E2D;&#x5F88;&#x5C11;&#x4F1A;&#x5355;&#x72EC;&#x4F7F;&#x7528;&#x539F;&#x578B;&#x94FE;</strong>&#x3002;</p>
+</blockquote>
+<h4 id="&#x4E8C;&#x501F;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;"><a name="&#x4E8C;&#x501F;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;" class="anchor-navigation-ex-anchor" href="#&#x4E8C;&#x501F;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E8C;.&#x501F;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;</h4>
+<blockquote>
+<p>&#x89E3;&#x51B3;&#x539F;&#x578B;&#x4E2D;&#x5305;&#x542B;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#x503C;&#x6240;&#x5E26;&#x6765;&#x95EE;&#x9898;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x5F00;&#x59CB;&#x4F7F;&#x7528;&#x4E00;&#x79CD;&#x53EB;&#x505A;&#x501F;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;,&#x5373;&#x5728;&#x5B50;&#x7C7B;&#x578B;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x5185;&#x90E8;&#x8C03;&#x7528;&#x8D85;&#x7C7B;&#x578B;&#x6784;&#x9020;&#x51FD;&#x6570;&#x3002;&#x56E0;&#x4E3A;&#xFF0C;<strong>&#x51FD;&#x6570;&#x53EA;&#x4E0D;&#x8FC7;&#x662F;&#x5728;&#x7279;&#x5B9A;&#x73AF;&#x5883;&#x4E2D;&#x6267;&#x884C;&#x4EE3;&#x7801;&#x7684;&#x5BF9;&#x8C61;</strong>&#xFF0C;&#x56E0;&#x6B64;&#x901A;&#x8FC7;&#x4F7F;&#x7528; apply()&#x548C;call()&#x65B9;&#x6CD5;&#x4E5F;&#x53EF;&#x4EE5;&#x5728;&#xFF08;&#x5C06;&#x6765;&#xFF09;&#x65B0;&#x521B;&#x5EFA;&#x7684;&#x5BF9;&#x8C61;&#x4E0A;&#x6267;&#x884C;&#x6784;&#x9020;&#x51FD;&#x6570;</p>
+<pre class="language-"><code>function SuperType(){
+ this.colors = [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;];
+}
+function SubType(){
+ //&#x7EE7;&#x627F;&#x4E86; SuperType
+ SuperType.call(this);
+}
+var instance1 = new SubType();
+instance1.colors.push(&quot;black&quot;);
+alert(instance1.colors); //&quot;red,blue,green,black&quot;
+var instance2 = new SubType();
+alert(instance2.colors); //&quot;red,blue,green&quot;
+</code></pre><p>&#x65B0;&#x521B;&#x5EFA;&#x7684; SubType &#x5B9E;&#x4F8B;&#x7684;&#x73AF;&#x5883;&#x4E0B;&#x8C03;&#x7528;&#x4E86; SuperType &#x6784;&#x9020;&#x51FD;&#x6570;&#x3002;
+&#x8FD9;&#x6837;&#x4E00;&#x6765;&#xFF0C;&#x5C31;&#x4F1A;&#x5728;&#x65B0; SubType &#x5BF9;&#x8C61;&#x4E0A;&#x6267;&#x884C; SuperType()&#x51FD;&#x6570;&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x6240;&#x6709;&#x5BF9;&#x8C61;&#x521D;&#x59CB;&#x5316;&#x4EE3;&#x7801;&#x3002;&#x7ED3;&#x679C;&#xFF0C;
+SubType &#x7684;&#x6BCF;&#x4E2A;&#x5B9E;&#x4F8B;&#x5C31;&#x90FD;&#x4F1A;&#x5177;&#x6709;&#x81EA;&#x5DF1;&#x7684; colors &#x5C5E;&#x6027;&#x7684;&#x526F;&#x672C;&#x4E86;&#x3002;</p>
+</blockquote>
+<p><strong>2.1. &#x4F20;&#x9012;&#x53C2;&#x6570;</strong></p>
+<blockquote>
+<p>&#x76F8;&#x5BF9;&#x4E8E;&#x539F;&#x578B;&#x94FE;&#x800C;&#x8A00;&#xFF0C;&#x501F;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;&#x6709;&#x4E00;&#x4E2A;&#x5F88;&#x5927;&#x7684;&#x4F18;&#x52BF;&#xFF0C;&#x5373;&#x53EF;&#x4EE5;&#x5728;&#x5B50;&#x7C7B;&#x578B;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E2D;&#x5411;&#x8D85;&#x7C7B;&#x578B;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4F20;&#x9012;&#x53C2;&#x6570;&#x3002;&#x770B;&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x3002;
+```
+function SuperType(name){
+ this.name = name;
+}
+function SubType(){
+ //&#x7EE7;&#x627F;&#x4E86; SuperType&#xFF0C;&#x540C;&#x65F6;&#x8FD8;&#x4F20;&#x9012;&#x4E86;&#x53C2;&#x6570;
+ SuperType.call(this, &quot;Nicholas&quot;);</p>
+</blockquote>
+<p> //&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;
+ this.age = 29;
+}
+var instance = new SubType();
+alert(instance.name); //&quot;Nicholas&quot;;
+alert(instance.age); //29</p>
+<pre class="language-"><code>&gt; &#x4EE5;&#x4E0A;&#x4EE3;&#x7801;&#x4E2D;&#x7684; SuperType &#x53EA;&#x63A5;&#x53D7;&#x4E00;&#x4E2A;&#x53C2;&#x6570; name&#xFF0C;&#x8BE5;&#x53C2;&#x6570;&#x4F1A;&#x76F4;&#x63A5;&#x8D4B;&#x7ED9;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#x3002;&#x5728; SubType &#x6784;&#x9020;
+&#x51FD;&#x6570;&#x5185;&#x90E8;&#x8C03;&#x7528; SuperType &#x6784;&#x9020;&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x4E3A; SubType &#x7684;&#x5B9E;&#x4F8B;&#x8BBE;&#x7F6E;&#x4E86; name &#x5C5E;&#x6027;&#x3002;&#x4E3A;&#x4E86;&#x786E;&#x4FDD;
+SuperType &#x6784;&#x9020;&#x51FD;&#x6570;&#x4E0D;&#x4F1A;&#x91CD;&#x5199;&#x5B50;&#x7C7B;&#x578B;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x8C03;&#x7528;&#x8D85;&#x7C7B;&#x578B;&#x6784;&#x9020;&#x51FD;&#x6570;&#x540E;&#xFF0C;&#x518D;&#x6DFB;&#x52A0;&#x5E94;&#x8BE5;&#x5728;&#x5B50;&#x7C7B;&#x578B;&#x4E2D;
+&#x5B9A;&#x4E49;&#x7684;&#x5C5E;&#x6027;&#x3002;
+
+**2.2. &#x7F3A;&#x70B9;**
+- &#x53EA;&#x80FD;&#x7EE7;&#x627F;&#x7236;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#xFF0C;&#x4E0D;&#x80FD;&#x7EE7;&#x627F;&#x539F;&#x578B;&#x5C5E;&#x6027;/&#x65B9;&#x6CD5;
+- &#x65E0;&#x6CD5;&#x5B9E;&#x73B0;&#x590D;&#x7528;&#xFF0C;&#x6BCF;&#x4E2A;&#x5B50;&#x7C7B;&#x90FD;&#x6709;&#x7236;&#x7C7B;&#x5B9E;&#x4F8B;&#x51FD;&#x6570;&#x7684;&#x526F;&#x672C;&#xFF0C;&#x5F71;&#x54CD;&#x6027;&#x80FD;
+
+&gt; &#x5982;&#x679C;&#x4EC5;&#x4EC5;&#x662F;&#x501F;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x90A3;&#x4E48;&#x4E5F;&#x5C06;&#x65E0;&#x6CD5;&#x907F;&#x514D;&#x6784;&#x9020;&#x51FD;&#x6570;&#x6A21;&#x5F0F;&#x5B58;&#x5728;&#x7684;&#x95EE;&#x9898;&#x2014;&#x2014;&#x65B9;&#x6CD5;&#x90FD;&#x5728;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E2D;&#x5B9A;
+&#x4E49;&#xFF0C;&#x56E0;&#x6B64;&#x51FD;&#x6570;&#x590D;&#x7528;&#x5C31;&#x65E0;&#x4ECE;&#x8C08;&#x8D77;&#x4E86;&#x3002;&#x800C;&#x4E14;&#xFF0C;&#x5728;&#x8D85;&#x7C7B;&#x578B;&#x7684;&#x539F;&#x578B;&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5BF9;&#x5B50;&#x7C7B;&#x578B;&#x800C;&#x8A00;&#x4E5F;&#x662F;&#x4E0D;&#x53EF;&#x89C1;&#x7684;&#xFF0C;&#x7ED3;
+&#x679C;&#x6240;&#x6709;&#x7C7B;&#x578B;&#x90FD;&#x53EA;&#x80FD;&#x4F7F;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;&#x6A21;&#x5F0F;&#x3002;&#x8003;&#x8651;&#x5230;&#x8FD9;&#x4E9B;&#x95EE;&#x9898;&#xFF0C;&#x501F;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x6280;&#x672F;**&#x4E5F;&#x662F;&#x5F88;&#x5C11;&#x5355;&#x72EC;&#x4F7F;&#x7528;&#x7684;**&#x3002;
+#### &#x4E09; &#x7EC4;&#x5408;&#x7EE7;&#x627F;
+&#x662F;&#x5C06;&#x539F;&#x578B;&#x94FE;&#x548C;&#x501F;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x6280;&#x672F;&#x7EC4;&#x5408;&#x5230;&#x4E00;&#x5757;&#xFF0C;&#x4ECE;&#x800C;&#x53D1;&#x6325;&#x4E8C;&#x8005;&#x4E4B;&#x957F;&#x7684;&#x4E00;&#x79CD;&#x7EE7;&#x627F;&#x6A21;&#x5F0F;&#x3002;&#x5176;&#x80CC;&#x540E;&#x7684;&#x601D;&#x8DEF;&#x662F;&#x4F7F;&#x7528;&#x539F;&#x578B;&#x94FE;&#x5B9E;&#x73B0;&#x5BF9;&#x539F;&#x578B;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#x7684;&#x7EE7;&#x627F;&#xFF0C;&#x800C;&#x901A;&#x8FC7;&#x501F;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;&#x6765;&#x5B9E;&#x73B0;&#x5BF9;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x7684;&#x7EE7;&#x627F;&#x3002;&#x8FD9;&#x6837;&#xFF0C;&#x65E2;&#x901A;&#x8FC7;&#x5728;&#x539F;&#x578B;&#x4E0A;&#x5B9A;&#x4E49;&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#x4E86;&#x51FD;&#x6570;&#x590D;&#x7528;&#xFF0C;&#x53C8;&#x80FD;&#x591F;&#x4FDD;&#x8BC1;&#x6BCF;&#x4E2A;&#x5B9E;&#x4F8B;&#x90FD;&#x6709;&#x5B83;&#x81EA;&#x5DF1;&#x7684;&#x5C5E;&#x6027;&#x3002;
+</code></pre><p>function SuperType(name){
+ this.name = name;
+ this.colors = [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;];
+}
+SuperType.prototype.sayName = function(){
+ alert(this.name);
+};
+function SubType(name, age){
+ //&#x7EE7;&#x627F;&#x5C5E;&#x6027;
+ // &#x7B2C;&#x4E8C;&#x6B21;&#x8C03;&#x7528;SuperType()
+ SuperType.call(this, name);</p>
+<p> this.age = age;
+}
+// &#x7EE7;&#x627F;&#x65B9;&#x6CD5;
+// &#x6784;&#x5EFA;&#x539F;&#x578B;&#x94FE;
+// &#x7B2C;&#x4E00;&#x6B21;&#x8C03;&#x7528;SuperType()
+SubType.prototype = new SuperType();
+// &#x91CD;&#x5199;SubType.prototype&#x7684;constructor&#x5C5E;&#x6027;&#xFF0C;&#x6307;&#x5411;&#x81EA;&#x5DF1;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;SubType
+SubType.prototype.constructor = SubType;
+SubType.prototype.sayAge = function(){
+ alert(this.age);
+};
+var instance1 = new SubType(&quot;Nicholas&quot;, 29);
+instance1.colors.push(&quot;black&quot;);
+alert(instance1.colors); //&quot;red,blue,green,black&quot;
+instance1.sayName(); //&quot;Nicholas&quot;;
+instance1.sayAge(); //29
+var instance2 = new SubType(&quot;Greg&quot;, 27);
+alert(instance2.colors); //&quot;red,blue,green&quot;
+instance2.sayName(); //&quot;Greg&quot;;
+instance2.sayAge(); //27</p>
+<pre class="language-"><code>**&#x7F3A;&#x70B9;&#xFF1A;**
+
+![img](https://note.youdao.com/yws/api/personal/file/F91BEAFDC46749D1ADB8E7E54E1517BB?method=download&amp;shareKey=d28d6c0a26a8bf6dfc4888668ba57a59)
+
+&gt; &#x7B2C;&#x4E00;&#x6B21;&#x8C03;&#x7528;SuperType()&#xFF1A;&#x7ED9;SubType.prototype&#x5199;&#x5165;&#x4E24;&#x4E2A;&#x5C5E;&#x6027;name&#xFF0C;color&#x3002;
+&#x7B2C;&#x4E8C;&#x6B21;&#x8C03;&#x7528;SuperType()&#xFF1A;&#x7ED9;instance1&#x5199;&#x5165;&#x4E24;&#x4E2A;&#x5C5E;&#x6027;name&#xFF0C;color&#x3002;
+&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;instance1&#x4E0A;&#x7684;&#x4E24;&#x4E2A;&#x5C5E;&#x6027;&#x5C31;&#x5C4F;&#x853D;&#x4E86;&#x5176;&#x539F;&#x578B;&#x5BF9;&#x8C61;SubType.prototype&#x7684;&#x4E24;&#x4E2A;&#x540C;&#x540D;&#x5C5E;&#x6027;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x7EC4;&#x5408;&#x6A21;&#x5F0F;&#x7684;&#x7F3A;&#x70B9;&#x5C31;&#x662F;&#x5728;&#x4F7F;&#x7528;&#x5B50;&#x7C7B;&#x521B;&#x5EFA;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x65F6;&#xFF0C;&#x5176;&#x539F;&#x578B;&#x4E2D;&#x4F1A;&#x5B58;&#x5728;&#x4E24;&#x4EFD;&#x76F8;&#x540C;&#x7684;&#x5C5E;&#x6027;/&#x65B9;&#x6CD5;&#x3002;
+&gt; &#x7EC4;&#x5408;&#x7EE7;&#x627F;&#x907F;&#x514D;&#x4E86;&#x539F;&#x578B;&#x94FE;&#x548C;&#x501F;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x7F3A;&#x9677;&#xFF0C;&#x878D;&#x5408;&#x4E86;&#x5B83;&#x4EEC;&#x7684;&#x4F18;&#x70B9;&#xFF0C;&#x6210;&#x4E3A; JavaScript &#x4E2D;&#x6700;&#x5E38;&#x7528;&#x7684;&#x7EE7;&#x627F;&#x6A21;&#x5F0F;&#x3002;&#x800C;&#x4E14;&#xFF0C;instanceof&#x548C;isPrototypeOf()&#x4E5F;&#x80FD;&#x591F;&#x7528;&#x4E8E;&#x8BC6;&#x522B;&#x57FA;&#x4E8E;&#x7EC4;&#x5408;&#x7EE7;&#x627F;&#x521B;&#x5EFA;&#x7684;&#x5BF9;&#x8C61;&#x3002;
+#### &#x56DB; &#x539F;&#x578B;&#x5F0F;&#x7EE7;&#x627F;
+&gt; &#x662F;&#x501F;&#x52A9;&#x539F;&#x578B;&#x53EF;&#x4EE5;&#x57FA;&#x4E8E;&#x5DF2;&#x6709;&#x7684;&#x5BF9;&#x8C61;&#x521B;&#x5EFA;&#x65B0;&#x5BF9;&#x8C61;
+</code></pre><p>function object(o){
+ function F(){}
+ F.prototype = o;
+ return new F();
+}</p>
+<pre class="language-"><code>&gt; &#x5728; object()&#x51FD;&#x6570;&#x5185;&#x90E8;&#xFF0C;&#x5148;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x4E34;&#x65F6;&#x6027;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x7136;&#x540E;&#x5C06;&#x4F20;&#x5165;&#x7684;&#x5BF9;&#x8C61;&#x4F5C;&#x4E3A;&#x8FD9;&#x4E2A;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;
+&#x539F;&#x578B;&#xFF0C;&#x6700;&#x540E;&#x8FD4;&#x56DE;&#x4E86;&#x8FD9;&#x4E2A;&#x4E34;&#x65F6;&#x7C7B;&#x578B;&#x7684;&#x4E00;&#x4E2A;&#x65B0;&#x5B9E;&#x4F8B;&#x3002;&#x4ECE;&#x672C;&#x8D28;&#x4E0A;&#x8BB2;&#xFF0C;object()&#x5BF9;&#x4F20;&#x5165;&#x5176;&#x4E2D;&#x7684;&#x5BF9;&#x8C61;&#x6267;&#x884C;&#x4E86;&#x4E00;&#x6B21;&#x6D45;&#x590D;&#x5236;&#x3002;&#x6765;&#x770B;&#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x3002;
+</code></pre><p>var person = {
+ name: &quot;Nicholas&quot;,
+ friends: [&quot;Shelby&quot;, &quot;Court&quot;, &quot;Van&quot;]
+};
+var anotherPerson = object(person);
+anotherPerson.name = &quot;Greg&quot;;
+anotherPerson.friends.push(&quot;Rob&quot;);
+var yetAnotherPerson = object(person);
+yetAnotherPerson.name = &quot;Linda&quot;;
+yetAnotherPerson.friends.push(&quot;Barbie&quot;);
+alert(person.friends); //&quot;Shelby,Court,Van,Rob,Barbie&quot;</p>
+<pre class="language-"><code>&gt; &#x8FD9;&#x79CD;&#x539F;&#x578B;&#x5F0F;&#x7EE7;&#x627F;&#xFF0C;&#x8981;&#x6C42;&#x4F60;&#x5FC5;&#x987B;&#x6709;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x53E6;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x57FA;&#x7840;&#x3002;&#x5982;&#x679C;&#x6709;&#x8FD9;&#x4E48;
+&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x8BDD;&#xFF0C;&#x53EF;&#x4EE5;&#x628A;&#x5B83;&#x4F20;&#x9012;&#x7ED9;object()&#x51FD;&#x6570;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x6839;&#x636E;&#x5177;&#x4F53;&#x9700;&#x6C42;&#x5BF9;&#x5F97;&#x5230;&#x7684;&#x5BF9;&#x8C61;&#x52A0;&#x4EE5;&#x4FEE;&#x6539;&#x5373;&#x53EF;&#x3002;&#x5728;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x53E6;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x57FA;&#x7840;&#x7684;&#x662F;person&#x5BF9;&#x8C61;&#xFF0C;&#x4E8E;&#x662F;&#x6211;&#x4EEC;&#x628A;&#x5B83;&#x4F20;&#x5165;&#x5230; object()&#x51FD;&#x6570;&#x4E2D;&#xFF0C;&#x7136;&#x540E;&#x8BE5;&#x51FD;&#x6570;&#x5C31;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x5BF9;&#x8C61;&#x3002;&#x8FD9;&#x4E2A;&#x65B0;&#x5BF9;&#x8C61;&#x5C06;person&#x4F5C;&#x4E3A;&#x539F;&#x578B;&#xFF0C;&#x6240;&#x4EE5;&#x5B83;&#x7684;&#x539F;&#x578B;&#x4E2D;&#x5C31;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#x503C;&#x5C5E;&#x6027;&#x548C;&#x4E00;&#x4E2A;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#x503C;&#x5C5E;&#x6027;&#x3002;&#x8FD9;&#x610F;&#x5473;&#x7740;person.friends &#x4E0D;&#x4EC5;&#x5C5E;&#x4E8E; person &#x6240;&#x6709;&#xFF0C;&#x800C;&#x4E14;&#x4E5F;&#x4F1A;&#x88AB;anotherPerson&#x4EE5;&#x53CA;yetAnotherPerson&#x5171;&#x4EAB;&#x3002;&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;&#x8FD9;&#x5C31;&#x76F8;&#x5F53;&#x4E8E;&#x53C8;&#x521B;&#x5EFA;&#x4E86;person&#x5BF9;&#x8C61;&#x7684;&#x4E24;&#x4E2A;&#x526F;&#x672C;&#x3002;es5&#x901A;&#x8FC7;&#x65B0;&#x589E;**Object.create()**&#x65B9;&#x6CD5;&#x89C4;&#x8303;&#x5316;&#x4E86;&#x539F;&#x578B;&#x5F0F;&#x7EE7;&#x627F;&#x3002;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x63A5;&#x6536;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF1A;&#x4E00;&#x4E2A;&#x7528;&#x4F5C;&#x65B0;&#x5BF9;&#x8C61;&#x539F;&#x578B;&#x7684;&#x5BF9;&#x8C61;&#x548C;&#xFF08;&#x53EF;&#x9009;&#x7684;&#xFF09;&#x4E00;&#x4E2A;&#x4E3A;&#x65B0;&#x5BF9;&#x8C61;&#x5B9A;&#x4E49;&#x989D;&#x5916;&#x5C5E;&#x6027;&#x7684;&#x5BF9;&#x8C61;&#x3002;&#x5728;&#x4F20;&#x5165;**&#x4E00;&#x4E2A;&#x53C2;&#x6570;**&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;
+</code></pre><p>Object.create()&#x4E0E; object()&#x65B9;&#x6CD5;&#x7684;&#x884C;&#x4E3A;&#x76F8;&#x540C;&#x3002;
+var person = {</p>
+<p>name: &quot;Nicholas&quot;,</p>
+<p>friends: [&quot;Shelby&quot;, &quot;Court&quot;, &quot;Van&quot;]
+};
+var anotherPerson = Object.create(person);
+anotherPerson.name = &quot;Greg&quot;;
+anotherPerson.friends.push(&quot;Rob&quot;);</p>
+<p>var yetAnotherPerson = Object.create(person);
+yetAnotherPerson.name = &quot;Linda&quot;;
+yetAnotherPerson.friends.push(&quot;Barbie&quot;);
+alert(person.friends); //&quot;Shelby,Court,Van,Rob,Barbie&quot;</p>
+<pre class="language-"><code>Object.create()&#x65B9;&#x6CD5;&#x7684;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x4E0E;Object.defineProperties()(&#x7406;&#x89E3;&#x5BF9;&#x8C61;&#x7684;&#x5B9A;&#x4E49;&#x591A;&#x4E2A;&#x5C5E;&#x6027;)&#x65B9;&#x6CD5;&#x7684;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x683C;&#x5F0F;&#x76F8;
+&#x540C;&#xFF1A;&#x6BCF;&#x4E2A;&#x5C5E;&#x6027;&#x90FD;&#x662F;&#x901A;&#x8FC7;&#x81EA;&#x5DF1;&#x7684;&#x63CF;&#x8FF0;&#x7B26;&#x5B9A;&#x4E49;&#x7684;&#x3002;&#x4EE5;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x6307;&#x5B9A;&#x7684;&#x4EFB;&#x4F55;&#x5C5E;&#x6027;&#x90FD;&#x4F1A;&#x8986;&#x76D6;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x4E0A;&#x7684;&#x540C;&#x540D;&#x5C5E;
+&#x6027;&#x3002;&#x4F8B;&#x5982;&#xFF1A;
+</code></pre><p>var person = {
+ name: &quot;Nicholas&quot;,
+ friends: [&quot;Shelby&quot;, &quot;Court&quot;, &quot;Van&quot;]
+};
+var anotherPerson = Object.create(person, {</p>
+<p>name: {</p>
+<p>value: &quot;Greg&quot;</p>
+<p>}
+});</p>
+<p>alert(anotherPerson.name); //&quot;Greg&quot;</p>
+<pre class="language-"><code>&#x5728;&#x6CA1;&#x6709;&#x5FC5;&#x8981;&#x5174;&#x5E08;&#x52A8;&#x4F17;&#x5730;&#x521B;&#x5EFA;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x800C;&#x53EA;&#x60F3;&#x8BA9;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x4E0E;&#x53E6;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x4FDD;&#x6301;&#x7C7B;&#x4F3C;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x539F;&#x578B;&#x5F0F;&#x7EE7;&#x627F;&#x662F;&#x5B8C;&#x5168;&#x53EF;&#x4EE5;&#x80DC;&#x4EFB;&#x7684;
+**&#x7F3A;&#x70B9;&#xFF1A; **
+
+- &#x539F;&#x578B;&#x94FE;&#x7EE7;&#x627F;&#x591A;&#x4E2A;&#x5B9E;&#x4F8B;&#x7684;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#x5C5E;&#x6027;&#x6307;&#x5411;&#x76F8;&#x540C;&#xFF0C;&#x5B58;&#x5728;&#x7BE1;&#x6539;&#x7684;&#x53EF;&#x80FD;&#x3002;
+- &#x65E0;&#x6CD5;&#x4F20;&#x9012;&#x53C2;&#x6570;
+#### &#x4E94; &#x5BC4;&#x751F;&#x5F0F;&#x7EE7;&#x627F;
+&gt; &#x5BC4;&#x751F;&#x5F0F;&#x7EE7;&#x627F;&#x7684;&#x601D;&#x8DEF;&#x4E0E;&#x5BC4;&#x751F;&#x6784;&#x9020;&#x51FD;&#x6570;&#x548C;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#x7C7B;&#x4F3C;&#xFF0C;&#x5373;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x4EC5;&#x7528;&#x4E8E;&#x5C01;&#x88C5;&#x7EE7;&#x627F;&#x8FC7;&#x7A0B;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x8BE5;&#x51FD;&#x6570;&#x5728;&#x5185;&#x90E8;&#x4EE5;&#x67D0;&#x79CD;&#x65B9;&#x5F0F;&#x6765;&#x589E;&#x5F3A;&#x5BF9;&#x8C61;&#xFF0C;&#x6700;&#x540E;&#x518D;&#x50CF;&#x771F;&#x5730;&#x662F;&#x5B83;&#x505A;&#x4E86;&#x6240;&#x6709;&#x5DE5;&#x4F5C;&#x4E00;&#x6837;&#x8FD4;&#x56DE;&#x5BF9;&#x8C61;&#x3002;
+</code></pre><p>function createAnother(original){
+ var clone = object(original); //&#x901A;&#x8FC7;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x5BF9;&#x8C61;
+ clone.sayHi = function(){ //&#x4EE5;&#x67D0;&#x79CD;&#x65B9;&#x5F0F;&#x6765;&#x589E;&#x5F3A;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;
+ alert(&quot;hi&quot;);
+ };
+ return clone; //&#x8FD4;&#x56DE;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;
+}</p>
+<pre class="language-"><code>```
+var person = {
+ name: &quot;Nicholas&quot;,
+ friends: [&quot;Shelby&quot;, &quot;Court&quot;, &quot;Van&quot;]
+};
+var anotherPerson = createAnother(person);
+anotherPerson.sayHi(); //&quot;hi&quot;
+</code></pre><p>&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x4E2D;&#x7684;&#x4EE3;&#x7801;&#x57FA;&#x4E8E; person &#x8FD4;&#x56DE;&#x4E86;&#x4E00;&#x4E2A;&#x65B0;&#x5BF9;&#x8C61;&#x2014;&#x2014;anotherPerson&#x3002;&#x65B0;&#x5BF9;&#x8C61;&#x4E0D;&#x4EC5;&#x5177;&#x6709; person
+&#x7684;&#x6240;&#x6709;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#xFF0C;&#x800C;&#x4E14;&#x8FD8;&#x6709;&#x81EA;&#x5DF1;&#x7684; sayHi()&#x65B9;&#x6CD5;&#x3002;
+&#x5728;&#x4E3B;&#x8981;&#x8003;&#x8651;&#x5BF9;&#x8C61;&#x800C;&#x4E0D;&#x662F;&#x81EA;&#x5B9A;&#x4E49;&#x7C7B;&#x578B;&#x548C;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5BC4;&#x751F;&#x5F0F;&#x7EE7;&#x627F;&#x4E5F;&#x662F;&#x4E00;&#x79CD;&#x6709;&#x7528;&#x7684;&#x6A21;&#x5F0F;&#x3002;&#x524D;&#x9762;&#x793A;
+&#x8303;&#x7EE7;&#x627F;&#x6A21;&#x5F0F;&#x65F6;&#x4F7F;&#x7528;&#x7684; <strong>object()&#x51FD;&#x6570;&#x4E0D;&#x662F;&#x5FC5;&#x9700;&#x7684;</strong>&#xFF1B;&#x4EFB;&#x4F55;&#x80FD;&#x591F;&#x8FD4;&#x56DE;&#x65B0;&#x5BF9;&#x8C61;&#x7684;&#x51FD;&#x6570;&#x90FD;&#x9002;&#x7528;&#x4E8E;&#x6B64;&#x6A21;&#x5F0F;&#x3002;</p>
+<p><strong>&#x7F3A;&#x70B9;&#xFF08;&#x540C;&#x539F;&#x578B;&#x5F0F;&#x7EE7;&#x627F;&#xFF09;</strong>&#xFF1A;</p>
+<ul>
+<li>&#x539F;&#x578B;&#x94FE;&#x7EE7;&#x627F;&#x591A;&#x4E2A;&#x5B9E;&#x4F8B;&#x7684;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#x5C5E;&#x6027;&#x6307;&#x5411;&#x76F8;&#x540C;&#xFF0C;&#x5B58;&#x5728;&#x7BE1;&#x6539;&#x7684;&#x53EF;&#x80FD;&#x3002;</li>
+<li>&#x65E0;&#x6CD5;&#x4F20;&#x9012;&#x53C2;&#x6570;<h4 id="&#x516D;-&#x5BC4;&#x751F;&#x7EC4;&#x5408;&#x5F0F;&#x7EE7;&#x627F;"><a name="&#x516D;-&#x5BC4;&#x751F;&#x7EC4;&#x5408;&#x5F0F;&#x7EE7;&#x627F;" class="anchor-navigation-ex-anchor" href="#&#x516D;-&#x5BC4;&#x751F;&#x7EC4;&#x5408;&#x5F0F;&#x7EE7;&#x627F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x516D; &#x5BC4;&#x751F;&#x7EC4;&#x5408;&#x5F0F;&#x7EE7;&#x627F;</h4>
+<blockquote>
+<p>&#x7ED3;&#x5408;&#x501F;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4F20;&#x9012;&#x53C2;&#x6570;&#x548C;&#x5BC4;&#x751F;&#x6A21;&#x5F0F;&#x5B9E;&#x73B0;&#x7EE7;&#x627F;
+<strong>&#x80CC;&#x666F;</strong></p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>&#x524D;&#x9762;&#x8BF4;&#x8FC7;&#xFF0C;&#x7EC4;&#x5408;&#x7EE7;&#x627F;&#x662F; JavaScript &#x6700;&#x5E38;&#x7528;&#x7684;&#x7EE7;&#x627F;&#x6A21;&#x5F0F;&#xFF1B;&#x4E0D;&#x8FC7;&#xFF0C;&#x5B83;&#x4E5F;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x4E0D;&#x8DB3;&#x3002;&#x7EC4;&#x5408;&#x7EE7;&#x627F;&#x6700;&#x5927;&#x7684;
+&#x95EE;&#x9898;&#x5C31;&#x662F;&#x65E0;&#x8BBA;&#x4EC0;&#x4E48;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x90FD;&#x4F1A;&#x8C03;&#x7528;&#x4E24;&#x6B21;&#x8D85;&#x7C7B;&#x578B;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF1A;&#x4E00;&#x6B21;&#x662F;&#x5728;&#x521B;&#x5EFA;&#x5B50;&#x7C7B;&#x578B;&#x539F;&#x578B;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53E6;&#x4E00;&#x6B21;&#x662F;
+&#x5728;&#x5B50;&#x7C7B;&#x578B;&#x6784;&#x9020;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x3002;&#x6CA1;&#x9519;&#xFF0C;&#x5B50;&#x7C7B;&#x578B;&#x6700;&#x7EC8;&#x4F1A;&#x5305;&#x542B;&#x8D85;&#x7C7B;&#x578B;&#x5BF9;&#x8C61;&#x7684;&#x5168;&#x90E8;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#xFF0C;&#x4F46;&#x6211;&#x4EEC;&#x4E0D;&#x5F97;&#x4E0D;&#x5728;&#x8C03;&#x7528;&#x5B50;
+&#x7C7B;&#x578B;&#x6784;&#x9020;&#x51FD;&#x6570;&#x65F6;&#x91CD;&#x5199;&#x8FD9;&#x4E9B;&#x5C5E;&#x6027;&#x3002;
+```
+function SuperType(name){
+ this.name = name;
+ this.colors = [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;];
+}
+SuperType.prototype.sayName = function(){
+ alert(this.name);
+};
+function SubType(name, age){
+ SuperType.call(this, name); //&#x7B2C;&#x4E8C;&#x6B21;&#x8C03;&#x7528; SuperType()</p>
+</blockquote>
+<p> this.age = age;
+}
+SubType.prototype = new SuperType(); //&#x7B2C;&#x4E00;&#x6B21;&#x8C03;&#x7528; SuperType()
+SubType.prototype.constructor = SubType;
+SubType.prototype.sayAge = function(){
+ alert(this.age);
+};</p>
+<pre class="language-"><code>&#x52A0;&#x7C97;&#x5B57;&#x4F53;&#x7684;&#x884C;&#x4E2D;&#x662F;&#x8C03;&#x7528; SuperType &#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x4EE3;&#x7801;&#x3002;&#x5728;&#x7B2C;&#x4E00;&#x6B21;&#x8C03;&#x7528; SuperType &#x6784;&#x9020;&#x51FD;&#x6570;&#x65F6;&#xFF0C;
+SubType.prototype &#x4F1A;&#x5F97;&#x5230;&#x4E24;&#x4E2A;&#x5C5E;&#x6027;&#xFF1A;name &#x548C; colors&#xFF1B;&#x5B83;&#x4EEC;&#x90FD;&#x662F; SuperType &#x7684;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#xFF0C;&#x53EA;&#x4E0D;&#x8FC7;
+&#x73B0;&#x5728;&#x4F4D;&#x4E8E; SubType &#x7684;&#x539F;&#x578B;&#x4E2D;&#x3002;&#x5F53;&#x8C03;&#x7528; SubType &#x6784;&#x9020;&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x53C8;&#x4F1A;&#x8C03;&#x7528;&#x4E00;&#x6B21; SuperType &#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x8FD9;
+&#x4E00;&#x6B21;&#x53C8;&#x5728;&#x65B0;&#x5BF9;&#x8C61;&#x4E0A;&#x521B;&#x5EFA;&#x4E86;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027; name &#x548C; colors&#x3002;&#x4E8E;&#x662F;&#xFF0C;&#x8FD9;&#x4E24;&#x4E2A;&#x5C5E;&#x6027;&#x5C31;&#x5C4F;&#x853D;&#x4E86;&#x539F;&#x578B;&#x4E2D;&#x7684;&#x4E24;&#x4E2A;&#x540C;&#x540D;&#x5C5E;
+&#x6027;&#x3002;&#x56FE; 6-6 &#x5C55;&#x793A;&#x4E86;&#x4E0A;&#x8FF0;&#x8FC7;&#x7A0B;&#x3002;
+**&#x6709;&#x4E24;&#x7EC4; name &#x548C; colors &#x5C5E;&#x6027;&#xFF1A;&#x4E00;&#x7EC4;&#x5728;&#x5B9E;&#x4F8B;&#x4E0A;&#xFF0C;&#x4E00;&#x7EC4;&#x5728; SubType &#x539F;&#x578B;&#x4E2D;&#x3002;&#xFF08;&#x4E0A;&#x9762;&#x6709;&#x56FE;&#x8BF4;&#x660E;**&#x8FD9;&#x5C31;&#x662F;&#x8C03;
+&#x7528;&#x4E24;&#x6B21; SuperType &#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x7ED3;&#x679C;&#x3002;&#x597D;&#x5728;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x627E;&#x5230;&#x4E86;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x65B9;&#x6CD5;&#x2014;&#x2014;&#x5BC4;&#x751F;&#x7EC4;&#x5408;&#x5F0F;&#x7EE7;&#x627F;&#x3002;
+&#x6240;&#x8C13;&#x5BC4;&#x751F;&#x7EC4;&#x5408;&#x5F0F;&#x7EE7;&#x627F;&#xFF0C;&#x5373;&#x901A;&#x8FC7;&#x501F;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;&#x6765;&#x7EE7;&#x627F;&#x5C5E;&#x6027;&#xFF0C;&#x901A;&#x8FC7;&#x539F;&#x578B;&#x94FE;&#x7684;&#x6DF7;&#x6210;&#x5F62;&#x5F0F;&#x6765;&#x7EE7;&#x627F;&#x65B9;&#x6CD5;&#x3002;&#x5176;&#x80CC;
+&#x540E;&#x7684;&#x57FA;&#x672C;&#x601D;&#x8DEF;&#x662F;&#xFF1A;&#x4E0D;&#x5FC5;&#x4E3A;&#x4E86;&#x6307;&#x5B9A;&#x5B50;&#x7C7B;&#x578B;&#x7684;&#x539F;&#x578B;&#x800C;&#x8C03;&#x7528;&#x8D85;&#x7C7B;&#x578B;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x6211;&#x4EEC;&#x6240;&#x9700;&#x8981;&#x7684;&#x65E0;&#x975E;&#x5C31;&#x662F;&#x8D85;&#x7C7B;&#x578B;
+&#x539F;&#x578B;&#x7684;&#x4E00;&#x4E2A;&#x526F;&#x672C;&#x800C;&#x5DF2;&#x3002;&#x672C;&#x8D28;&#x4E0A;&#xFF0C;&#x5C31;&#x662F;&#x4F7F;&#x7528;&#x5BC4;&#x751F;&#x5F0F;&#x7EE7;&#x627F;&#x6765;&#x7EE7;&#x627F;&#x8D85;&#x7C7B;&#x578B;&#x7684;&#x539F;&#x578B;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x5C06;&#x7ED3;&#x679C;&#x6307;&#x5B9A;&#x7ED9;&#x5B50;&#x7C7B;&#x578B;
+&#x7684;&#x539F;&#x578B;&#x3002;&#x5BC4;&#x751F;&#x7EC4;&#x5408;&#x5F0F;&#x7EE7;&#x627F;&#x7684;&#x57FA;&#x672C;&#x6A21;&#x5F0F;&#x5982;&#x4E0B;&#x6240;&#x793A;&#x3002;
+</code></pre><p>function inheritPrototype(subType, superType){
+ var prototype = Object.create(superType.prototype); // &#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#xFF0C;&#x521B;&#x5EFA;&#x7236;&#x7C7B;&#x539F;&#x578B;&#x7684;&#x4E00;&#x4E2A;&#x526F;&#x672C;
+ prototype.constructor = subType;                    // &#x589E;&#x5F3A;&#x5BF9;&#x8C61;&#xFF0C;&#x5F25;&#x8865;&#x56E0;&#x91CD;&#x5199;&#x539F;&#x578B;&#x800C;&#x5931;&#x53BB;&#x7684;&#x9ED8;&#x8BA4;&#x7684;constructor &#x5C5E;&#x6027;
+ subType.prototype = prototype;                      // &#x6307;&#x5B9A;&#x5BF9;&#x8C61;&#xFF0C;&#x5C06;&#x65B0;&#x521B;&#x5EFA;&#x7684;&#x5BF9;&#x8C61;&#x8D4B;&#x503C;&#x7ED9;&#x5B50;&#x7C7B;&#x7684;&#x539F;&#x578B;
+}</p>
+<p>// &#x7236;&#x7C7B;&#x521D;&#x59CB;&#x5316;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x548C;&#x539F;&#x578B;&#x5C5E;&#x6027;
+function SuperType(name){
+ this.name = name;
+ this.colors = [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;];
+}
+SuperType.prototype.sayName = function(){
+ alert(this.name);
+};</p>
+<p>// &#x501F;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4F20;&#x9012;&#x589E;&#x5F3A;&#x5B50;&#x7C7B;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#xFF08;&#x652F;&#x6301;&#x4F20;&#x53C2;&#x548C;&#x907F;&#x514D;&#x7BE1;&#x6539;&#xFF09;
+function SubType(name, age){
+ SuperType.call(this, name);
+ this.age = age;
+}</p>
+<p>// &#x5C06;&#x7236;&#x7C7B;&#x539F;&#x578B;&#x6307;&#x5411;&#x5B50;&#x7C7B;
+inheritPrototype(SubType, SuperType);</p>
+<p>// &#x65B0;&#x589E;&#x5B50;&#x7C7B;&#x539F;&#x578B;&#x5C5E;&#x6027;
+SubType.prototype.sayAge = function(){
+ alert(this.age);
+}</p>
+<p>var instance1 = new SubType(&quot;xyc&quot;, 23);
+var instance2 = new SubType(&quot;lxy&quot;, 23);</p>
+<p>instance1.colors.push(&quot;2&quot;); // [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;, &quot;2&quot;]
+instance1.colors.push(&quot;3&quot;); // [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;, &quot;3&quot;]</p>
+<pre class="language-"><code>![img](https://note.youdao.com/yws/api/personal/file/DEFACD1D69D04F1ABF4366D8C98BC298?method=download&amp;shareKey=ca967273dbb2d4423afe0429984516ed)
+&gt; &#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x7684;&#x9AD8;&#x6548;&#x7387;&#x4F53;&#x73B0;&#x5728;&#x5B83;&#x53EA;&#x8C03;&#x7528;&#x4E86;&#x4E00;&#x6B21;SuperType &#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x5E76;&#x4E14;&#x56E0;&#x6B64;&#x907F;&#x514D;&#x4E86;&#x5728;SubType.prototype &#x4E0A;&#x521B;&#x5EFA;&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x3001;&#x591A;&#x4F59;&#x7684;&#x5C5E;&#x6027;&#x3002;&#x4E8E;&#x6B64;&#x540C;&#x65F6;&#xFF0C;&#x539F;&#x578B;&#x94FE;&#x8FD8;&#x80FD;&#x4FDD;&#x6301;&#x4E0D;&#x53D8;&#xFF1B;&#x56E0;&#x6B64;&#xFF0C;&#x8FD8;&#x80FD;&#x591F;&#x6B63;&#x5E38;&#x4F7F;&#x7528;instanceof &#x548C;isPrototypeOf()
+
+**&#x8FD9;&#x662F;&#x6700;&#x6210;&#x719F;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x4E5F;&#x662F;&#x73B0;&#x5728;&#x5E93;&#x5B9E;&#x73B0;&#x7684;&#x65B9;&#x6CD5;**
+#### &#x4E03; &#x6DF7;&#x5165;&#x65B9;&#x5F0F;&#x7EE7;&#x627F;&#x591A;&#x4E2A;&#x5BF9;&#x8C61;
+</code></pre><p>function MyClass() {
+    SuperClass.call(this);
+    OtherSuperClass.call(this);
+}</p>
+<p>// &#x7EE7;&#x627F;&#x4E00;&#x4E2A;&#x7C7B;
+MyClass.prototype = Object.create(SuperClass.prototype);
+// &#x6DF7;&#x5408;&#x5176;&#x5B83;
+Object.assign(MyClass.prototype, OtherSuperClass.prototype);
+// &#x91CD;&#x65B0;&#x6307;&#x5B9A;constructor
+MyClass.prototype.constructor = MyClass;</p>
+<p>MyClass.prototype.myMethod = function() {
+    // do something
+};</p>
+<pre class="language-"><code>&gt; Object.assign&#x4F1A;&#x628A;  OtherSuperClass&#x539F;&#x578B;&#x4E0A;&#x7684;&#x51FD;&#x6570;&#x62F7;&#x8D1D;&#x5230; MyClass&#x539F;&#x578B;&#x4E0A;&#xFF0C;&#x4F7F; MyClass &#x7684;&#x6240;&#x6709;&#x5B9E;&#x4F8B;&#x90FD;&#x53EF;&#x7528; OtherSuperClass &#x7684;&#x65B9;&#x6CD5;&#x3002;
+####&#x516B;&#x3001;ES6&#x7C7B;&#x7EE7;&#x627F;extends
+&gt; &#x672C;&#x8D28;&#x4ECD;&#x7136;&#x662F;&#x6784;&#x9020;&#x51FD;&#x6570;+&#x539F;&#x578B;&#x94FE;&#x7684;&#x7EC4;&#x5408;&#x5F0F;&#x7EE7;&#x627F;&#x3002;
+</code></pre><p>class A {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    getName() {
+        return this.name;
+    }
+}</p>
+<p>class B extends A {
+    constructor(name, age) {
+        super(name, age);
+        this.job = &quot;IT&quot;;
+    }
+    getJob() {
+        return this.job;
+    }
+    getNameAndJob() {
+        return super.getName() + this.job;
+    }
+}</p>
+<p>var b = new B(&quot;Tom&quot;, 20);
+console.log(b.name);
+console.log(b.age);
+console.log(b.getName());
+console.log(b.getJob());
+console.log(b.getNameAndJob());
+//&#x8F93;&#x51FA;&#xFF1A;Tom&#xFF0C;20&#xFF0C;Tom&#xFF0C;IT&#xFF0C;TomIT</p>
+<pre class="language-"><code>**extends&#x5173;&#x952E;&#x5B57;**
+
+&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A;B&#x7C7B;&#xFF08;class&#xFF09;&#xFF0C;&#x8BE5;&#x7C7B;&#x901A;&#x8FC7;extends&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x7EE7;&#x627F;&#x4E86;A&#x7C7B;&#x7684;&#x6240;&#x6709;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#x3002;A&#x7C7B;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x65B9;&#x6CD5;&#x9ED8;&#x8BA4;&#x662F;&#x6DFB;&#x52A0;&#x5230;B&#x7684;&#x539F;&#x578B;&#x4E0A;&#xFF0C;&#x6240;&#x4EE5;extends&#x7EE7;&#x627F;&#x7684;**&#x5B9E;&#x8D28;&#x4ECD;&#x7136;&#x662F;&#x539F;&#x578B;&#x94FE;**&#x3002;
+</code></pre><p>console.log(&quot;constructor&quot; in b);
+console.log(&quot;getName&quot; in b);
+console.log(b.hasOwnProperty(&quot;getName&quot;));
+console.log(b.hasOwnProperty(&quot;constructor&quot;));
+//&#x8F93;&#x51FA;&#xFF1A;true&#xFF0C;true&#xFF0C;false&#xFF0C;false</p>
+<pre class="language-"><code>super&#x5173;&#x952E;&#x5B57;
+
+super&#x8FD9;&#x4E2A;&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x65E2;&#x53EF;&#x4EE5;&#x5F53;&#x4F5C;&#x51FD;&#x6570;&#x4F7F;&#x7528;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x5F53;&#x4F5C;&#x5BF9;&#x8C61;&#x4F7F;&#x7528;&#x3002;&#x5F53;&#x4F5C;&#x51FD;&#x6570;&#x4F7F;&#x7528;&#x65F6;&#xFF0C;super&#x4EE3;&#x8868;&#x7236;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x5E76;&#x5728;&#x5B50;&#x7C7B;&#x4E2D;&#x6267;&#x884C;Parent.apply(this)&#xFF0C;&#x4ECE;&#x800C;&#x5C06;&#x7236;&#x7C7B;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#xFF0C;&#x6DFB;&#x52A0;&#x5230;&#x5B50;&#x7C7B;&#x7684;this&#x4E0A;&#x9762;&#x3002;&#x4EE5;&#x4E0B;&#x4E09;&#x70B9;&#x9700;&#x8981;&#x7279;&#x522B;&#x6CE8;&#x610F;&#xFF1A;
+
+1&#x3001;&#x5B50;&#x7C7B;&#x5FC5;&#x987B;&#x5728;constructor&#x65B9;&#x6CD5;&#x4E2D;&#x8C03;&#x7528;super&#x65B9;&#x6CD5;&#xFF0C;&#x5982;&#x679C;&#x5B50;&#x7C7B;&#x6CA1;&#x6709;&#x5B9A;&#x4E49;constructor&#x65B9;&#x6CD5;&#xFF0C;constructor&#x65B9;&#x6CD5;&#x4EE5;&#x53CA;&#x5176;&#x5185;&#x90E8;&#x7684;super&#x65B9;&#x6CD5;&#x4F1A;&#x88AB;&#x9ED8;&#x8BA4;&#x6DFB;&#x52A0;&#x3002;
+</code></pre><p>class A {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    getName() {
+        return this.name;
+    }
+}</p>
+<p>class B extends A {}</p>
+<p>var b = new B(&quot;Tom&quot;, 20);</p>
+<p>console.log(b.name);
+console.log(b.age);
+console.log(b.getName());
+console.log(b.hasOwnProperty(&quot;name&quot;));
+//&#x8F93;&#x51FA;&#xFF1A;Tom&#xFF0C;20&#xFF0C;Tom&#xFF0C;true</p>
+<pre class="language-"><code>2&#x3001;&#x5728;&#x5B50;&#x7C7B;&#x7684;constructor&#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x53EA;&#x6709;&#x8C03;&#x7528;super&#x4E4B;&#x540E;&#xFF0C;&#x624D;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;this&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x62A5;&#x9519;&#x3002;
+</code></pre><p>class A {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+}</p>
+<p>class B extends A {
+    constructor(name, age) {
+        this.job = &quot;IT&quot;;
+        super(name, age);
+    }
+}</p>
+<p>var b = new B(&quot;Tom&quot;, 20)
+//&#x8F93;&#x51FA;&#xFF1A;&#x62A5;&#x9519;</p>
+<pre class="language-"><code>3&#x3001;super()&#x53EA;&#x80FD;&#x7528;&#x5728;&#x5B50;&#x7C7B;&#x7684;constructor&#x65B9;&#x6CD5;&#x4E4B;&#x4E2D;&#xFF0C;&#x7528;&#x5728;&#x5176;&#x4ED6;&#x5730;&#x65B9;&#x5C31;&#x4F1A;&#x62A5;&#x9519;&#x3002;
+
+&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;&#xFF1A;
+</code></pre><p>class A {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+}</p>
+<p>class B extends A {
+    toStr(name, age) {
+        super(name, age)
+    }
+}</p>
+<p>var b = new B(&quot;Tom&quot;, 20)
+//&#x8F93;&#x51FA;&#xFF1A;&#x62A5;&#x9519;</p>
+<pre class="language-"><code>**super&#x4F5C;&#x4E3A;&#x5BF9;&#x8C61;**&#x65F6;&#xFF0C;&#x5728;&#x5B50;&#x7C7B;&#x4E2D;&#x6307;&#x5411;&#x7236;&#x7C7B;&#x7684;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x3002;
+</code></pre><p>class A {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    getName() {
+        console.log(this.name);
+    }
+}
+A.prototype.n = 2;</p>
+<p>class B extends A {
+    constructor(name, age) {
+        super(name, age);
+    }
+    toStr() {
+        return super.n;
+    }
+    activeGetName() {
+        super.getName();
+    }
+}</p>
+<p>var b = new B(&quot;Tom&quot;, 20);
+console.log(b.toStr());
+console.log(b.activeGetName());
+//&#x8F93;&#x51FA;&#xFF1A;2&#xFF0C;Tom</p>
+<pre class="language-"><code>**&#x9759;&#x6001;&#x65B9;&#x6CD5;&#x7684;&#x7EE7;&#x627F;**
+&gt;&#x5728;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x524D;&#x52A0;&#x4E0A;&#x5173;&#x952E;&#x5B57;static&#xFF0C;&#x5C31;&#x8868;&#x793A;&#x8BE5;&#x65B9;&#x6CD5;&#x4E0D;&#x4F1A;&#x88AB;&#x5B9E;&#x4F8B;&#x7EE7;&#x627F;&#xFF0C;&#x4F46;&#x662F;&#x7236;&#x7C7B;&#x7684;&#x9759;&#x6001;&#x65B9;&#x6CD5;&#xFF0C;&#x4F1A;&#x88AB;&#x5B50;&#x7C7B;&#x7EE7;&#x627F;&#x3002;
+
+&#x4F8B;&#x5B50;&#xFF1A;
+</code></pre><p>class A {
+    static say() {
+        console.log(&quot;hello&quot;);
+    }
+}</p>
+<p>class B extends A {}</p>
+<p>console.log(B.say());
+//&#x8F93;&#x51FA;&#xFF1A;hello</p>
+<pre class="language-"><code>&gt;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;super&#x5728;&#x5B50;&#x7C7B;&#x7684;&#x9759;&#x6001;&#x65B9;&#x6CD5;&#x4E2D;&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x7684;&#x9759;&#x6001;&#x65B9;&#x6CD5;&#x3002;super&#x5728;&#x9759;&#x6001;&#x65B9;&#x6CD5;&#x4E2D;&#x6307;&#x5411;&#x7236;&#x7C7B;&#x672C;&#x8EAB;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x7236;&#x7C7B;&#x7684;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x3002;
+</code></pre><p>class A {
+    static say() {
+        console.log(&quot;hello&quot;);
+    }
+}
+class B extends A {
+    static toStr() {
+        super.say();
+    }
+}
+var b = new B();
+console.log(B.toStr());
+//&#x8F93;&#x51FA;&#xFF1A;hello</p>
+<pre class="language-"><code>&gt;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;super&#x5728;&#x5B50;&#x7C7B;&#x7684;&#x9759;&#x6001;&#x65B9;&#x6CD5;&#x4E2D;&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x7684;&#x9759;&#x6001;&#x65B9;&#x6CD5;&#x3002;super&#x5728;&#x9759;&#x6001;&#x65B9;&#x6CD5;&#x4E2D;&#x6307;&#x5411;&#x7236;&#x7C7B;&#x672C;&#x8EAB;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x7236;&#x7C7B;&#x7684;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x3002;
+</code></pre><p>class A {
+    static say() {
+        console.log(&quot;hello&quot;);
+    }
+}</p>
+<p>class B extends A {
+    static toStr() {
+        super.say();
+    }
+}
+var b = new B();
+console.log(B.toStr());
+//&#x8F93;&#x51FA;&#xFF1A;hello</p>
+<pre class="language-"><code>**&#x7EE7;&#x627F;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x7C7B;**
+&gt;&#x7C7B;&#x4E0D;&#x4F46;&#x53EF;&#x4EE5;&#x7EE7;&#x627F;&#x81EA;&#x5176;&#x4ED6;&#x7C7B;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x7EE7;&#x627F;&#x8868;&#x8FBE;&#x5F0F;&#x3002;&#x53EA;&#x8981;&#x8868;&#x8FBE;&#x5F0F;&#x53EF;&#x4EE5;&#x88AB;&#x89E3;&#x6790;&#x4E3A;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x5E76;&#x4E14;&#x901A;&#x8FC7;new&#x5173;&#x952E;&#x5B57;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x65B0;&#x7684;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x5373;&#x53EF;&#x3002;
+</code></pre><p>let Obj = function(name) {
+    this.name = name;
+}
+Obj.prototype.getName = function() {
+    console.log(this.name);
+}</p>
+<p>class Person extends Obj {
+    constructor(name, age) {
+        super(name);
+        this.age = age;
+    }
+}</p>
+<p>const p = new Person(&quot;Tom&quot;, 19);</p>
+<p>console.log(p.name); //&#x8F93;&#x51FA;&#xFF1A;Tom
+console.log(p.age); //&#x8F93;&#x51FA;&#xFF1A;19
+p.getName(); //&#x8F93;&#x51FA;&#xFF1A;Tom</p>
+<pre class="language-"><code>**&#x7EE7;&#x627F;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;**
+</code></pre><p>let fn = function() {
+    return class Person {
+        constructor(name) {
+            return {
+                name
+            }
+        }
+    }
+}</p>
+<p>class SomeOne extends fn() {
+    constructor(name) {
+        super(name);
+    }
+}</p>
+<p>let p = new SomeOne(&quot;Tom&quot;);
+console.log(p.name); //&#x8F93;&#x51FA;&#xFF1A;Tom</p>
+<pre class="language-"><code>**New.target**
+&gt;&#x6211;&#x4EEC;&#x77E5;&#x9053;&#xFF0C;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x6709;&#x4E00;&#x4E2A;new.target&#x5BF9;&#x8C61;&#x7528;&#x4E8E;&#x5224;&#x65AD;&#x51FD;&#x6570;&#x662F;&#x5426;&#x901A;&#x8FC7;new&#x5173;&#x952E;&#x5B57;&#x8C03;&#x7528;&#x3002;&#x7C7B;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;new.target&#x6765;&#x786E;&#x5B9A;&#x7C7B;&#x7684;&#x8C03;&#x7528;&#x5F62;&#x5F0F;&#x3002;
+
+&#x4F8B;&#x5B50;&#xFF1A;
+</code></pre><p>class Obj {
+    //new Obj()&#x65F6;&#xFF0C;new.target&#x7684;&#x503C;&#x4E3A; Obj
+    constructor() {
+        if (new.target === Obj) {
+            console.log(&quot;&#x4E0D;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x57FA;&#x7C7B;&#xFF01;&quot;);
+        }
+    }
+    fn() {
+        console.log(this.name);
+    }
+}</p>
+<p>class Person extends Obj {
+    //new Person(&quot;Tom&quot;)&#x65F6;&#xFF0C;new.target&#x7684;&#x503C;&#x4E3A; Person
+    constructor(name) {
+        super();
+        this.name = name;
+    }
+}</p>
+<p>let p1 = new Person(&quot;Tom&quot;);
+p1.fn(); //&#x8F93;&#x51FA;&#xFF1A;Tom
+let p2 = new Obj(); //&#x8F93;&#x51FA;&#xFF1A;&#x4E0D;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x57FA;&#x7C7B;&#xFF01;
+```
+*&#x56E0;&#x4E3A;&#x7C7B;&#x5FC5;&#x987B;&#x901A;&#x8FC7;new&#x5173;&#x952E;&#x5B57;&#x8C03;&#x7528;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E2D;new.target&#x7684;&#x503C;&#x6C38;&#x8FDC;&#x4E0D;&#x4F1A;&#x662F;undefined&#x3002;</p>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; lin 2019 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2019-09-13 23:36:32
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="基础1.4：面向对象之创建对象的八种模式.html" class="navigation navigation-prev " aria-label="Previous page: 基础1.4：面向对象之创建对象的八种模式 ✔">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="基础2.1：原型和原型链(继承" class="navigation navigation-next " aria-label="Next page: 基础2.1：原型和原型链(继承) ✔">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"基础1.5：面向对象之继承的的八种方式 ✔","categories":"基础1.5.：面向对象之继承的的八种方式","tags":["JavaScript","基础"],"level":"1.4.5","depth":2,"next":{"title":"基础2.1：原型和原型链(继承) ✔","level":"1.4.6","depth":2,"path":"Javascript/基础2.1：原型和原型链(继承","ref":"./Javascript/基础2.1：原型和原型链(继承","articles":[]},"previous":{"title":"基础1.4：面向对象之创建对象的八种模式 ✔","level":"1.4.4","depth":2,"path":"Javascript/基础1.4：面向对象之创建对象的八种模式.md","ref":"./Javascript/基础1.4：面向对象之创建对象的八种模式.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","prism","-highlight","copy-code-button","search-pro","-search","-lunr","expandable-chapters","splitter","-sharing","github-buttons","donate","tbfed-pagefooter","baidu-tongji","anchor-navigation-ex","livereload"],"styles":{"website":"./public-repertory/css/gitbook-configure.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy lin 2019","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"shell":"bash"}},"livereload":{},"baidu-tongji":{"url":"https://hm.baidu.com/hm.js","token":"1c61bbd36ae979753ea33d5469a3151b"},"splitter":{},"search-pro":{},"donate":{"alipay":"http://www.93lin.cn/img/wechat.png","alipayText":"支付宝打赏","button":"打赏","title":"","wechat":"http://www.93lin.cn/img/alipay.png","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"theme-comscore":{},"github-buttons":{"buttons":[{"user":"93qlin","repo":"gitbook","type":"star","count":true,"size":"small"},{"user":"93qlin","width":"160","type":"follow","count":true,"size":"small"}]},"copy-code-button":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"lin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"lin 的文档库","language":"zh-hans","gitbook":"*","description":"lin 的文档库."},"file":{"path":"Javascript/基础1.5：面向对象之继承的的八种方式.md","mtime":"2019-09-13T15:36:32.734Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-13T08:08:41.880Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-baidu-tongji/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+
