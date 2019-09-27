@@ -7,7 +7,7 @@
 >React和Vue都有自己的构建工具，你可以使用它快速搭建开发环境。React可以使用Create React App (CRA)，而Vue对应的则是vue-cli。两个工具都能让你得到一个根据最佳实践设置的项目模板。都有管理状态，React有redux,Vue有自己的Vuex（自适应vue，量身定做）
 
 ## 区别
-### 设计思想
+## 设计思想
 #### react
 1. 函数式思想，all in js ,jsx语法，js操控css
 2. 单项数据流
