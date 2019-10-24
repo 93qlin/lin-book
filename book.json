@@ -1,0 +1,72 @@
+{
+    "title": "lin 的文档库",
+    "author": "lin",
+    "description": "lin 的文档库.",
+    "language": "zh-hans",
+    "styles": {
+        "website": "./public-repertory/css/gitbook-configure.css"
+    },
+    "plugins": [
+        "theme-comscore",
+        "prism",
+        "-highlight",
+        "copy-code-button",
+        "search-pro",
+        "-search",
+        "-lunr",
+        "expandable-chapters",
+        "splitter",
+        "-sharing",
+        "github-buttons",
+        "donate",
+        "tbfed-pagefooter",
+        "baidu-tongji",
+        "anchor-navigation-ex"
+    ],
+    "pluginsConfig": {
+        "github-buttons": {
+            "buttons": [
+                {
+                    "user": "93qlin",
+                    "repo": "gitbook",
+                    "type": "star",
+                    "count": true,
+                    "size": "small"
+                },
+                {
+                    "user": "93qlin",
+                    "width": "160",
+                    "type": "follow",
+                    "count": true,
+                    "size": "small"
+                }
+            ]
+        },
+        "donate": {
+            "button": "打赏",
+            "alipayText": "支付宝打赏",
+            "wechatText": "微信打赏",
+            "alipay": "http://www.93lin.cn/img/wechat.png",
+            "wechat": "http://www.93lin.cn/img/alipay.png"
+        },
+        "prism": {
+            "css": [
+                "prismjs/themes/prism-okaidia.css"
+            ],
+            "lang": {
+                "shell": "bash"
+            }
+        },
+        "tbfed-pagefooter": {
+            "copyright": "Copyright &copy lin 2019",
+            "modify_label": "该文件修订时间：",
+            "modify_format": "YYYY-MM-DD HH:mm:ss"
+        },
+        "baidu-tongji": {
+            "token": "1c61bbd36ae979753ea33d5469a3151b"
+        },
+        "anchor-navigation-ex": {
+            "showLevel": false
+        }
+    }
+}

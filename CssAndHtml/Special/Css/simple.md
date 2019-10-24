@@ -1,0 +1,1 @@
+transition-timing-function: cubic-bezier(0.42,0,0.58,1)
