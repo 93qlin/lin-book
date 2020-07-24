@@ -37,14 +37,14 @@ JavaScript 属于行为层，负责内容应如何对事件做出反应。
 
 &emsp;[14.document load 和document ready 的区别](#l14)
 
+&emsp;[15.document.write(),outerHTML、outerText、innerHTML、innerText属性](#l15)
 
 <h2 id='l1'>1. Doctype作用，HTML5 为什么只需要写 <！DOCTYPE HTML></h2>
 
-> doctype是一种标准通用标记语言的文档类型声明，目的是告诉标准通用标记语言解析器要使用什么样的文档类型定义（DTD）来解析文档.`<!DOCTYPE>`声明必须是HTML文档的第一行，位于html标签之前
+> doctype是一种标准通用标记语言的文档类型声明，目的是告诉标准通用标记语言解析器要使用什么样的（document type definition）文档类型定义（DTD）来解析文档.`<!DOCTYPE>`声明必须是HTML文档的第一行，位于html标签之前
 
-> HTML5不基于SGML，所以不需要引用DTD。在HTML5中<!DOCTYPE>只有一种
-
-> SGML: 标准通用标记语言,是现时常用的超文本格式的最高层次标准
+- HTML 4.01 基于 SGML:标准通用标示语言（Standard Generalized Markup Language）是现时常用的超文本格式的最高层次标准。
+- HTML5不基于SGML，所以不需要引用DTD。在HTML5中<!DOCTYPE>只有一种
 
 ## <div id='l2'>2. 行内元素有哪些，块级元素有哪些，空(void)元素有那些</div>
 
@@ -235,5 +235,72 @@ localStorage.removeItem('name'); // 删除 name 的值
 2. $(document).ready()是当DOM文档树加载完成后执行一个函数 （不包含图片，css等）所以会比load较快执行
 在原生的jS中不包括ready()这个方法，只有load方法就是onload事件
 
+<h2 id='l15'>document.write(),outerHTML、outerText、innerHTML、innerText属性</h2>
+
+- document.write是直接写入到页面的内容流，如果在写之前没有调用document.open, 浏览器会自动调用open。每次写完关闭之后重新调用该函数，会导致页面被重写。
+- outerHTML | outerText | innerHTML | innerText
+这四个都是js原生DOM对象的属性，返回的数据都是string类型。
+看例子：
+获取属性
+```
+var oHtml = $("div")[0].outerHTML;
+var oText = $("div")[0].outerText;
+var iHtml = $("div")[0].innerHTML;
+var iText = $("div")[0].innerText;
+
+<div>
+    div 
+    <a>a</a>
+</div>
+```
+分别返回：
+```
+<div>
+    div 
+    <a>a</a>
+</div>
+---------------------
+div a
+---------------------
+    div 
+    <a>a</a>
+---------------------
+div a
+```
+设置属性
+```
+<body>
+	<div>
+	</div>
+</body>
+
+$("div")[0].outerHTML = "<a>a</a>";
+$("div")[0].outerText = "<a>a</a>";
+$("div")[0].innerHTML = "<a>a</a>";
+$("div")[0].innerText = "<a>a</a>";
+```
+分别变成：
+```
+<body>
+	<a>a</a>
+</body>
+---------------------
+<body>
+	&lt;a&gt;a&lt;/a&gt;
+</body>
+---------------------
+<body>
+	<div><a>a</a></div>
+</body>
+---------------------
+<body>
+	<div>&lt;a&gt;a&lt;/a&gt;</div>
+</body>
+```
+### 也就是说:
+
+
+> outer和inner决定是不是包含最外层（当前）标签；
+Text和HTML获取时决定是否把标签忽略，插入时决定是否把字符串解析为标签。
 
 
