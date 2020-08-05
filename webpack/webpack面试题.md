@@ -183,7 +183,7 @@ entry: {
 
 - `define-plugin`：定义环境变量
 - `commons-chunk-plugin`：提取公共代码
-
+- `AutoWebPlugin`: 管理多个单页应用,
 <h5 id='w8'>8. Loader和Plugin的不同</h5>
 
 - loader 加载器

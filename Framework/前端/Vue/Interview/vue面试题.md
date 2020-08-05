@@ -48,6 +48,8 @@ tags:
 
 &emsp;[21. vue-router 使用params与query传参有什么区别](#k21)
 
+&emsp;[22. 详解vue的diff算法](#k22)
+
 ## <h5 id='k1'>1. 说一下Vue的双向绑定数据的原理</h5>
 
 > `vue` 实现数据双向绑定主要是：采用数据劫持结合发布者-订阅者模式的方式，通过 `Object.defineProperty()` 来劫持各个属性的 `setter`，`getter`，在数据变动时发布消息给订阅者，触发相应监听回调
@@ -287,3 +289,5 @@ this.$route.query
 
 - `params` 是路由的一部分,必须要有。`query` 是拼接在 `url` 后面的参数，没有也没关系
 - `params` 不设置的时候，刷新页面或者返回参数会丢，`query` 则不会有这个问题
+## <h5 id='k22'>22. 详解vue的diff算法</h5>
+[详解vue的diff算法](https://www.cnblogs.com/wind-lanyan/p/9061684.html)

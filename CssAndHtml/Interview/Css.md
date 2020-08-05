@@ -36,7 +36,7 @@ CSS 属于表示层，负责如何显示有关内容。
 
 &emsp;[12. CSS优化、提高性能的方法有哪些](#c12)
 
-&emsp;[13. 重绘和回流，浏览器是怎样解析CSS的](#c13)
+&emsp;[13. 重绘和重排（回流）的理解](#c13)
 
 &emsp;[14. flex布局css预处理器](#c14)
 
@@ -58,9 +58,11 @@ CSS 属于表示层，负责如何显示有关内容。
 
 &emsp;[23.css哪些属性可以继承](#c23)
 
-&emsp;[24.css3有哪些新特性](#c24)
+&emsp;[24.三栏布局（圣杯和双飞翼）和两栏布局](#c24)
 
-&emsp;[22.为何要清除浮动？如何清除？](#c22)
+&emsp;[25.:link、:hover、:active和:visited的区别？](#c25)
+
+
 
 ### CSS
 
@@ -259,9 +261,14 @@ animation-play-state:running | paused ：控制元素动画的播放状态。
 - 尽量减少页面重排、重绘
 - 抽象提取公共样式，减少代码量
 
-## <div id='c13'>13. 重绘和回流</div>
-
-[重绘和回流](https://juejin.im/post/5a9923e9518825558251c96a)
+## <div id='c13'>13. 重绘和重排（回流）的理解</div>
+1. 重绘（repaint或redraw）：
+重绘是指当 DOM 元素的属性发生变化 (如 color) 时, 浏览器会通知render 重新描绘相应的元素, 此过程称为重绘。
+2. 重排：
+重排是指某些元素变化涉及元素布局 (如width), 浏览器则抛弃原有属性, 重新计算，此过程称为重排。（重排一定会重绘，重绘不一定重排）
+3. 回流（reflow）：
+重排好的结果，传递给render以重新描绘页面元素, 此过程称为回流
+[重绘和重排（回流）的理解](https://www.cnblogs.com/yxkNotes/p/12718693.html)
 
 ## <div id='c14'>14. flex布局</div>
 
@@ -687,3 +694,14 @@ css3新增的伪元素
 
 - 圣杯布局为middle添加padding，将middle往中间缩，然后用position来处理两边的位置。
 - 双飞翼布局是在middle里又加了一个inner，然后为inner添加padding。
+
+<h2 id='c25'>25.:link、:hover、:active和:visited的区别？</h2>
+>（小技巧：有一天我走在路上，捡到一个lv的包，我就很开心，笑haha。l在头，v在尾，ha依次在中间）
+
+```
+:link、:hover、:active和:visited的区别？
+:link表示鼠标点击之前，也称为原始状态
+:hover表示鼠标悬停状态
+:active表示鼠标点击状态
+:visited表示鼠标点击之后状态
+```
