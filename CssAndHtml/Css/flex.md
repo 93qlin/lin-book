@@ -247,3 +247,5 @@ p {
 ![img](../img/WX20190930-002022@2x.png)
 
 > 该属性可能取6个值，除了auto，其他都与align-items属性完全一致。 flex-start | flex-end | center | baseline | stretch;
+
+[参考1](https://www.jianshu.com/p/baba0d2939de)

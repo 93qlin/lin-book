@@ -62,6 +62,9 @@ CSS 属于表示层，负责如何显示有关内容。
 
 &emsp;[25.:link、:hover、:active和:visited的区别？](#c25)
 
+&emsp;[26.左中右的满屏布局，左右固定220px,中间自适应并且要优先加载](#c26)
+
+
 
 
 ### CSS
@@ -704,4 +707,38 @@ css3新增的伪元素
 :hover表示鼠标悬停状态
 :active表示鼠标点击状态
 :visited表示鼠标点击之后状态
+```
+<h2 id='c26'>26.左中右的满屏布局，左右固定220px,中间自适应并且要优先加载</h2>
+
+> **order**
+声明在flex item上，其值是数值，默认值是0，用来控制flex item在flex container中的显示顺序，数值越小越靠前。如果flex items有相同的order属性值，则按照他们在文档流中的顺序排列。
+有一点需要注意，order属性只是改变了元素的显示顺序，他们在文档流中的位置没有发生任何改变，所以像div:nth-child(1)这种选择器依然是按照元素在文档流中的顺序
+
+```
+<main>
+	<div class="center">center</div>
+	<div class="left">left</div>
+	<div class="right">right</div>
+</main>
+
+```
+
+```
+main {
+	width: 100%;
+	display: flex;
+}
+
+
+.left, .right {
+	flex: 0 0 220px;
+}
+
+.center {
+	flex: 1;
+}
+
+.left {
+	order: -1;
+}
 ```
