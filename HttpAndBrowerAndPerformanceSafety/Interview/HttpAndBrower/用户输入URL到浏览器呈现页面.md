@@ -715,6 +715,14 @@ img { float: right }
 ```
 那么最终的CSSOM树就是：
 ![img](../../img/browser_parse_cssom.png)
+
+**相关面试题**
+
+css加载会阻塞阻塞DOM树解析和渲染吗？
+1. css加载不会阻塞DOM树的解析
+2. css加载会阻塞DOM树的渲染
+3. css加载会阻塞后面js语句的执行
+
 ### 构建渲染树
 当DOM树和CSSOM都有了后，就要开始构建渲染树了
 

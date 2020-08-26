@@ -145,6 +145,17 @@ box-sizing: content-box|border-box|inherit:
 }
 ```
 
+> grid
+
+```
+.grid{
+  display: grid;
+ 
+  place-content: center;
+}
+```
+
+
 ## <div id='c4'>4. px和em和rem的区别</div>
 
 > `px`: 像素，相对长度单位。像素`px`是相对于显示器屏幕分辨率而言的
@@ -384,14 +395,17 @@ border-color: transparent transparent blue transparent;
 <h2 id='c20'>20.css伪类和伪元素</h2>
 
 #### css伪类
-css伪类本质上是为了弥补常规CSS选择器的不足，以便获取到更多信息
+css伪类本质上是为了弥补常规CSS选择器的不足，以便获取到更多信息，⽤来添加⼀些选择器的特殊效果。
 ```
 :link, :visited, :hover, :focus, :active, :first-child, :lang
 - css3新增的伪类：
 :last-child, :only-child, :first-of-type, :last-of-type, :only-of-type, :nth-child(n), :nth-last-child(n), :nth-of-type(n), :nth-last-of-type(n), :root, :empty, :target, :enabled, :disabled, :checked, :not(selector),
 ```
 #### css伪元素
-css伪元素本质上是创建了一个有内容的虚拟容器。
+- DOM树没有定义的虚拟元素
+- 核⼼就是需要创建通常不存在于⽂档中的元素，
+- ⽐如::before ::after 它选择的是元素指定内容，表示选择元素内容的之前内容或之后内容。
+- 伪元素控制的内容和元素是没有差别的，但是它本身只是基于元素的抽象，并不存在于⽂档中，所以称为伪元素。⽤于将特殊的效果添加到某些选择器
 ```
 ::first-letter, ::first-line, ::before, ::after
 css3新增的伪元素

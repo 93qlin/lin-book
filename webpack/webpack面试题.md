@@ -29,7 +29,12 @@
 &emsp;[14. 怎么配置单页应用？怎么配置多页应用](#w14)
 
 &emsp;[15. 什么是bundle,什么是chunk，什么是module](#w15)
+
+&emsp;[16. 你的 import 被 webpack 编译成了什么？](#w16)
+
+&emsp;[17. tree shaking？](#w17)
   
+&emsp;[18. Babel 工作流程](#w18)
 
 <h5 id='w1'>1. 对webpack的了解</h5>
 
@@ -241,3 +246,47 @@ entry: {
 <h5 id='w15'>15. 什么是bundle,什么是chunk，什么是module</h5>
 
 > `bundle` 是由 `webpack` 打包出来的文件，`chunk` 是指 `webpack` 在进行模块的依赖分析的时候，代码分割出来的代码块。`module`是开发中的单个模块
+
+<h5 id='w16'>16. 你的 import 被 webpack 编译成了什么？</h5>
+
+import moduleName from 'xxModule'和import('xxModule')经过webpack编译打包后最终变成了什么？在浏览器中是怎么运行的？
+
+> import经过webpack打包以后变成一些Map对象，key为模块路径，value为模块的可执行函数；
+
+> 代码加载到浏览器以后从入口模块开始执行，其中执行的过程中，最重要的就是webpack定义的c，负责实际的模块加载并执行这些模块内容，返回执行结果，其实就是读取Map对象，然后执行相应的函数；
+
+> 当然其中的**异步方法**（import('xxModule')）比较特殊一些，它会单独打成一个包，采用动态加载的方式，具体过程：当用户触发其加载的动作时，会动态的在head标签中创建一个script标签，然后发送一个http请求，加载模块，模块加载完成以后自动执行其中的代码，主要的工作有两个，更改缓存中模块的状态，另一个就是执行模块代码。
+
+<h5 id='w17'>17. tree shaking?</h5>
+
+> 什么是 tree shaking，即 webpack 在打包的过程中会将没用的代码进行清除(dead code)。一般 dead code 具有一下的特征：
+
+1. 代码不会被执行，不可到达
+2. 代码执行的结果不会被用到
+3. 代码只会影响死变量（只写不读）
+是不是很神奇，那么需要怎么做才能使 tree shaking 生效呢? 
+
+<h5 id='w18'>18. Babel 工作流程?</h5>
+> Babel 其实就是一个纯粹的 JavaScript 的编译器，任何一个编译器工作流程大致都可以分为如下三步：
+
+- Parser 解析源文件
+
+- Transfrom 转换
+
+- Generator 生成新文件
+
+Babel 也不例外，如下图所示：
+![img](img/aHR0cHM6Ly9vc2NpbWcub3NjaGluYS5uZXQvb3NjbmV0L3VwLWRiYjUxNDliNWU4NDQ4NjJmYjAzNTFjOGMzZjUwMGRiZDM2LkpQRUc.jpeg)
+
+> 因为 Babel 使用是 acorn 这个引擎来做解析，这个库会先将源码转化为抽象语法树 (AST)，再对 AST 作转换，最后将转化后的 AST 输出，便得到了被 Babel 编译后的文件。
+
+那 Babel 是如何知道该怎么转化的呢？答案是通过插件，Babel 为每一个新的语法提供了一个插件，在 Babel 的配置中配置了哪些插件，就会把插件对应的语法给转化掉。插件被命名为 @babel/plugin-xxx 的格式。
+
+
+
+
+<h5 id='w19'>19. Webpack和Rollup对比?</h5>
+ 
+Webpack和Rollup在不同场景下，都能发挥自身优势作用。Webpack对于代码分割和静态资源导入有着“先天优势”，并且支持热模块替换(HMR)，而Rollup并不支持，所以当项目需要用到以上，则可以考虑选择Webpack。但是，Rollup对于代码的Tree-shaking和ES6模块有着算法优势上的支持，若你项目只需要打包出一个简单的bundle包，并是基于ES6模块开发的，可以考虑使用Rollup。
+其实Webpack从2.0开始支持Tree-shaking，并在使用babel-loader的情况下支持了es6 module的打包了，实际上，Rollup已经在渐渐地失去了当初的优势了。但是它并没有被抛弃，反而因其简单的API、使用方式被许多库开发者青睐，如React、Vue等，都是使用Rollup作为构建工具的。而Webpack目前在中大型项目中使用得非常广泛。
+最后，用一句话概括就是：**在开发应用时使用 Webpack，开发库时使用 Rollup**。

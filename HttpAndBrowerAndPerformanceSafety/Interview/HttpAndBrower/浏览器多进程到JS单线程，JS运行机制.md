@@ -315,14 +315,52 @@ console.log('begin');
 
 >macrotask 和 microtask 表示异步任务的两种分类。
 
+
+
 >在挂起任务时，JS 引擎会将所有任务按照类别分到这两个队列中，首先在 macrotask 的队列（这个队列也被叫做 task queue）中取出第一个任务，执行完毕后取出 microtask 队列中的所有任务顺序执行；之后再取 macrotask 任务，周而复始，直至两个队列的任务都取完。
+
+**微任务和宏任务的区别**:
+
+- 微任务进入主线程执行是一队一队的, 而宏任务进入主线程是一个一个的。
+- 微任务是在主线程空闲时批量执行, 宏任务是在事件循环下一轮的最开始执行
+
 <div><img src="../../img/1053223-20180831162152579-2034514663.png" width = "500" height = "600" align=100 /></div>
 
 **宏任务和微任务之间的关系**
 
 <div><img src="../../img/WX20190912-170146@2x.png" width = "500" height = "600" align=100 /></div>
+console.log(1)
+    setTimeout(function() {
+        console.log(2)
+    })
+    
+    Promise.resolve()
+        .then(function() {
+            console.log(3)
+        })
+    
+    console.log(4)
+    
+   // 打印结果: 1 4 3 2
+整个的执行过程:
 
-看个例子
+    stack(执行栈)、Micro(微任务)、Macro（宏任务）
+
+    1.初始状态： stack:[], Micro: [], Macro: [script]。执行栈为空, 微任务为空, 宏任务队列中有一个整体的 script代码 
+    
+    2. 主线程开始执行, 遇到console.log(1), 首先会打印 1 
+    
+    3. 继续向下执行,遇到 setTimeout异步任务,就将其加入到Macro(宏任务)队列中。等待执行 
+    
+    4. 继续向下执行, 遇到 Promise.resolve也是一个异步任务,单它是微任务,将其加入 Micro(微任务)队列中,等待着行 
+    
+    5. 解析console.log(4), 并且打印4。 当主线程执行完打印的结果依次是 1 和 4。
+    
+    6. 这时候主线程就会问 任务(异步)队列,有没有微任务要执行,将所有的 Micro(微任务)加入执行栈执行, 打印结果 3
+    
+    7. 微任务执行完了, 就开始下一轮事件循环, 将第一个 Macro(宏任务)压入执行栈执行, 再次打印 2。  
+
+再看个例子
 ```
 setTimeout(() => {
     //执行后 回调一个宏事件
@@ -345,8 +383,9 @@ new Promise((resolve) => {
 微事件1
 微事件2
 内层宏事件3
+> > 宏任务先于微任务执行。宏任务包括整体代码script，setTimeout，setInterval；微任务有Promise，process.nextTick。上面的例子就是整体代码script，所以先执行
 
-- 首先浏览器执行js进入第一个宏任务进入主线程, 遇到 setTimeout  分发到宏任务Event Queue中
+- 首先浏览器执行js进入第一个宏任务script进入主线程, 遇到 setTimeout  分发到宏任务Event Queue中
 
 - 遇到 console.log() 直接执行 输出 外层宏事件1
 
@@ -358,10 +397,13 @@ new Promise((resolve) => {
 
 - 第一轮微任务执行完毕，执行第二轮宏事件，打印setTimeout里面内容'内层宏事件3'
 
+
+
 #### 宏任务
  
 \#|浏览器|Node
 -|-
+script|√|√
 setTimeout|√|√
 setInterval|√|√
 setImmediate|x|√
@@ -434,7 +476,7 @@ setTimeout(function() {
 
 - 第一轮微任务执行完毕，执行第二轮宏事件，执行setTimeout
 
-- 先执行主线程宏任务，在执行微任务，打印'2,4,3,5'
+- 先执行主线程宏任务，然后主线程就会问 任务(异步)队列,有没有微任务要执行，再执行微任务，打印'2,4,3,5'
 
 - 在执行第二个setTimeout,同理打印 ‘9,11,10,12’
 

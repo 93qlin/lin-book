@@ -5,55 +5,57 @@
 1. display 属性
     **display: grid指定一个容器采用网格布局。**
 2. 
-- grid-template-columns 属性，
-- grid-template-rows 属性,
+grid-template-columns 属性，
+grid-template-rows 属性,
 repeat(),auto-fill关键字,fr 关键字,minmax(),auto 关键字,网格线的名称
-3.
-- grid-row-gap 属性，
-- grid-column-gap 属性，
-- grid-gap 属性
+
+3. 
+grid-row-gap 属性，
+grid-column-gap 属性，
+grid-gap 属性
+
 4. grid-template-areas
 
 5. grid-auto-flow
 
 6. 
-- justify-items 属性，
-- align-items 属性，
-- place-items 属性
+justify-items 属性，
+align-items 属性，
+place-items 属性
 
 7. 
-- justify-content 属性，
-- align-content 属性，
-- place-content 属性
+justify-content 属性，
+align-content 属性，
+place-content 属性
 
 8. 
-- grid-auto-columns 属性，
-- grid-auto-rows 属性
+grid-auto-columns 属性，
+grid-auto-rows 属性
 
 9. 
-- grid-template 属性，
-- grid 属性
+grid-template 属性，
+grid 属性
 
 #### 项目属性
 下面这些属性定义在项目上面。
 
 1. 
-- grid-column-start 属性，
-- grid-column-end 属性，
-- grid-row-start 属性，
-- grid-row-end 属性
+grid-column-start 属性，
+grid-column-end 属性，
+grid-row-start 属性，
+grid-row-end 属性
 
 2. 
-- grid-column 属性，
-- grid-row 属性
+grid-column 属性，
+grid-row 属性
 **这两个属性之中，也可以使用span关键字，表示跨越多少个网格**
 
 3. grid-area
 
 4. 
-- justify-self 属性，
-- align-self 属性，
-- place-self 属性
+justify-self 属性，
+align-self 属性，
+place-self 属性
 
 ### 练习grid
 
@@ -91,3 +93,12 @@ repeat(),auto-fill关键字,fr 关键字,minmax(),auto 关键字,网格线的名
 
  ```
 ![img](../img/gridtest.jpg)
+
+### 垂直居中 
+```
+.grid{
+  display: grid;
+ 
+  place-content: center;
+}
+```
