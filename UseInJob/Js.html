@@ -1448,7 +1448,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><li><span class="title-icon "></span><a href="#babel-plugin-proposal-optional-chaining"><b></b>babel-plugin-proposal-optional-chaining</a></li></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><pre class="language-"><code>/*
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><li><span class="title-icon "></span><a href="#babel-plugin-proposal-optional-chaining"><b></b>babel-plugin-proposal-optional-chaining</a></li><ul><li><span class="title-icon "></span><a href="#&#x4E09;&#x3001;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x6DD8;&#x5B9D;&#x7684;flexiblejs-httpsgithubcomamfelib-flexible"><b></b>&#x4E09;&#x3001;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x6DD8;&#x5B9D;&#x7684;flexible.js https://github.com/amfe/lib-flexible</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><pre class="language-"><code>/*
  * &#x79FB;&#x52A8;&#x7AEF;rem&#x9002;&#x914D;&#xFF0C;px:rem = 100:1
  * &#x8BE5;&#x9002;&#x914D;&#x517C;&#x5BB9;UC&#x7AD6;&#x5C4F;&#x8F6C;&#x6A2A;&#x5C4F;&#x51FA;&#x73B0;&#x7684;BUG
  * &#x81EA;&#x5B9A;&#x4E49;&#x8BBE;&#x8BA1;&#x7A3F;&#x7684;&#x5BBD;&#x5EA6;&#xFF1A;designWidth
@@ -1541,11 +1541,172 @@ obj?[expr].filter(fun):0 &#x5F15;&#x64CE;&#x96BE;&#x4EE5;&#x5224;&#x65AD; obj?[e
 <pre class="language-"><code>&#x4E0B;&#x9762;&#x662F;&#x7F16;&#x8BD1;&#x540E;&#x7684;&#x4EE3;&#x7801;&#xFF1A;
 </code></pre><p>var _obj$foo;</p>
 <p>const obj = {};
-const baz = obj === null || obj === void 0 ? void 0 : (_obj$foo = obj.foo) === null || _obj$foo === void 0 ? void 0 : _obj$foo.foo1;
-```
-&#x8FD9;&#x6837;&#x770B;&#x4E0A;&#x53BB;&#x662F;&#x4E0D;&#x662F;&#x53EF;&#x4EE5;&#x66F4;&#x597D;&#x7684;&#x7406;&#x89E3;&#x8BE5;&#x7279;&#x6027;&#x4E86;&#xFF0C;&#x6CE8;&#x610F;: &#x8BE5;bebel&#x63D2;&#x4EF6;&#x5E76;&#x4E0D;&#x652F;&#x6301;Nullish coalescing operator&#xFF08;?? &#x8FD0;&#x7B97;&#x7B26;&#xFF09;&#x3002; </p>
+const baz = obj === null || obj === void 0 ? void 0 : (_obj$foo = obj.foo) === null || _obj$foo === void 0 ? void 0 : _obj$foo.foo1;</p>
+<pre class="language-"><code>&#x8FD9;&#x6837;&#x770B;&#x4E0A;&#x53BB;&#x662F;&#x4E0D;&#x662F;&#x53EF;&#x4EE5;&#x66F4;&#x597D;&#x7684;&#x7406;&#x89E3;&#x8BE5;&#x7279;&#x6027;&#x4E86;&#xFF0C;&#x6CE8;&#x610F;: &#x8BE5;bebel&#x63D2;&#x4EF6;&#x5E76;&#x4E0D;&#x652F;&#x6301;Nullish coalescing operator&#xFF08;?? &#x8FD0;&#x7B97;&#x7B26;&#xFF09;&#x3002;
+## rem
+### &#x4E00;&#x3001;&#x6839;&#x636E;&#x4E0D;&#x540C;&#x7684;&#x8BBE;&#x5907;&#x5BBD;&#x5EA6;&#x5728;&#x6839;&#x5143;&#x7D20;&#x4E0A;&#x8BBE;&#x7F6E;&#x4E0D;&#x540C;&#x7684;&#x5B57;&#x4F53;&#x5927;&#x5C0F;
+</code></pre><p>(function(win) {
+    var doc = win.document;
+    var docEl = doc.documentElement;
+    var tid;
+    function refreshRem() {
+        var width = docEl.getBoundingClientRect().width;
+        if (width &gt; 540) { // &#x6700;&#x5927;&#x5BBD;&#x5EA6;
+            width = 540;
+        }
+        var rem = width / 6.4; // 6.4 = 640 / 100; ( 640px&#x7684;&#x8BBE;&#x8BA1;&#x56FE; &#x9664;&#x4E86; 100px )
+        docEl.style.fontSize = rem + &apos;px&apos;;
+    }
+    win.addEventListener(&apos;resize&apos;, function() {
+        clearTimeout(tid);
+        tid = setTimeout(refreshRem, 300);
+    }, false);
+    win.addEventListener(&apos;pageshow&apos;, function(e) {
+        if (e.persisted) {
+            clearTimeout(tid);
+            tid = setTimeout(refreshRem, 300);
+        }
+    }, false);
+    refreshRem();
+})(window);</p>
+<pre class="language-"><code>
+&#x7B80;&#x5316;&#x7248;
+</code></pre><p>(function() {
+    function remAdapt() {
+        var winWth = window.innerWidth,
+            maxWth = 472,
+            pageWth = winWth&gt;maxWth?maxWth:winWth;
+        var fontSize = pageWth/maxWth*16;
+        fontSize = fontSize&gt;12?fontSize:12;
+        document.documentElement.style.fontSize = Math.round(fontSize)+&apos;px&apos;;
+    }
+    document.addEventListener(&apos;DOMContentLoaded&apos;, remAdapt)
+    window.addEventListener(&apos;resize&apos;, remAdapt);
+})();</p>
+<pre class="language-"><code>
+### &#x4E8C;&#x3001;&#x6839;&#x636E; devicePixelRatio &#x8BBE;&#x5B9A; initial-scale &#x6765;&#x653E;&#x5927; viewport&#xFF0C;&#x4F7F;&#x9875;&#x9762;&#x6309;&#x7167;&#x7269;&#x7406;&#x50CF;&#x7D20;&#x6E32;&#x67D3;&#xFF0C;&#x63D0;&#x5347;&#x6E05;&#x6670;&#x5EA6;
+</code></pre><p>/**</p>
+<ul>
+<li>MobileWeb &#x901A;&#x7528;&#x529F;&#x80FD;&#x52A9;&#x624B;&#xFF0C;&#x5305;&#x542B;&#x5E38;&#x7528;&#x7684; UA &#x5224;&#x65AD;&#x3001;&#x9875;&#x9762;&#x9002;&#x914D;&#x3001;search &#x53C2;&#x6570;&#x8F6C; &#x952E;&#x503C;&#x5BF9;&#x3002;</li>
+<li>&#x8BE5; JS &#x5E94;&#x5728; head &#x4E2D;&#x5C3D;&#x53EF;&#x80FD;&#x65E9;&#x7684;&#x5F15;&#x5165;&#xFF0C;&#x51CF;&#x5C11;&#x91CD;&#x7ED8;&#x3002;
+*</li>
+<li>fixScreen &#x65B9;&#x6CD5;&#x6839;&#x636E;&#x4E24;&#x79CD;&#x60C5;&#x51B5;&#x9002;&#x914D;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x81EA;&#x52A8;&#x6267;&#x884C;&#x3002;</li>
+<li><ol>
+<li>&#x5B9A;&#x5BBD;&#xFF1A; &#x5BF9;&#x5E94; meta &#x6807;&#x7B7E;&#x5199;&#x6CD5; -- <meta name="viewport" content="target-densitydpi=device-dpi,width=750"></li>
+</ol>
+</li>
+<li>&#x8BE5;&#x65B9;&#x6CD5;&#x4F1A;&#x63D0;&#x53D6; width &#x503C;&#xFF0C;&#x4E3B;&#x52A8;&#x6DFB;&#x52A0; scale &#x76F8;&#x5173;&#x5C5E;&#x6027;&#x503C;&#x3002;</li>
+<li>&#x6CE8;&#x610F;&#xFF1A; &#x5982;&#x679C; meta &#x6807;&#x7B7E;&#x4E2D;&#x6307;&#x5B9A;&#x4E86; initial-scale&#xFF0C; &#x8BE5;&#x65B9;&#x6CD5;&#x5C06;&#x4E0D;&#x505A;&#x5904;&#x7406;&#xFF08;&#x5373;&#x4E0D;&#x6267;&#x884C;&#xFF09;&#x3002;</li>
+<li><ol>
+<li>REM: &#x4E0D;&#x7528;&#x5199; meta &#x6807;&#x7B7E;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x6839;&#x636E; dpr &#x81EA;&#x52A8;&#x751F;&#x6210;&#xFF0C;&#x5E76;&#x5728; html &#x6807;&#x7B7E;&#x4E2D;&#x52A0;&#x4E0A; data-dpr &#x548C; font-size &#x4E24;&#x4E2A;&#x5C5E;&#x6027;&#x503C;&#x3002;</li>
+</ol>
+</li>
+<li>&#x8BE5;&#x65B9;&#x6CD5;&#x7EA6;&#x675F;&#xFF1A;IOS &#x7CFB;&#x7EDF;&#x6700;&#x5927; dpr = 3&#xFF0C;&#x5176;&#x5B83;&#x7CFB;&#x7EDF; dpr = 1&#xFF0C;&#x9875;&#x9762;&#x6BCF; dpr &#x6700;&#x5927;&#x5BBD;&#x5EA6;&#xFF08;&#x5373;&#x9875;&#x9762;&#x5BBD;&#x5EA6;/dpr&#xFF09; = 750&#xFF0C;REM &#x6362;&#x7B97;&#x6BD4;&#x503C;&#x4E3A; 16&#x3002;</li>
+<li>&#x5BF9;&#x5E94; css &#x5F00;&#x53D1;&#xFF0C;&#x4EFB;&#x4F55;&#x5F39;&#x6027;&#x5C3A;&#x5BF8;&#x5747;&#x4F7F;&#x7528; rem &#x5355;&#x4F4D;&#xFF0C;rem &#x9ED8;&#x8BA4;&#x5BBD;&#x5EA6;&#x4E3A; &#x89C6;&#x89C9;&#x7A3F;&#x5BBD;&#x5EA6; / 16;</li>
+<li>scss &#x4E2D; $ppr(pixel per rem) &#x53D8;&#x91CF;&#x5199;&#x6CD5; -- $ppr: 750px/16/1rem;</li>
+<li><p>&#x5143;&#x7D20;&#x5C3A;&#x5BF8;&#x5199;&#x6CD5; -- html { font-size: $ppr<em>1rem; } body { width: 750px/$ppr; }&#x3002;
+</em>/
+window.mobileUtil = (function(win, doc) {
+var UA = navigator.userAgent,
+isAndroid = /android|adr/gi.test(UA),
+isIos = /iphone|ipod|ipad/gi.test(UA) &amp;&amp; !isAndroid, // &#x636E;&#x8BF4;&#x67D0;&#x4E9B;&#x56FD;&#x4EA7;&#x673A;&#x7684;UA&#x4F1A;&#x540C;&#x65F6;&#x5305;&#x542B; android iphone &#x5B57;&#x7B26;
+isMobile = isAndroid || isIos;  // &#x7C97;&#x7565;&#x7684;&#x5224;&#x65AD;
+return {
+isAndroid: isAndroid,
+isIos: isIos,
+isMobile: isMobile,</p>
+<p>isNewsApp: /NewsApp\/[\d.]+/gi.test(UA),
+isWeixin: /MicroMessenger/gi.test(UA),
+isQQ: /QQ\/\d/gi.test(UA),
+isYixin: /YiXin/gi.test(UA),
+isWeibo: /Weibo/gi.test(UA),
+isTXWeibo: /T(?:X|encent)MicroBlog/gi.test(UA),</p>
+<p>tapEvent: isMobile ? &apos;tap&apos; : &apos;click&apos;,
+/**</p>
+<ul>
+<li>&#x7F29;&#x653E;&#x9875;&#x9762;
+<em>/
+fixScreen: function() {
+var metaEl = doc.querySelector(&apos;meta[name=&quot;viewport&quot;]&apos;),
+metaCtt = metaEl ? metaEl.content : &apos;&apos;,
+matchScale = metaCtt.match(/initial-scale=([\d.]+)/),
+matchWidth = metaCtt.match(/width=(<sup><a href="#fn_,%5Cs" id="reffn_,\s">,\s</a></sup>+)/);
+if ( !metaEl ) { // REM
+var docEl = doc.documentElement,
+maxwidth = docEl.dataset.mw || 750, // &#x6BCF; dpr &#x6700;&#x5927;&#x9875;&#x9762;&#x5BBD;&#x5EA6;
+dpr = isIos ? Math.min(win.devicePixelRatio, 3) : 1,
+scale = 1 / dpr,
+tid;
+docEl.removeAttribute(&apos;data-mw&apos;);
+docEl.dataset.dpr = dpr;
+metaEl = doc.createElement(&apos;meta&apos;);
+metaEl.name = &apos;viewport&apos;;
+metaEl.content = fillScale(scale);
+docEl.firstElementChild.appendChild(metaEl);
+var refreshRem = function() {
+var width = docEl.getBoundingClientRect().width;
+if (width / dpr &gt; maxwidth) {
+width = maxwidth </em> dpr;
+}
+var rem = width / 16;
+docEl.style.fontSize = rem + &apos;px&apos;;
+};
+win.addEventListener(&apos;resize&apos;, function() {
+clearTimeout(tid);
+tid = setTimeout(refreshRem, 300);
+}, false);
+win.addEventListener(&apos;pageshow&apos;, function(e) {
+if (e.persisted) {
+clearTimeout(tid);
+tid = setTimeout(refreshRem, 300);
+}
+}, false);
+refreshRem();
+} else if ( isMobile &amp;&amp; !matchScale &amp;&amp; ( matchWidth &amp;&amp; matchWidth[1] != &apos;device-width&apos; ) ) { // &#x5B9A;&#x5BBD;
+var    width = parseInt(matchWidth[1]),
+iw = win.innerWidth || width,
+ow = win.outerWidth || iw,
+sw = win.screen.width || iw,
+saw = win.screen.availWidth || iw,
+ih = win.innerHeight || width,
+oh = win.outerHeight || ih,
+ish = win.screen.height || ih,
+sah = win.screen.availHeight || ih,
+w = Math.min(iw,ow,sw,saw,ih,oh,ish,sah),
+scale = w / width;
+if ( scale &lt; 1 ) {
+metaEl.content = metaCtt + &apos;,&apos; + fillScale(scale);
+}
+}
+function fillScale(scale) {
+return &apos;initial-scale=&apos; + scale + &apos;,maximum-scale=&apos; + scale + &apos;,minimum-scale=&apos; + scale;
+}
+},
+/**</li>
+<li>&#x8F6C;href&#x53C2;&#x6570;&#x6210;&#x952E;&#x503C;&#x5BF9;</li>
+<li>@param href {string} &#x6307;&#x5B9A;&#x7684;href&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;&#x5F53;&#x524D;&#x9875;href</li>
+<li>@returns {object} &#x952E;&#x503C;&#x5BF9;
+<em>/
+getSearch: function(href) {
+href = href || win.location.search;
+var data = {},reg = new RegExp( &quot;(<sup><a href="#fn_?=&amp;" id="reffn_?=&amp;">?=&amp;</a></sup>+)(=(<sup><a href="#fn_&amp;" id="reffn_&amp;">&amp;</a></sup></em>))?&quot;, &quot;g&quot; );
+href &amp;&amp; href.replace(reg,function( $0, $1, $2, $3 ){
+data[ $1 ] = $3;
+});
+return data;
+}
+};
+})(window, document);</li>
+</ul>
+</li>
+</ul>
+<p>// &#x9ED8;&#x8BA4;&#x76F4;&#x63A5;&#x9002;&#x914D;&#x9875;&#x9762;
+mobileUtil.fixScreen();
+```</p>
+<h3 id="&#x4E09;&#x3001;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x6DD8;&#x5B9D;&#x7684;flexiblejs-httpsgithubcomamfelib-flexible"><a name="&#x4E09;&#x3001;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x6DD8;&#x5B9D;&#x7684;flexiblejs-httpsgithubcomamfelib-flexible" class="anchor-navigation-ex-anchor" href="#&#x4E09;&#x3001;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x6DD8;&#x5B9D;&#x7684;flexiblejs-httpsgithubcomamfelib-flexible"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E09;&#x3001;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x6DD8;&#x5B9D;&#x7684;flexible.js <a href="https://github.com/amfe/lib-flexible" target="_blank">https://github.com/amfe/lib-flexible</a></h3>
+<p>&#x53C2;&#x8003;&#x94FE;&#x63A5;&#xFF1A;<a href="http://www.jianshu.com/p/eb05c775d3c6" target="_blank">http://www.jianshu.com/p/eb05c775d3c6</a> </p>
 <footer class="page-footer"><span class="copyright">Copyright &#xA9; lin 2019 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2019-10-26 14:48:08
+2020-08-26 15:35:34
 </span></footer>
                                 
                                 </section>
@@ -1585,7 +1746,7 @@ const baz = obj === null || obj === void 0 ? void 0 : (_obj$foo = obj.foo) === n
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Js ✘","level":"2.4.1","depth":2,"next":{"title":"util ✘","level":"2.4.2","depth":2,"path":"UseInJob/util.md","ref":"./UseInJob/util.md","articles":[]},"previous":{"title":"工作常用代码","level":"2.4","depth":1,"ref":"","articles":[{"title":"Js ✘","level":"2.4.1","depth":2,"path":"UseInJob/Js.md","ref":"./UseInJob/Js.md","articles":[]},{"title":"util ✘","level":"2.4.2","depth":2,"path":"UseInJob/util.md","ref":"./UseInJob/util.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-comscore","prism","-highlight","copy-code-button","search-pro","-search","-lunr","expandable-chapters","splitter","-sharing","github-buttons","donate","tbfed-pagefooter","baidu-tongji","anchor-navigation-ex"],"styles":{"website":"./public-repertory/css/gitbook-configure.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy lin 2019","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"shell":"bash"}},"baidu-tongji":{"url":"https://hm.baidu.com/hm.js","token":"1c61bbd36ae979753ea33d5469a3151b"},"splitter":{},"search-pro":{},"donate":{"alipay":"http://www.93lin.cn/img/wechat.png","alipayText":"支付宝打赏","button":"打赏","title":"","wechat":"http://www.93lin.cn/img/alipay.png","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"theme-comscore":{},"github-buttons":{"buttons":[{"user":"93qlin","repo":"gitbook","type":"star","count":true,"size":"small"},{"user":"93qlin","width":"160","type":"follow","count":true,"size":"small"}]},"copy-code-button":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"lin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"lin 的文档库","language":"zh-hans","gitbook":"*","description":"lin 的文档库."},"file":{"path":"UseInJob/Js.md","mtime":"2019-10-26T06:48:08.296Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-25T05:41:40.012Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Js ✘","level":"2.4.1","depth":2,"next":{"title":"util ✘","level":"2.4.2","depth":2,"path":"UseInJob/util.md","ref":"./UseInJob/util.md","articles":[]},"previous":{"title":"工作常用代码","level":"2.4","depth":1,"ref":"","articles":[{"title":"Js ✘","level":"2.4.1","depth":2,"path":"UseInJob/Js.md","ref":"./UseInJob/Js.md","articles":[]},{"title":"util ✘","level":"2.4.2","depth":2,"path":"UseInJob/util.md","ref":"./UseInJob/util.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-comscore","prism","-highlight","copy-code-button","search-pro","-search","-lunr","expandable-chapters","splitter","-sharing","github-buttons","donate","tbfed-pagefooter","baidu-tongji","anchor-navigation-ex"],"styles":{"website":"./public-repertory/css/gitbook-configure.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy lin 2019","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"shell":"bash"}},"baidu-tongji":{"url":"https://hm.baidu.com/hm.js","token":"1c61bbd36ae979753ea33d5469a3151b"},"splitter":{},"search-pro":{},"donate":{"alipay":"http://www.93lin.cn/img/wechat.png","alipayText":"支付宝打赏","button":"打赏","title":"","wechat":"http://www.93lin.cn/img/alipay.png","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"theme-comscore":{},"github-buttons":{"buttons":[{"user":"93qlin","repo":"gitbook","type":"star","count":true,"size":"small"},{"user":"93qlin","width":"160","type":"follow","count":true,"size":"small"}]},"copy-code-button":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"lin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"lin 的文档库","language":"zh-hans","gitbook":"*","description":"lin 的文档库."},"file":{"path":"UseInJob/Js.md","mtime":"2020-08-26T07:35:34.001Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-26T12:16:01.526Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
