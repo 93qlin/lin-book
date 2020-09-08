@@ -364,7 +364,9 @@ src/index.html
 </body>
 </html>
 ```
+
 webpack.config.js
+
 ```
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
@@ -376,7 +378,9 @@ module.exports = {
 }
 
 ```
+
 **可以加参数**
+
 ```
 new HtmlWebpackPlugin({
   title: 'app',
@@ -385,8 +389,10 @@ new HtmlWebpackPlugin({
   
 })
 ```
+
 **配资多个html**
 webpack.config.js
+
 ```
 entry:{
     app: "./src/index.js",
@@ -412,7 +418,9 @@ plugins: [
   })
 ]
 ```
+
 生成的app
+
 ```
 <!doctype html>
 <html lang="en">
@@ -426,7 +434,9 @@ plugins: [
     <script type="text/javascript" src="../more/more.bundle.js"></script></body>
 </html>
 ```
+
 ##### 删除注释
+
 ```
 minify: {
     removeComments: true // 删除注释
@@ -516,10 +526,13 @@ module.exports = {
 }
 ```
 #### mini-css-extract-plugin把js释放css文件
+
 ```
  npm install --save-dev mini-css-extract-plugin
 ```
+
 webpack.config.js
+
 ```
 
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -549,43 +562,57 @@ module.exports = {
   }
 }
 ```
+
 #### webpack-dev-server(开启一个本地服务器，热加载，自动打开浏览器)
+
 ```
 npm install webpack-dev-server --save-dev
 ```
+
 ```
 "devnpx": "npx webpack-dev-server --open",
 ```
 
 #### clean-webpack-plugin(清空之前生成的hash文件)
+
 ```
 npm install --save-dev clean-webpack-plugin
 ```
+
 ```
 npm install -g serve
 ```
+
 ```
 let pathToClean = ['dist']
 ....
 new CleanWebpackPlugin({pathToClean:pathToClean})
 
 ```
+
 执行命令
+
 ```
 serve -s dist
 ```
+
 #### 处理图片
+
 ```
 npm install file-loader --save-dev
 ```
+
 #### 压缩图片
+
 ```
 npm install image-webpack-loader --save-dev
 ```
+
 查看文件体积命令
 ls -lh src
 
 最终webpack.config.js
+
 ```
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -679,7 +706,9 @@ module.exports = {
   ]
 }
 ```
+
 .babelrc
+
 ```
 {
   "presets": [
@@ -707,12 +736,14 @@ module.exports = {
   ]
 }
 ```
+
 ## 搭建react环境
 >@babel/preset-react前面已经安装过了。.babelrc也配置过了
 
 ```
 npm install react react-dom
 ```
+
 ```
 修改 src/index.js使用react
 
@@ -728,6 +759,7 @@ ReactDom.render(
 打开index.html 看效果。
 
 我们简单做下改进，把Hello React放到组件里面。体现组件化~
+
 ```
 cd src
 mkdir component
@@ -736,7 +768,9 @@ mkdir Hello
 cd Hello
 touch Hello.js
 ```
+
 按照React语法，写一个Hello组件
+
 
 ```
 import React, {Component} from 'react';
@@ -751,9 +785,11 @@ export default class Hello extends Component {
     }
 }
 ```
+
 然后让我们修改src/index.js，引用Hello组件！
 
 src/index.js
+
 ```
 import React from 'react';
 import ReactDom from 'react-dom';
@@ -762,14 +798,18 @@ import Hello from './component/Hello/Hello';
 ReactDom.render(
     <Hello/>, document.getElementById('app'));
 ```
+
 在根目录执行打包命令
+
 ```
 yarn build
 ```
+
 打开index.html看效果
 
 ## react-router
 react-router-dom中package.json依赖:
+
 ```
 "dependencies": {
     "history": "^4.7.2",
@@ -780,7 +820,9 @@ react-router-dom中package.json依赖:
     "warning": "^3.0.0"
   }
 ```
+
 安装了react-router-dom，npm会解析并安装上述依赖包。可以看到，其中包括react-router。
+
 ```
 npm install --save react-router-dom
 ```
@@ -790,6 +832,7 @@ mkdir router && touch router/router.js
 按照react-router文档编辑一个最基本的router.js。包含两个页面home和page1。
 
 src/router/router.js
+
 ```
 import React from 'react';
 
@@ -816,18 +859,24 @@ const getRouter = () => (
 
 export default getRouter;
 ```
+
 新建页面文件夹
+
 ```
 cd src
 mkdir pages
 ```
+
 新建两个页面 Home,Page1
+
 ```
 cd src/pages
 mkdir Home && touch Home/Home.js
 mkdir Page1 && touch Page1/Page1.js
 ```
+
 填充内容：
+
 ```
 src/pages/Home/Home.js
 
@@ -843,7 +892,9 @@ export default class Home extends Component {
     }
 }
 ```
+
 Page1.js
+
 ```
 import React, {Component} from 'react';
 
@@ -857,9 +908,11 @@ export default class Page1 extends Component {
     }
 }
 ```
+
 现在路由和页面建好了，我们在入口文件src/index.js引用Router。
 
 修改src/index.js
+
 ```
 import React from 'react';
 import ReactDom from 'react-dom';
@@ -869,6 +922,7 @@ import getRouter from './router/router';
 ReactDom.render(
     getRouter(), document.getElementById('app'));
 ```
+
 现在执行打包命令npm run dev-build。打开index.html查看效果啦！
 
 那么问题来了~我们发现点击‘首页’和‘Page1’没有反应。不要惊慌，这是正常的。
@@ -887,15 +941,19 @@ npm install webpack-dev-server -g
 修改webpack.config.js,增加webpack-dev-server的配置。
 
 webpack.config.js
+
 ```
     devServer: {
         contentBase: path.join(__dirname, './dist/app')
     }
 ```
+
 现在执行
+
 ```
 webpack-dev-server --config webpack.config.js
 ```
+
 浏览器打开http://localhost:8080，OK,现在我们可以点击首页,Page1了，
 看URL地址变化啦！我们看到react-router已经成功了哦。
 
@@ -907,6 +965,7 @@ A：URL的根目录。如果不设定的话，默认指向项目根目录。
 仍然能正常打开网站！
 
 每次执行webpack-dev-server webpack.config.js,要打很长的命令，我们修改package.json，增加script->start:
+
 ```
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -914,6 +973,7 @@ A：URL的根目录。如果不设定的话，默认指向项目根目录。
     "start": "webpack-dev-server"
   }
 ```
+
 下次执行npm start就可以了。
 
 既然用到了webpack-dev-server，我们就看看它的其他的配置项。

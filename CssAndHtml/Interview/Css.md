@@ -156,13 +156,56 @@ box-sizing: content-box|border-box|inherit:
 ```
 
 
-## <div id='c4'>4. px和em和rem的区别</div>
+## <div id='c4'>4. px和em和rem的区别? 移动端rem布局基本介绍及原理</div>
 
 > `px`: 像素，相对长度单位。像素`px`是相对于显示器屏幕分辨率而言的
 
 > `em`的值并不是固定的，会继承父级元素的字体大小，代表倍数
 
 > `rem`的值并不是固定的，始终是基于根元素 `<html>` 的，也代表倍数
+### 通俗的说，1rem = html的font-size值
+
+> 例如，下这段代码。a标签的font-size值为0.5rem，实际就是100px*0.5=50px。
+
+```
+html{
+    font-size:100px;
+}
+a{
+    font-size:.5rem;
+}
+```
+
+### 如何使用rem进行布局？
+#### 最简单的
+```
+const deviceWidth = document.documentElement.clientWidth || document.body.clientWidth;
+    document.querySelector('html').style.fontSize = deviceWidth / 7.5 + 'px';
+```
+#### 1. 标签的rem单位的值怎么计算
+
+通过使用  rem  +   js  改变html标签的font-size（整体缩放）实现兼容性更高的页面
+
+#### 下面来举个例子，
+
+> 当我们拿到的设计图是750px的时候，窗口宽度750px，html的font-size的大小为100px；
+
+> 也就是说1rem = 100px；所以标题的font-size的大小为26/100=.26rem；
+
+```
+### rem布局的效果：
+
+- 屏幕越大，标签就越大
+- 屏幕越小，标签就越小
+
+### rem布局的原理：
+
+> 通过媒体查询的方式动态改变html标签的font-size的大小
+
+```
+当屏幕越大，让html标签的font-size变大即可
+当屏幕越小，让html标签的font-size变小即可
+```
 
 ## <div id='c5'>5. position的值有哪些</div>
 

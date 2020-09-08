@@ -31,11 +31,11 @@ ESLint已经进行了代码自动格式化，那么为什么要使用Prettier？
 ## 集成vscode
 
 - 安装好Eslint插件
-
 - 安装Prettier - Code formatter插件
 - 安装editorConfig for vscode
 - 修改vscode的settings.json文件
 command + shift + p输入settings.json修改settings.json文件
+
 ```
 "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true

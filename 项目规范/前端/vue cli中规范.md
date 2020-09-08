@@ -7,7 +7,7 @@
 
 > 利用Vue-cli3建立Vue项目时，一定要选上Linter/Formatter，然后选择 ESLint + Prettier
 
-在这里插入图片描述
+![img](../img/20200607180234815.png)
 
 ### 1. 安装vscode插件
 首先在vscode中安装如下插件：
@@ -43,7 +43,7 @@
 #### .editorconfig
 
 在文件根目录下创建.editorconfig，内容如下：
-
+```
 root = true
 
 [*]
@@ -57,15 +57,5 @@ indent_size = 4
 # insert_final_newline = true
 # # 设为true表示会除去换行行首的任意空白字符。
 # trim_trailing_whitespace = true
-
+```
 #### [setting.json]（com + shift +P）参考(http://book.93lin.cn/%E9%A1%B9%E7%9B%AE%E8%A7%84%E8%8C%83/%E5%89%8D%E7%AB%AF/eslint+prettier+editorconfig+lint-staged.html)
-
-3. 最后
-配置eslint和prettier可真是要了我的老命。。。。还好最后自己比较满意，大家可以根据自己习惯自行调配规则。
-
-注：
-
-先用 alt+shift+f 格式化代码，然后看报错手动调整直到没有error和warning。
-
-在这里插入图片描述
-如上图warning出现在第9行第十个字符处。

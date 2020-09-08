@@ -10,9 +10,11 @@
         * [Html ✘](./CssAndHtml/Interview/Html.md)
         * [Css ✘](./CssAndHtml/Interview/Css.md)
         * [图片 ✘](./CssAndHtml/Interview/图片.md)
+        * [移动端问题 ✘](./CssAndHtml/Interview/移动端问题.md)
     * [flex ✔](./CssAndHtml/Css/flex.md)
     * [grid ✔](./CssAndHtml/Css/grid.md)
     * [冷门css ✔](./CssAndHtml/Css/冷门css.md)
+    * [canvas ✔](./CssAndHtml/Css/canvas.md)
 * Http和浏览器以及安全
     * 面试必问 ✘
         * Http和浏览器相关 ✘
@@ -28,6 +30,7 @@
             * [详细 ✔](./HttpAndBrowerAndPerformanceSafety/Interview/Performance/detail.md)
 * Javascript
     * [Javascript基础面试](./Javascript/interview/js基础面试.md)
+    * [Javascript综合基础题](./Javascript/interview/js综合基础题.md)
     * [基础1.1JavaScript声明变量详解 ✔](./Javascript/基础1.1JavaScript声明变量详解.md)
     * [基础1.2:变量（变量提升,暂时性死区）、执行（上下文）环境、执行栈、事件循环机制、作用域、作用域链 ✔](./Javascript/基础1.2:变量（变量提升,暂时性死区）、执行（上下文）环境、执行栈、事件循环机制、作用域、作用域链.md)
     * [基础1.3：面向对象之理解对象 ✔](./Javascript/基础1.3：面向对象之理解对象.md)
@@ -52,6 +55,9 @@
     * [js坑点 ✘](./Javascript/js坑点.md)
     * 奇技淫巧 ✘
         * [奇技淫巧part1 ✔](./Javascript/Special/奇技淫巧.md)
+    * typescript ✘
+        * [typescript面试题 ✔](./Javascript/typescript/typescript面试题.md)
+        * [typescript注意的地方 ✔](./Javascript/typescript/typescript注意的地方.md)
 
         
 * 前后端框架相关
@@ -81,6 +87,7 @@
         * [面试常见](./Algorithms/Javascript/算法常见面试.md)
         * [递归，尾递归，相互递归，蹦床函数.md](./Algorithms/Javascript/递归，尾递归，相互递归，蹦床函数.md)
         * [动态规划.md](./Algorithms/Javascript/动态规划.md)
+        * [回溯算法.md](./Algorithms/Javascript/回溯算法.md)
         * [大数据处理.md](./Algorithms/Javascript/大数据.md)
     * [Java实现](./Algorithms/Java/README.md)
     * [知识点](./Algorithms/知识点/树.md)
