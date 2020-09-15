@@ -1,6 +1,7 @@
 ## VUE-CLI3.0中使用 postcss-px-to-viewport 适配移动端步骤以及POSTCSS.CONFIG.JS配置文件不起作用解决
 
 https://www.cnblogs.com/zhangnan35/p/12682925.html
+https://www.jianshu.com/p/1f1b23f8348f
 
 ### 使用vue-cli来构建项目目录(我这里使用的是vuecli3@版本) 
 
@@ -80,3 +81,10 @@ module.exports = {
 img{
 content:normal !important;
 ```
+
+### 需要注意的配置
+- propList: 当有些属性的单位我们不希望转换的时候，可以添加在数组后面，并在前面加上!号，如propList: ["*","!letter-spacing"],这表示：所有css属性的属性的单位都进行转化，除了letter-spacing的
+- selectorBlackList：转换的黑名单，在黑名单里面的我们可以写入字符串，只要类名包含有这个字符串，就不会被匹配。比如selectorBlackList: ['wrap'],它表示形如wrap,my-wrap,wrapper这样的类名的单位，都不会被转换
+
+
+### 关于兼容第三方UI库
