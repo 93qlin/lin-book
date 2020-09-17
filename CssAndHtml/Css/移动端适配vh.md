@@ -1,6 +1,7 @@
 ## VUE-CLI3.0中使用 postcss-px-to-viewport 适配移动端步骤以及POSTCSS.CONFIG.JS配置文件不起作用解决
 
 https://www.cnblogs.com/zhangnan35/p/12682925.html
+https://www.jianshu.com/p/1f1b23f8348f
 
 ### 使用vue-cli来构建项目目录(我这里使用的是vuecli3@版本) 
 

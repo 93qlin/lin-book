@@ -6,20 +6,10 @@ tags:
 ---
 <h2>目录</h2>
 
-&emsp;[1. react virsualDOM 是什么? 如何实现? 说一下diff算法 ?](#k1)
+
+&emsp;[1. React 中 key 的重要性是什么?](#k1)
 
 
-## <h5 id='k1'>1. react virsualDOM 是什么? 如何实现? 说一下diff算法 ?</h5>
-[虚拟DOM](https://www.jianshu.com/p/616999666920)
-[虚拟 DOM Diff 算法解析](https://www.infoq.cn/article/react-dom-diff/)
+<h5 id='k2'>2. React 中 key 的重要性是什么？</h5>
 
-### Virtual DOM
-1. 是什么？
-- 用Javascript对象结构描述Dom树结构,然后用它来构建真正的Dom树插入文档
-当状态发生改变之后,重新构造新的Javascript对象结构和旧的作对比得出差异
-- 针对差异之处进行重新构建更新视图
-- 无非就是利用Js做一层映射比较,操作简单并且速度远远高于直接比较Dom树
-
-2. 为什么？
-
-
+key 用于识别唯一的 Virtual DOM 元素及其驱动 UI 的相应数据。它们通过回收 DOM 中当前所有的元素来帮助 React 优化渲染。这些 key 必须是唯一的数字或字符串，React 只是重新排序元素而不是重新渲染它们。这可以提高应用程序的性能。

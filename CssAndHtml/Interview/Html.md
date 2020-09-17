@@ -39,6 +39,8 @@ JavaScript 属于行为层，负责内容应如何对事件做出反应。
 
 &emsp;[15.document.write(),outerHTML、outerText、innerHTML、innerText属性](#l15)
 
+&emsp;[16.click, touch执行顺序](#l16)
+
 <h2 id='l1'>1. Doctype作用，HTML5 为什么只需要写 <！DOCTYPE HTML></h2>
 
 > doctype是一种标准通用标记语言的文档类型声明，目的是告诉标准通用标记语言解析器要使用什么样的（document type definition）文档类型定义（DTD）来解析文档.`<!DOCTYPE>`声明必须是HTML文档的第一行，位于html标签之前
@@ -242,6 +244,7 @@ localStorage.removeItem('name'); // 删除 name 的值
 这四个都是js原生DOM对象的属性，返回的数据都是string类型。
 看例子：
 获取属性
+
 ```
 var oHtml = $("div")[0].outerHTML;
 var oText = $("div")[0].outerText;
@@ -253,7 +256,9 @@ var iText = $("div")[0].innerText;
     <a>a</a>
 </div>
 ```
+
 分别返回：
+
 ```
 <div>
     div 
@@ -267,7 +272,9 @@ div a
 ---------------------
 div a
 ```
+
 设置属性
+
 ```
 <body>
 	<div>
@@ -279,7 +286,9 @@ $("div")[0].outerText = "<a>a</a>";
 $("div")[0].innerHTML = "<a>a</a>";
 $("div")[0].innerText = "<a>a</a>";
 ```
+
 分别变成：
+
 ```
 <body>
 	<a>a</a>
@@ -297,10 +306,41 @@ $("div")[0].innerText = "<a>a</a>";
 	<div>&lt;a&gt;a&lt;/a&gt;</div>
 </body>
 ```
+
 ### 也就是说:
 
 
 > outer和inner决定是不是包含最外层（当前）标签；
 Text和HTML获取时决定是否把标签忽略，插入时决定是否把字符串解析为标签。
+
+
+<h2 id='l16'>16.触发的先后顺序：></h2>
+
+
+```
+boxDom.addEventListener('mousedown', () => {
+    console.log('mousedown发生了');
+})
+boxDom.addEventListener('mouseup', () => {
+    console.log('mouseup发生了');
+})
+boxDom.addEventListener('click', () => {
+    console.log('click发生了');
+})
+boxDom.addEventListener('touchstart', () => {
+    console.log('touchstart发生了');
+})
+boxDom.addEventListener('touchend', () => {
+    console.log('touchend发生了');
+})
+```
+
+```
+touchstart发生了
+touchend发生了
+mouseup发生了
+mousedown发生了
+click发生了
+```
 
 

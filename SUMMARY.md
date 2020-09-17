@@ -4,6 +4,7 @@
 
 * webpack
     * [面试必问 ✘](./webpack/webpack面试题.md)
+    * [webpack4](./webpack/webpack4.md)
     * [webpack4AndReact脚手架](./webpack/webpack4AndReact脚手架.md)
 * Html和Css
     * 面试必问 ✘
@@ -51,6 +52,7 @@
     * [项目中第一次向数据库连续添加多条数据 ✔](./Javascript/项目中第一次向数据库连续添加多条数据.md)
     * [原型和闭包 ✔](./Javascript/原型和闭包.md)
     * [指数化退避 ✔](./Javascript/指数化退避.md)
+    * [前端模块化：AMD、CMD、ES6、CommonJS ✔](./Javascript/前端模块化：AMD、CMD、ES6、CommonJS.md)
     * [JavaScript常用数组操作方法，包含ES6方法 ✔](./Javascript/JavaScript常用数组操作方法，包含ES6方法.md)
     * [js坑点 ✘](./Javascript/js坑点.md)
     * 奇技淫巧 ✘
@@ -68,6 +70,8 @@
                 * [react面试题复杂 ✘](./Framework/前端/React/Interview/react面试题复杂.md)
             * React源码分析 ✘
                 * [React ✘](./Framework/前端/React/源码分析/react.md)
+            * [react坑 ✘](./Framework/前端/React/react坑.md)
+            * [react技巧 ✘](./Framework/前端/React/react技巧.md)
         * Vue ✘
             * Vue面试 ✘
                 * [持续更新面试题 ✘](./Framework/前端/Vue/Interview/持续更新面试题.md)
@@ -75,6 +79,7 @@
                 * [vue3.0✘](./Framework/前端/Vue/Interview/vue3.0.md)
     * [小程序 ✘](./Framework/前端/小程序面试.md)
     * [vue和react对比 ✘](./Framework/前端/vue和react对比.md)
+    * [vue2.0双向绑定原理以及简易实现 ✘](./Framework/前端/vue2.0双向绑定原理以及简易实现.md)
                  
 * 手写代码
     * js ✘
@@ -94,9 +99,14 @@
 * 工作常用代码
     * [Js ✘](./UseInJob/Js.md)
     * [util ✘](./UseInJob/util.md)
+    * [切换主题 ✘](./UseInJob/切换主题.md)
+    * [vue相关 ✘](./UseInJob/vue相关.md)
 * 数据库
     * 面试
         * [查询学生成绩相关 ✘](./Database/InterView/查询学生成绩相关.md)
         * [优化相关 ✘](./Database/InterView/优化相关.md)
 * 项目规范
     * [eslint+prettier+editorconfig+lint-staged ✘](./项目规范/前端/eslint+prettier+editorconfig+lint-staged.md)
+    * [相关命令 ✘](./项目规范/前端/相关命令.md)
+    * [vue-cli中规范 ✘](./项目规范/前端/vue-cli中规范.md)
+    * [git常见命令 ✘](./项目规范/git常见命令.md)
