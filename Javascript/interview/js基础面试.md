@@ -54,6 +54,10 @@
 
 &emsp;[26. 事件循环event-loop](#j26)
 
+&emsp;[27. ES6中的class语法的实现？](#j27)
+
+
+
 
 <h5 id='j1'>1. JavaScript 有哪些数据类型</h5>
 
@@ -398,10 +402,13 @@ class Cat extends Animal {
 
 - `jsonp` 跨域：动态创建`script`，再请求一个带参网址实现跨域通信.缺点就是只能实现 `get` 一种请求
 - `document.domain + iframe`跨域：两个页面都通过js强制设置`document.domain`为基础主域，就实现了同域.但是仅限主域相同，子域不同的跨域应用场景
+- window.name + iframe（非同源可用）
+- location.hash + iframe（非同源可用）
 - 跨域资源共享（CORS）：只服务端设置`Access-Control-Allow-Origin`即可，前端无须设置，若要带`cookie`请求：前后端都需要设置
 - `nginx`反向代理接口跨域：同源策略是浏览器的安全策略，不是`HTTP`协议的一部分。服务器端调用`HTTP`接口只是使用`HTTP`协议，不会执行JS脚本，不需要同源策略，也就不存在跨越问题
 - `WebSocket`协议跨域
-
+-  window.postMessage
+- WebSocket
 <h5 id='j13'>13. 对 this 的理解</h5>
 
 在 `JavaScript` 中，研究 `this` 一般都是 `this` 的指向问题，核心就是 **`this` 永远指向最终调用它的那个对象**，除非改变 `this` 指向或者箭头函数那种特殊情况
@@ -1051,3 +1058,7 @@ Foo.call(f); // 使用call方法调用函数并且指定上下文的'this'
 - CommonJS是服务器端模块的规范，Node.js采用了这个规范。CommonJS规范加载模块是同步的，也就是说，只有加载完成，才能执行后面的操作，只能在node环境下使用。
 - AMD规范则是非同步加载模块，允许指定回调函数。
 AMD推荐的风格通过返回一个对象做为模块对象，CommonJS的风格通过对module.exports或exports的属性赋值来达到暴露模块对象的目的
+
+
+<h5 id='j27'>27. ES6中的class语法的实现？</h5>
+

@@ -3,6 +3,9 @@
 * [Introduction](README.md)
 
 * webpack
+    * webpack原理分析
+        * [webpack插件原理分析 ✘](./webpack/原理分析/插件原理分析.md)
+        * [souremap原理 ✘](./webpack/原理分析/souremap原理.md)
     * [面试必问 ✘](./webpack/webpack面试题.md)
     * [webpack4](./webpack/webpack4.md)
     * [webpack4AndReact脚手架](./webpack/webpack4AndReact脚手架.md)
@@ -17,13 +20,14 @@
     * [冷门css ✔](./CssAndHtml/Css/冷门css.md)
     * [canvas ✔](./CssAndHtml/Css/canvas.md)
 * Http和浏览器以及安全
+    * [谷歌浏览器消息提示.md ✔](./HttpAndBrowerAndPerformanceSafety/谷歌浏览器消息提示.md)
     * 面试必问 ✘
         * Http和浏览器相关 ✘
             * [用户输入URL到浏览器呈现页面 ✘](./HttpAndBrowerAndPerformanceSafety/Interview/HttpAndBrower/用户输入URL到浏览器呈现页面.md)
             * [浏览器多进程到JS单线程，JS运行机制 ✘](./HttpAndBrowerAndPerformanceSafety/Interview/HttpAndBrower/浏览器多进程到JS单线程，JS运行机制.md)
             * [Axios ✘](./HttpAndBrowerAndPerformanceSafety/Interview/HttpAndBrower/Axios.md)
             * [OSI七层模型-tcpIP四层模型 - 五层模型 ✘](./HttpAndBrowerAndPerformanceSafety/Interview/HttpAndBrower/OSI七层模型-tcpIP四层模型 - 五层模型.md)
-            * [什么是TCP、UDP以及两者的区别 ✘](./HttpAndBrowerAndPerformanceSafety/Interview/HttpAndBrower/什么是TCP、UDP以及两者的区别.md)
+            * [什么是TCP、UDP、HTTP以及三者的区别 ✘](./HttpAndBrowerAndPerformanceSafety/Interview/HttpAndBrower/什么是TCP、UDP、HTTP以及三者的区别.md)
             
         * 网络安全相关 ✘
             * [网络安全相关 ✘](./HttpAndBrowerAndPerformanceSafety/Interview/safe/safe.md)
@@ -31,6 +35,7 @@
             * [详细 ✔](./HttpAndBrowerAndPerformanceSafety/Interview/Performance/detail.md)
 * Javascript
     * [Javascript基础面试](./Javascript/interview/js基础面试.md)
+    * [es6面试](./Javascript/interview/es6面试.md)
     * [Javascript综合基础题](./Javascript/interview/js综合基础题.md)
     * [基础1.1JavaScript声明变量详解 ✔](./Javascript/基础1.1JavaScript声明变量详解.md)
     * [基础1.2:变量（变量提升,暂时性死区）、执行（上下文）环境、执行栈、事件循环机制、作用域、作用域链 ✔](./Javascript/基础1.2:变量（变量提升,暂时性死区）、执行（上下文）环境、执行栈、事件循环机制、作用域、作用域链.md)
@@ -76,7 +81,9 @@
             * Vue面试 ✘
                 * [持续更新面试题 ✘](./Framework/前端/Vue/Interview/持续更新面试题.md)
                 * [vue面试题 ✘](./Framework/前端/Vue/Interview/vue面试题.md)
-                * [vue3.0✘](./Framework/前端/Vue/Interview/vue3.0.md)
+                * [vue3.0 ✘](./Framework/前端/Vue/Interview/vue3.0.md)
+                * [vuex面试题 ✘](./Framework/前端/Vue/Interview/vuex面试题.md)
+                * [vue-router面试题 ✘](./Framework/前端/Vue/Interview/vue-router面试题.md)
     * [小程序 ✘](./Framework/前端/小程序面试.md)
     * [vue和react对比 ✘](./Framework/前端/vue和react对比.md)
     * [vue2.0双向绑定原理以及简易实现 ✘](./Framework/前端/vue2.0双向绑定原理以及简易实现.md)
@@ -85,7 +92,8 @@
     * js ✘
         * [js手写代码 ✘](./Coding/js/手写代码.md)
         * [js执行结果解释原因 ✘](./Coding/js/执行结果解释原因.md)
-        
+* 设计模式
+    * [js实现23种设计模式 ✘](./DesignPattern/js实现23种设计模式.md)    
 * 数据结构和算法
     * Javascript实现
         * [知识盲点.md](./Algorithms/Javascript/知识盲点.md)
@@ -98,9 +106,14 @@
     * [知识点](./Algorithms/知识点/树.md)
 * 工作常用代码
     * [Js ✘](./UseInJob/Js.md)
+    * [axios ✘](./UseInJob/axios.md)
     * [util ✘](./UseInJob/util.md)
     * [切换主题 ✘](./UseInJob/切换主题.md)
-    * [vue相关 ✘](./UseInJob/vue相关.md)
+    * [vue相关坑点 ✘](./UseInJob/vue相关坑点.md)
+    * [vue插件 ✘](./UseInJob/vue插件.md)
+    * [vue自定义指令相关 ✘](./UseInJob/vue自定义指令相关.md)
+
+    
 * 数据库
     * 面试
         * [查询学生成绩相关 ✘](./Database/InterView/查询学生成绩相关.md)

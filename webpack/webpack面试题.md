@@ -1,6 +1,6 @@
 <h1>目录</h1>
 
-&emsp;[1.对webpack的了解](#w1)
+&emsp;[1.对webpack的构建流程原理](#w1)
 
 &emsp;[2.webpack，里面的webpack.config.js怎么配置](#w2)
 
@@ -38,15 +38,33 @@
 
 &emsp;[19. Webpack和Rollup对比?](#w19)
 
-&emsp;[20. webpack的resolve.modules和 resolve.alias有什么区别?怎么回事哈啊?](#w19)
+&emsp;[20. webpack的resolve.modules和 resolve.alias有什么区别?怎么回事哈啊?](#w20)
+
+&emsp;[21. webpack4 抽离公共代码和 webpack3的区别](#w21)
 
 
 
-
-
-<h5 id='w1'>1. 对webpack的了解</h5>
+<h2 id='w1'>1. 对webpack的了解</h2>
 
 [官方文档](https://www.webpackjs.com/concepts/)
+
+2、webpack构建流程（原理）
+
+从启动构建到输出结果一系列过程：
+
+（1）初始化参数：解析webpack配置参数，合并shell传入和webpack.config.js文件配置的参数，形成最后的配置结果。
+
+（2）开始编译：上一步得到的参数初始化compiler对象，注册所有配置的插件，插件监听webpack构建生命周期的事件节点，做出相应的反应，执行对象的 run 方法开始执行编译。
+
+（3）确定入口：从配置的entry入口，开始解析文件构建AST语法树，找出依赖，递归下去。
+
+（4）编译模块：递归中根据文件类型和loader配置，调用所有配置的loader对文件进行转换，再找出该模块依赖的模块，再递归本步骤直到所有入口依赖的文件都经过了本步骤的处理。
+
+（5）完成模块编译并输出：递归完事后，得到每个文件结果，包含每个模块以及他们之间的依赖关系，根据entry配置生成代码块chunk。
+
+（6）输出完成：输出所有的chunk到文件系统。
+
+注意：在构建生命周期中有一系列插件在做合适的时机做合适事情，比如UglifyPlugin会在loader转换递归完对结果使用UglifyJs压缩覆盖之前的结果。
 
 > 本质上，webpack 是一个现代 JavaScript 应用程序的静态模块打包器(module bundler)，将项目当作一个整体，通过一个给定的的主文件，webpack将从这个文件开始找到你的项目的所有依赖文件，使用loaders处理它们，最后打包成一个或多个浏览器可识别的js文件
 
@@ -85,7 +103,7 @@ module.exports = {
 };
 ```
 
-<h5 id='w2'>2. webpack，里面的webpack.config.js怎么配置</h5>
+<h2 id='w2'>2. webpack，里面的webpack.config.js怎么配置</h2>
 
 ```js
 let webpack = require('webpack');
@@ -131,7 +149,7 @@ module.exports = {
 }
 ```
 
-<h5 id='w3'>3. webpack本地开发怎么解决跨域的</h5>
+<h2 id='w3'>3. webpack本地开发怎么解决跨域的</h2>
 
 - 下载 webpack-dev-server 插件
 - 配置 webpack.config.js 文件
@@ -160,7 +178,7 @@ module.exports = {
 }
 ```
 
-<h5 id='w4'>4. 如何配置多入口文件</h5>
+<h2 id='w4'>4. 如何配置多入口文件</h2>
 
 > 配置多个入口文件
 
@@ -171,7 +189,7 @@ entry: {
 }
 ```
 
-<h5 id='w5'>5. webpack与grunt、gulp的不同</h5>
+<h2 id='w5'>5. webpack与grunt、gulp的不同</h2>
 
 > 三者都是前端构建工具
 
@@ -183,7 +201,7 @@ entry: {
 
 [为什么选择webpack](https://webpack.docschina.org/concepts/why-webpack/)
 
-<h5 id='w6'>6. 有哪些常见的Loader？他们是解决什么问题的</h5>
+<h2 id='w6'>6. 有哪些常见的Loader？他们是解决什么问题的</h2>
 
 - `css-loader`：加载 `CSS`，支持模块化、压缩、文件导入等特性
 - `style-loader`：把 `CSS` 代码注入到 `JavaScript 中`，通过 `DOM` 操作去加载 `CSS`
@@ -191,13 +209,16 @@ entry: {
 - `babel-loader`：把 `ES6` 转换成 `ES5`
 - `file-loader`：把文件输出到一个文件夹中，在代码中通过相对 `URL` 去引用输出的文件
 - `url-loader`：和 `file-loader` 类似，但是能在文件很小的情况下以 `base64` 的方式把文件内容注入到代码中去
+- source-map-loader 加载额外的 Source Map 文件，以方便断点调试
 
-<h5 id='w7'>7. 有哪些常见的Plugin？他们是解决什么问题的</h5>
+<h2 id='w7'>7. 有哪些常见的Plugin？他们是解决什么问题的</h2>
 
 - `define-plugin`：定义环境变量
 - `commons-chunk-plugin`：提取公共代码
 - `AutoWebPlugin`: 管理多个单页应用,
-<h5 id='w8'>8. Loader和Plugin的不同</h5>
+
+
+<h2 id='w8'>8. Loader和Plugin的不同</h2>
 
 - loader 加载器
 
@@ -211,7 +232,7 @@ entry: {
 
 > 在 `plugins` 中单独配置。类型为数组，每一项是一个 `plugin` 的实例，参数都通过构造函数传入
 
-<h5 id='w9'>9. webpack的构建流程是什么</h5>
+<h2 id='w9'>9. webpack的构建流程是什么</h2>
 
 1. 初始化参数：从配置文件和 `Shell` 语句中读取与合并参数，得出最终的参数
 2. 开始编译：用上一步得到的参数初始化 `Compiler` 对象，加载所有配置的插件，执行对象的 `run` 方法开始执行编译
@@ -223,13 +244,49 @@ entry: {
 
 > 在以上过程中，`Webpack` 会在特定的时间点广播出特定的事件，插件在监听到感兴趣的事件后会执行特定的逻辑，并且插件可以调用 `Webpack` 提供的 `API` 改变 `Webpack` 的运行结果
 
-<h5 id='w10'>10. 是否写过Loader和Plugin？描述一下编写loader或plugin的思路</h5>
+### 初始化阶段
+事件名	解释
+- 初始化参数	从配置文件和 Shell 语句中读取与合并参数，得出最终的参数。 这个过程中还会执行配置文件中的插件实例化语句 new Plugin()。
+- 实例化 Compiler	用上一步得到的参数初始化 Compiler 实例，Compiler 负责文件监听和启动编译。Compiler 实例中包含了完整的 Webpack 配置，全局只有一个 Compiler 实例。
+- 加载插件	依次调用插件的 apply 方法，让插件可以监听后续的所有事件节点。同时给插件传入 compiler 实例的引用，以方便插件通过 compiler 调用 Webpack 提供的 API。
+- environment	开始应用 Node.js 风格的文件系统到 compiler 对象，以方便后续的文件寻找和读取。
+- entry-option	读取配置的 Entrys，为每个 Entry 实例化一个对应的 EntryPlugin，为后面该 Entry 的递归解析工作做准备。
+- after-plugins	调用完所有内置的和配置的插件的 apply 方法。
+- after-resolvers	根据配置初始化完 resolver，resolver 负责在文件系统中寻找指定路径的文件。
+### 编译阶段
+事件名	解释
+- run	启动一次新的编译
+- watch-run	和run类似，区别在于它是在监听模式下启动的编译，在这个事件中可以获取到是哪些文件发生了变化导致重新启动一次新的编译
+- compile	该事件是为了告诉插件一次新的编译将要启动，同时会给插件带上compiler对象。
+- compilation	当webpack以开发模式运行时，每当检测到文件变化，一次新的Compilation将被创建。一个Compilation对象包含了当前的模块资源、编译生成资源、变化的文件等。Compilation对象也提供了很多时间回调供插件做扩展。
+- make	一个新的Comilation创建完毕，即将从Entry开始读取文件，根据文件类型和配置的Loader对文件进行编译，编译完后再找出该文件依赖的文件，递归的编译和解析。
+- after-compile	一次Compilation执行完成
+- invalid	当遇到文件不存在、文件编译错误等异常时会触发该事件，该事件不会导致Webpack退出。
+
+> 在编译阶段中，最重要的要数compilation事件了，因为在compilation阶段调用了Loader完成了每个模块的转换操作，在compilation阶段又包括很多小的事件，它们分别是：
+
+事件名	解释
+- build-module	使用对应的Loader去转换一个模块
+- normal-module-loader	在用Loader对一个模块转换完后，使用acorn解析转换后的内容，输出对应的抽象语法树（AST），以方便Webpack后面对代码的分析
+- program	从配置的入口模块开始，分析其AST，当遇到require等导入其它模块语句时，便将其加入到依赖的模块列表，同时对新找出的依赖模块递归分析，最终搞清所有模块的依赖关系。
+- seal	所有模块及其依赖的模块都通过Loader转换完成后，根据依赖关系开始生成Chunk
+### 输出阶段
+事件名	解释
+- should-emit	所有需要输出的文件已经生成好，询问插件哪些文件需要输出，哪些不需要
+- emit	确定好要输出哪些文件，执行文件输出，可以在这里获取和修改输出内容
+- after-emit	文件输出完毕
+- done	成功完成一次玩的编译和输出流程
+- failed	如果在编译和输出流程中遇到异常导致webpack退出时，就会直接跳转到本步骤，插件可以在本事件中获取到具体的错误原因
+在输出阶段已经得到了各个模块经过转换后的结果和其依赖关系，并且把相关模块组合在一起形成一个个Chunk。在输出阶段会根据Chunk的类型，使用对应模板生成最终要输出的文件内容。
+
+
+<h2 id='w10'>10. 是否写过Loader和Plugin？描述一下编写loader或plugin的思路</h2>
 
 > 编写 `Loader` 时要遵循单一原则，每个 `Loader` 只做一种"转义"工作。 每个 `Loader` 的拿到的是源文件内容`（source）`，可以通过返回值的方式将处理后的内容输出，也可以调用 `this.callback()` 方法，将内容返回给 `webpack` 。 还可以通过 `this.async() `生成一个 `callback` 函数，再用这个 `callback`` 将处理后的内容输出出去
 
 > 相对于 `Loader` 而言，`Plugin` 的编写就灵活了许多。 `webpack` 在运行的生命周期中会广播出许多事件，`Plugin` 可以监听这些事件，在合适的时机通过 `Webpack` 提供的 `API` 改变输出结果
 
-<h5 id='w11'>11. webpack的热更新是如何做到的？说明其原理</h5>
+<h2 id='w11'>11. webpack的热更新是如何做到的？说明其原理</h2>
 
 webpack的热更新又称热替换（Hot Module Replacement），缩写为HMR。 这个机制可以做到不用刷新浏览器而将新变更的模块替换掉旧的模块。
 
@@ -249,7 +306,7 @@ HotModuleReplacement.runtime 是客户端 HMR 的中枢，它接收到上一步�
 
 具体可以参考 [这里](https://github.com/Jocs/jocs.github.io/issues/15)
 
-<h5 id='w12'>12. 如何利用webpack来优化前端性能</h5>
+<h2 id='w12'>12. 如何利用webpack来优化前端性能</h2>
 
 - 压缩代码。删除多余的代码、注释、简化代码的写法等等方式
 - 利用 `CDN` 加速。在构建过程中，将引用的静态资源路径修改为 `CDN` 上对应的路径
@@ -258,7 +315,7 @@ HotModuleReplacement.runtime 是客户端 HMR 的中枢，它接收到上一步�
 - 按照路由拆分代码，实现按需加载，提取公共代码
 - 给打包出来的文件名添加哈希，实现浏览器缓存文件
 
-<h5 id='w13'>13. 如何提高webpack的构建速度</h5>
+<h2 id='w13'>13. 如何提高webpack的构建速度</h2>
 - 多入口情况下，使用CommonsChunkPlugin来提取公共代码
 - 通过externals配置来提取常用库
 - 利用DllPlugin和DllReferencePlugin预编译资源模块 通过DllPlugin来对那些我们引用但是绝对不会修改的npm包来进行预编译，再通过DllReferencePlugin将预编译的模块加载进来。
@@ -269,16 +326,18 @@ HotModuleReplacement.runtime 是客户端 HMR 的中枢，它接收到上一步�
 
 参考 [这里](https://gaodaqian.com/webpack4/11%E6%8F%90%E5%8D%87%20webpack%20%E7%9A%84%E6%9E%84%E5%BB%BA%E9%80%9F%E5%BA%A6.html)
 
-<h5 id='w14'>14. 怎么配置单页应用？怎么配置多页应用</h5>
+<h2 id='w14'>14. 怎么配置单页应用？怎么配置多页应用</h2>
 
 - 单页应用可以理解为 `webpack` 的标准模式，直接在 `entry` 中指定单页应用的入口即可
 - 多页应用的话，可以使用 `webpack` 的 `AutoWebPlugin` 来完成简单自动化的构建，但是前提是项目的目录结构必须遵守他预设的规范
 
-<h5 id='w15'>15. 什么是bundle,什么是chunk，什么是module</h5>
+<h2 id='w15'>15. 什么是bundle,什么是chunk，什么是module</h2>
 
-> `bundle` 是由 `webpack` 打包出来的文件，`chunk` 是指 `webpack` 在进行模块的依赖分析的时候，代码分割出来的代码块。`module`是开发中的单个模块
+- `bundle` 是由 `webpack` 打包出来的文件，
+- `chunk` 是指 `webpack` 在进行模块的依赖分析的时候，代码分割出来的代码块。
+- `module`是开发中的单个模块
 
-<h5 id='w16'>16. 你的 import 被 webpack 编译成了什么？</h5>
+<h2 id='w16'>16. 你的 import 被 webpack 编译成了什么？</h2>
 
 import moduleName from 'xxModule'和import('xxModule')经过webpack编译打包后最终变成了什么？在浏览器中是怎么运行的？
 
@@ -288,7 +347,7 @@ import moduleName from 'xxModule'和import('xxModule')经过webpack编译打包�
 
 > 当然其中的**异步方法**（import('xxModule')）比较特殊一些，它会单独打成一个包，采用动态加载的方式，具体过程：当用户触发其加载的动作时，会动态的在head标签中创建一个script标签，然后发送一个http请求，加载模块，模块加载完成以后自动执行其中的代码，主要的工作有两个，更改缓存中模块的状态，另一个就是执行模块代码。
 
-<h5 id='w17'>17. tree shaking?</h5>
+<h2 id='w17'>17. tree shaking?</h2>
 
 > 什么是 tree shaking，即 webpack 在打包的过程中会将没用的代码进行清除(dead code)。一般 dead code 具有一下的特征：
 
@@ -297,7 +356,7 @@ import moduleName from 'xxModule'和import('xxModule')经过webpack编译打包�
 3. 代码只会影响死变量（只写不读）
 是不是很神奇，那么需要怎么做才能使 tree shaking 生效呢? 
 
-<h5 id='w18'>18. Babel 工作流程?</h5>
+<h2 id='w18'>18. Babel 工作流程?</h2>
 > Babel 其实就是一个纯粹的 JavaScript 的编译器，任何一个编译器工作流程大致都可以分为如下三步：
 
 - Parser 解析源文件
@@ -316,9 +375,14 @@ Babel 也不例外，如下图所示：
 
 
 
-<h5 id='w19'>19. Webpack和Rollup对比?</h5>
+<h2 id='w19'>19. Webpack和Rollup对比?</h2>
  
 Webpack和Rollup在不同场景下，都能发挥自身优势作用。Webpack对于代码分割和静态资源导入有着“先天优势”，并且支持热模块替换(HMR)，而Rollup并不支持，所以当项目需要用到以上，则可以考虑选择Webpack。但是，Rollup对于代码的Tree-shaking和ES6模块有着算法优势上的支持，若你项目只需要打包出一个简单的bundle包，并是基于ES6模块开发的，可以考虑使用Rollup。
 其实Webpack从2.0开始支持Tree-shaking，并在使用babel-loader的情况下支持了es6 module的打包了，实际上，Rollup已经在渐渐地失去了当初的优势了。但是它并没有被抛弃，反而因其简单的API、使用方式被许多库开发者青睐，如React、Vue等，都是使用Rollup作为构建工具的。而Webpack目前在中大型项目中使用得非常广泛。
 最后，用一句话概括就是：**在开发应用时使用 Webpack，开发库时使用 Rollup**。
 
+
+
+<h2 id='w21'>21. webpack4 抽离公共代码和 webpack3的区别</h2>
+
+从webpack4开始官方移除了commonchunk插件，改用了optimization属性进行更加灵活的配置，这也应该是从V3升级到V4的代码修改过程中最为复杂的一部分

@@ -64,3 +64,158 @@ Proxy 用于修改某些操作的默认行为，等同于在语言层面做出�
 
 2.Proxy可以直接监听数组的变化
 ```
+
+## 用法
+
+![img](../../../img/1600532718377.jpg)
+
+## Composition API如何替换Vue Mixins?
+
+### mixin缺点：
+1. 命名冲突
+```
+const mixin = {
+  data: () => ({
+    myProp: null
+  })
+}
+
+export default {
+  mixins: [mixin],
+  data: () => ({
+    // 同名!
+    myProp: null
+  })
+}
+```
+
+### 快速入门Composition API
+Composition API的主要思想是，我们将它们定义为从新的 setup 函数返回的JavaScript变量，而不是将组件的功能（例如state、method、computed等）定义为对象属性。
+
+以这个经典的Vue 2组件为例，它定义了一个“计数器”功能：
+```
+//Counter.vue
+export default {
+  data: () => ({
+    count: 0
+  }),
+  methods: {
+    increment() {
+      this.count++;
+    }
+  },
+  computed: {
+    double () {
+      return this.count * 2;
+    }
+  }
+}
+```
+下面是使用Composition API定义的完全相同的组件。
+
+```
+// Counter.vue
+import { ref, computed } from "vue";
+
+export default {
+  setup() {
+    const count = ref(0);
+    const double = computed(() => count * 2)
+    function increment() {
+      count.value++;
+    }
+    return {
+      count,
+      double,
+      increment
+    }
+  }
+}
+```
+首先会注意到，我们导入了 ref 函数，该函数允许我们定义一个响应式变量，其作用与 data 变量几乎相同。计算属性的情况与此相同。
+
+increment 方法不是被动的，所以它可以被声明为一个普通的JavaScript函数。注意，我们需要更改子属性 count 的 value 才能更改响应式变量。这是因为使用 ref 创建的响应式变量必须是对象，以便在传递时保持其响应式。
+
+定义完这些功能后，我们将从 setup 函数中将其返回。上面两个组件之间的功能没有区别，我们所做的只是使用替代API。
+
+### Composition API优点
+#### 1. 代码提取
+Composition API的第一个明显优点是提取逻辑很容易。
+
+让我们使用Composition API重构上面定义的组件，以使我们定义的功能位于JavaScript模块 useCounter 中（在特性描述前面加上“use”是一种Composition API命名约定。）。
+
+```
+//useCounter.js
+import { ref, computed } from "vue";
+
+export default function () {
+  const count = ref(0);
+  const double = computed(() => count * 2)
+  function increment() {
+    count.value++;
+  }
+  return {
+    count,
+    double,
+    increment
+  }
+}
+```
+
+#### 2. 代码重用
+要在组件中使用该函数，我们只需将模块导入组件文件并调用它（注意导入是一个函数）。这将返回我们定义的变量，随后我们可以从 setup 函数中返回它们。
+
+```
+// MyComponent.js
+import useCounter from "./useCounter.js";
+
+export default {
+  setup() {
+    const { count, double, increment } = useCounter();
+    return {
+      count,
+      double,
+      increment
+    }
+  }
+}
+```
+乍一看，这似乎有点冗长而毫无意义，但让我们来看看这种模式如何克服了前面讨论的mixins问题。
+
+#### 3. 命名冲突解决了
+我们之前已经了解了mixin如何使用与消费者组件中的名称相同的属性，或者甚至更隐蔽地使用了消费者组件使用的其他mixin中的属性。
+
+这不是Composition API的问题，因为我们需要显式命名任何状态或从合成函数返回的方法。
+
+export default {
+  setup () {
+    const { someVar1, someMethod1 } = useCompFunction1();
+    const { someVar2, someMethod2 } = useCompFunction2();
+    return {
+      someVar1,
+      someMethod1,
+      someVar2,
+      someMethod2
+    }
+  }
+}
+命名冲突的解决方式与其他任何JavaScript变量相同。
+
+#### 4.隐式依赖...解决了！
+前面还看到mixin如何使用在消费组件上定义的 data 属性，这可能会使代码变得脆弱，并且很难进行推理。
+
+合成函数(Composition Function)还可以调用消费组件中定义的局部变量。不过，不同之处在于，现在必须将此变量显式传递给合成函数。
+
+```
+import useCompFunction from "./useCompFunction";
+
+export default {
+  setup () {
+    // 某个局部值的合成函数需要用到
+    const myLocalVal = ref(0);
+
+    // 它必须作为参数显式地传递
+    const { ... } = useCompFunction(myLocalVal);
+  }
+}
+```
