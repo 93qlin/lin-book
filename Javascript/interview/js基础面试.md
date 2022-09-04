@@ -56,6 +56,8 @@
 
 &emsp;[27. ES6中的class语法的实现？](#j27)
 
+&emsp;[28. ajax原理](#j28)
+
 
 
 
@@ -1062,3 +1064,53 @@ AMD推荐的风格通过返回一个对象做为模块对象，CommonJS的风格
 
 <h5 id='j27'>27. ES6中的class语法的实现？</h5>
 
+<h5 id='j28'>28. ajax原理？</h5>
+Ajax的原理：简单来说通过XmlHttpRequest对象来向服务器发异步请求，从服务器获得数据，然后用JavaScript来操作DOM而更新页面
+```
+//封装一个ajax请求
+function ajax(options) {
+    //创建XMLHttpRequest对象
+    const xhr = new XMLHttpRequest()
+
+
+    //初始化参数的内容
+    options = options || {}
+    options.type = (options.type || 'GET').toUpperCase()
+    options.dataType = options.dataType || 'json'
+    const params = options.data
+
+    //发送请求
+    if (options.type === 'GET') {
+        xhr.open('GET', options.url + '?' + params, true)
+        xhr.send(null)
+    } else if (options.type === 'POST') {
+        xhr.open('POST', options.url, true)
+        xhr.send(params)
+
+    //接收请求
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            let status = xhr.status
+            if (status >= 200 && status < 300) {
+                options.success && options.success(xhr.responseText, xhr.responseXML)
+            } else {
+                options.fail && options.fail(status)
+            }
+        }
+    }
+}
+```
+```
+ajax({
+    type: 'post',
+    dataType: 'json',
+    data: {},
+    url: 'https://xxxx',
+    success: function(text,xml){//请求成功后的回调函数
+        console.log(text)
+    },
+    fail: function(status){请求失败后的回调函数
+        console.log(status)
+    }
+})
+```

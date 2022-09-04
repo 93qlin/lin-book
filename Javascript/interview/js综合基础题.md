@@ -433,3 +433,17 @@ console.log('start')
 在一轮宏任务全部执行完之后，再来执行刚刚await后面的内容async1 end。
 
 在这里，你可以理解为「紧跟着await后面的语句相当于放到了new Promise中，下一行及之后的语句相当于放在Promise.then中」。
+ ## AST抽象语法树
+
+ > 把代码转译成语法树的表现形式
+
+> 抽象语法树用途
+1. 代码语法的检查、代码风格的检查、代码的格式化、代码的高亮、代码错误提示、-代码自动补全等等
+- 如JSLint、JSHint对代码错误或风格的检查，发现一些潜在的错误
+IDE的错误提示、格式化、高亮、自动补全等等
+2. 代码混淆压缩
+- UglifyJS2等
+3. 优化变更代码，改变代码结构使达到想要的结构
+- 代码打包工具webpack、rollup等等
+- CommonJS、AMD、CMD、UMD等代码规范之间的转化
+- CoffeeScript、TypeScript、JSX等转化为原生Javascript

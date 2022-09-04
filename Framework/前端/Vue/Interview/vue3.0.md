@@ -3,6 +3,17 @@ vue3.0为何弃用Object.defineProperty而选择Proxy
 
 首先这两种都是基于数据劫持实现的双向绑定
 
+## vue2于vue3有什么不同，vue3有什么优势
+
+1.vue3相比vue2更灵活了，因为vue3使用ts编写的对ts的支持更友好了
+新增了composition API，可以抽离独立的业务逻辑，易于封装
+
+2.vue3使用proxy重写了响应式系统
+
+3.模板不用必须用根节点了
+
+4.vue3内部使用了tree-shaking，在打包项目的时候只会把我们使用的功能打包进去，而不是将整个vue源码打包
+
 ## 什么是数据劫持?
 > 当访问或者设置对象的属性的时候，触发相应的函数，并且返回或者设置属性的值。vue通过Object.defineProperty来劫持对象属性的getter和setter操作，当数据发生变化时发出通知。如下代码，实现了一个Observer
 
@@ -73,6 +84,7 @@ Proxy 用于修改某些操作的默认行为，等同于在语言层面做出�
 
 ### mixin缺点：
 1. 命名冲突
+
 ```
 const mixin = {
   data: () => ({
@@ -111,6 +123,7 @@ export default {
   }
 }
 ```
+
 下面是使用Composition API定义的完全相同的组件。
 
 ```
@@ -132,6 +145,7 @@ export default {
   }
 }
 ```
+
 首先会注意到，我们导入了 ref 函数，该函数允许我们定义一个响应式变量，其作用与 data 变量几乎相同。计算属性的情况与此相同。
 
 increment 方法不是被动的，所以它可以被声明为一个普通的JavaScript函数。注意，我们需要更改子属性 count 的 value 才能更改响应式变量。这是因为使用 ref 创建的响应式变量必须是对象，以便在传递时保持其响应式。
@@ -187,6 +201,7 @@ export default {
 
 这不是Composition API的问题，因为我们需要显式命名任何状态或从合成函数返回的方法。
 
+```
 export default {
   setup () {
     const { someVar1, someMethod1 } = useCompFunction1();
@@ -199,6 +214,7 @@ export default {
     }
   }
 }
+```
 命名冲突的解决方式与其他任何JavaScript变量相同。
 
 #### 4.隐式依赖...解决了！

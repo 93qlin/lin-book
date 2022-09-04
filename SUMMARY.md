@@ -109,7 +109,7 @@
     * [axios ✘](./UseInJob/axios.md)
     * [util ✘](./UseInJob/util.md)
     * [切换主题 ✘](./UseInJob/切换主题.md)
-    * [vue相关坑点 ✘](./UseInJob/vue相关坑点.md)
+    * [vue相关 ✘](./UseInJob/vue相关.md)
     * [vue插件 ✘](./UseInJob/vue插件.md)
     * [vue自定义指令相关 ✘](./UseInJob/vue自定义指令相关.md)
 

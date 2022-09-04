@@ -62,8 +62,17 @@ tags:
 
 &emsp;[28. Vue中的$attrs和$listener](#k28)
 
-&emsp;[29. Vue中的slots深层传递](#k29)
+&emsp;[29. Vue中的slots深层传递, slot-scope, v-slot](#k29)
 
+&emsp;[30. vue2和vue3的响应式核心原理](#k30)
+
+&emsp;[31. Vue的v-model的实现原理以及常用指令和修饰符](#k31)
+
+&emsp;[32. Vue.extend、Vue.component与new Vue](#k32)
+
+&emsp;[33. Vue export default中的name属性有哪些作用](#k33)
+
+&emsp;[34. v-bind="$props](#k34)
 
 
 <h2 id='k1'>1. 说一下Vue的双向绑定数据的原理</h2>
@@ -879,3 +888,428 @@ A:
     </B>
 </div>
 ```
+
+### slot-scope是作用域插槽。
+
+就是父组件中不能直接用自组件中定义的data数据。而slot-scope的出现就是解决了这样的问题。如下代码
+父组件
+
+```
+<template lang="">
+  <div>
+    <h3>这是父组件</h3>
+    <son>
+      <template slot="myslot" slot-scope="scope">
+        <ul>
+          <li v-for="item in scope.data">{{item}}</li>
+        </ul>
+      </template>
+    </son>
+  </div> 
+</template>
+```
+
+```
+子组件
+<template>
+  <div>
+    <h4>这是子组件</h4>
+    <input type="text" placeholder="请输入">
+    <slot name="myslot" :data='list'></slot>
+  </div>
+</template>
+ 
+<script>
+  export default {
+    name:'Son',
+    data(){
+      return{
+        list:[
+          {name:"Tom",age:15},
+          {name:"Jim",age:25},
+          {name:"Tony",age:13}
+        ]
+      }
+    }
+  }
+</script>
+```
+### v-slot
+使用v-slot处理具名插槽
+> 在向具名插槽提供内容的时候，可以在一个<template>元素上使用v-slot指令，并以v-slot的参数的形式提供其名称：
+
+![img](../../../img/vslot1.webp)
+
+执行结果
+
+![img](../../../img/vslot2.webp)
+
+        很显然，v-slot处理具名插槽，现在<template>元素中的所有内容都会将传入相应的插槽，任何没有被包裹在带有v-slot的<template>中的内容都会被视为默认插槽的内容。
+
+![img](../../../img/vslot3.webp)
+
+执行结果
+
+![img](../../../img/vslot4.webp)
+
+**注意：v-slot只能添加在<template>上**
+
+
+
+3、使用v-slot处理作用域
+        绑定在 <slot> 元素上的attribute被称为插槽prop，现在在父级作用域中，可以使用带值得v-slot来定义提供的prop的名字。
+
+![img](../../../img/vslot5.webp)
+![img](../../../img/vslot6.webp)
+
+        v-slot插槽指令处理作用域插槽功能。
+
+
+
+4、作用域插槽的特殊处理
+        在上述情况下，当被提供的内容只有默认插槽时，组件的标签才可以被当作插槽的模板来使用，这样我们就可以把v-slot直接用在组件上。
+
+![img](../../../img/vslot7.webp)
+
+        同时，也可以这样的简写形式去简化代码。
+![img](../../../img/vslot8.webp)
+
+        这样的写法也可以，就像假定没有指明的内容对应默认插槽一样，不带参数的v-slot被假定对应默认插槽。但是这样简写不太建议使用，因为如果默认的插槽只有一个还好，一旦有多个，就不能这样使用。
+
+
+
+5、动态插槽
+        动态插槽是2.6新增的，动态指令参数可以用在v-slot上，来定义动态的插槽。
+
+![img](../../../img/vslot9.webp)
+
+![img](../../../img/vslot10.webp)
+
+        此时template 标签上的v-solt指令参数是一个中括号, 中括号里的值将是一个变量,为当前父组件的数据
+
+
+
+6、具名插槽的缩写
+        具名插槽的缩写也是2.6.0新增的，跟v-on和v-bind一样，v-slot也有缩写，即把参数之前的所有内容(v-slot：)替换为字符 # 。例如 v-slot：header可以被重写为 #header：
+
+![img](../../../img/vslot11.webp)
+
+![img](../../../img/vslot12.webp)
+
+
+
+<h2 id='k30'>30. vue2和vue3的响应式核心原理</h2>
+
+```
+<body>
+    <div>
+        <input type="text" id="input">
+        <span id="text"></span>
+    </div>
+    <script>
+    var obj = {};
+    Object.defineProperty(obj, 'prop', {
+        get: function () {
+            return val;
+        },
+        set: function (newVal) {
+            val = newVal;
+            document.getElementById('text').innerHTML = val;
+        }
+    });
+    document.addEventListener('keyup', function (e) {
+        obj.prop = e.target.value;
+    });
+</script>
+</body>
+
+```
+
+```
+<body>
+    <div>
+        <input type="text" id="input">
+        <span id="text"></span>
+    </div>
+</body>
+<script>
+    var obj = {};
+    var obj1 = new Proxy(obj, {
+        get: function (target, key, receive) {
+            return target[key];
+        },
+        set: function (target, key, newVal, receive) {
+            target[key] = newVal;
+            document.getElementById('text').innerHTML = target[key];
+        }
+    })
+    document.addEventListener('keyup', function (e) {
+        obj1[0] = e.target.value;
+    });
+</script>
+```
+<h2 id='k31'>31. Vue的v-model的实现原理以及常用指令和修饰符</h2>
+v-model的实现原理：
+
+```
+v-model="msg"等同于 
+ <input type="text" :value="msg" @input="msg = $event.target.value" />
+运行之后发现和 v-model 的效果一样也实现了双向的数据绑定。
+v-model其实是个语法糖，它实际上是做了两步动作：
+1、绑定数据value
+2、触发输入事件input
+一句话概括就是，绑定数据并且监听数据改变
+```
+Vue的常用指令：
+
+```
+v-text、v-html、v-pre、v-once、v-show、v-if、v-else、v-else-if、v-for、v-on、v-bind、v-model
+```
+
+Vue的修饰符：
+
+```
+.trim   自动过滤用户输入的首尾空格
+.number   自动将用户的输入值转化为数值类型
+.lazy    默认情况下，v-model同步输入框的值和数据。可以通过这个修饰符，转变为在change事件再同步。
+.stop 阻止事件继续传播
+.prevent 事件不再重载页面
+.once 事件将只会触发一次
+.passive 告诉浏览器你不想阻止事件的默认行为
+```
+<h2 id='k32'>32. Vue.extend、Vue.component与new Vue</h2>
+
+关系：vue构造->vue组件->vue实例
+> Vue有几种创建组件实例的方式，还有几种挂在组件的方式。因为刚刚开始学习Vue,很容易混淆，所以这里对Vue.extend()、VueComponent()、new Vue()、new xxx()、{}、$mount()、$el、template和render、createElement()做一个总结。
+
+vue构造、vue组件和vue实例 是不同的概念。
+首先在了解上述的方法前，要先了解这几个概念。
+### 1.vue构造
+vue构造相当于一个对象，不能成为一个Vue组件，其中可以通过Vue.extend()来构造，也可以直接通过对象来构造。其中Vue。extend()在Vue官网上有解释。Vue.extend()
+
+Vue 构造器，创建一个“子类”。参数是一个包含组件选项的对象。
+
+```
+// 创建构造器
+var Profile = Vue.extend({
+  template: '<p>{{firstName}} {{lastName}} aka {{alias}}</p>',
+  data: function () {
+    return {
+      firstName: 'Walter',
+      lastName: 'White',
+      alias: 'Heisenberg'
+    }
+  }
+})
+```
+
+这样，就是一个Vue的构造器。其中也可以不实用这个方法，而直接定义对象。
+
+```
+{
+	  template: '<p>{{firstName}} {{lastName}} aka {{alias}}</p>',
+	  data: function () {
+	    return {
+	      firstName: 'Walter',
+	      lastName: 'White',
+	      alias: 'Heisenberg'
+	    }
+	  }
+}
+```
+> 但是这两种方法构造的变量都不是一个Vue组件，想要创建一个Vue组件，需要使用刚刚的构造器来注册，使之成为一个组件。
+
+### 2.vue组件
+Vue组件分为全局组件和局部组件。
+> 其中全局组件使用Vue.component(‘组件名’，Vue构造器)的方式来创建。
+Vue构造器可以为以上两种方式。
+
+// 构造器1
+Vue.component("icom",Vue.extend({
+		template:"<h1>这是组件的内容</h1>"
+}))
+
+// 构造器2
+Vue.component("icom",{
+		template:"<h1>这是组件的内容</h1>"
+})
+// 构造器3第三方模板引入
+    Vue.component('templecomponent', function(resolve, reject) {
+        $.get("./../xtemplate/com.html").then(function(res) {
+            resolve({
+                template: res,
+                props: ["b"],
+                data: function() {
+                    return {
+                        a: "a"
+                    }
+                }
+            })
+        });
+    });
+> 而局部组件，就是在组件实例的内部使用components：构造器 | 组件 来创建。
+可以作用到vue实例或者某个组件中的components属性中并在内部使用apple组件。
+
+```
+// 作用到vue实例
+new Vue({
+  el: '#app',
+  components: {
+    'component-a': ComponentA,
+    'component-b': ComponentB
+  }
+})
+
+// 作用到某个组件中
+var ComponentA = { /* ... */ }
+var ComponentB = {
+  components: {
+    'component-a': ComponentA
+  },
+  // ...
+}
+```
+
+> 其中的new Vue()就是创建组件实例的一种方式，说完了Vue组件，接下来就说说组件实例。
+
+### 3.vue实例
+> 当要在页面展示时，需要用到组件实例，需要将要展示的组件实例和容器绑定起来。
+创建组件实例有两个方法：1. 通过new Vue()； 2.通过new 构造器()。
+挂载到容器上也有两个方法：1. 通过$el；2. 通过$mount
+
+```
+1. 通过new Vue()
+// $el挂载在#app上
+new Vue({
+  el: '#app',
+  data: obj
+})
+
+// $mount挂载在app上
+const app = new Vue({
+  data: obj
+})
+app.$mount('#app');
+
+// 这样app就可以使用Vue的全局注册的组件，以及组件实例的components中的组件。
+new Vue({
+  el: '#app',
+  components: {
+    'component-a': ComponentA,
+    'component-b': ComponentB
+  }
+})
+```
+
+2.通过new 构造器()
+之前在讲构造器的地方说了有两个方法可以创建构造器，而构造器其实就是一个对象（类），可以通过new来直接创建实例。
+
+```
+var Comp = Vue.extend({
+  props: ['msg'],
+  template: '<div>{{ msg }}</div>'
+})
+
+// el挂载，如果构造器有需要的props，则在new中通过propsData传入
+var vm = new Comp({
+  el:'#app',
+  propsData: {
+    msg: 'hello'
+  }
+})
+
+// $mount挂载
+new Comp().$mount('#app');
+```
+
+
+> 最后想说，组件的渲染方式也有两种，普通的就是通过字符串模板，即HTML，在通过component。
+还可以通过渲染函数——render。
+```
+// 加载主页面
+// new Vue
+function initApp(){
+	const app = new Vue({
+		router,
+		store,
+		render : (h:CreateElement): Vnode => h(App);
+	})
+	app.$mount('#app');
+}
+
+//Vue.component
+Vue.component('anchored-heading', {
+  render: function (createElement) {
+    return createElement(
+      'h' + this.level,   // 标签名称
+      this.$slots.default // 子节点数组
+    )
+  },
+}
+
+```
+
+render中的参数是createElement 。createElement 参数
+它到底会返回什么呢？其实不是一个实际的 DOM 元素。它更准确的名字可能是 createNodeDescription，因为它所包含的信息会告诉 Vue 页面上需要渲染什么样的节点，包括及其子节点的描述信息。我们把这样的节点描述为“虚拟节点 (virtual node)”，也常简写它为“VNode”。“虚拟 DOM”是我们对由 Vue 组件树建立起来的整个 VNode 树的称呼。
+
+<h2 id='k33'>33. Vue export default中的name属性有哪些作用</h2>
+
+### 1. vue中的name属性作用
+1.递归组件运用（指组件自身调用自身组件）
+```
+ <article>
+    <div class="item" v-for="(item,index) in list" :key="index">
+      <div class="item-title">
+        <span class="item-title-ticket"></span>
+        {{item.title}}</div>
+        <div v-if="item.children" class="item-children">
+        <detail-list :list="item.children"></detail-list> //递归调用
+      </div>
+    </div>
+  </article>
+</template>
+<script>
+export default {
+  name: "DetailList",  /*指组件自身调用自身组件*/
+  props: {
+    list: Array
+  },
+  data() {
+    return {};
+  }
+};
+</script>
+```
+ 
+### 2、配合keep-alive对组件缓存做限制（include/exclude="name"）
+我们知道 keep-alive的 include和exclude 允许有条件的对组件进行缓存,其中include和exclude所匹配的就是组件的name值。
+example:
+```
+// 组件 a
+export default {
+  name: 'a',
+  data () {
+    return {}
+  }
+}
+```
+
+```
+<keep-alive include="a">
+  <component>
+    <!-- name 为 a 的组件将被缓存！ -->
+  </component>
+</keep-alive>
+<keep-alive exclude="a">
+  <component>
+    <!-- 除了 name 为 a 的组件都将被缓存！ -->
+  </component>
+</keep-alive>
+```
+
+### 3、在dev-tools中使用
+在开发中我们经常需要对代码进行调试，在dev-tools中组件是以组件name进行显示的，这样更有语义化，方便我们快速定位到我们需要审查的位置，结构更清晰明了
+
+<h2 id='k34'>34: v-bind="$props"</h2>
+
+v-bind="$props": 可以将父组件的所有props下发给它的子组件,子组件需要在其props:{} 中定义要接受的props。
