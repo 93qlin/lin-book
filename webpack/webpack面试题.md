@@ -280,9 +280,9 @@ entry: {
 在输出阶段已经得到了各个模块经过转换后的结果和其依赖关系，并且把相关模块组合在一起形成一个个Chunk。在输出阶段会根据Chunk的类型，使用对应模板生成最终要输出的文件内容。
 
 
-<h2 id='w10'>10. 是否写过Loader和Plugin？描述一下编写loader或plugin的思路</h2>
+<h2 id='w10'>10. 是否写过Loader和Plugin？描述一下编写loader或plugin的思路， 如何在 loader 里做一些异步的操作？</h2>
 
-> 编写 `Loader` 时要遵循单一原则，每个 `Loader` 只做一种"转义"工作。 每个 `Loader` 的拿到的是源文件内容`（source）`，可以通过返回值的方式将处理后的内容输出，也可以调用 `this.callback()` 方法，将内容返回给 `webpack` 。 还可以通过 `this.async() `生成一个 `callback` 函数，再用这个 `callback`` 将处理后的内容输出出去
+> 编写 `Loader` 时要遵循单一原则，每个 `Loader` 只做一种"转义"工作。 每个 `Loader` 的拿到的是源文件内容`（source）`，可以通过返回值的方式将处理后的内容输出，也可以调用 `this.callback()` 方法，将内容返回给 `webpack` 。 还可以通过 `this.async() `（在我们所写的 loader 当中，加入异步操作，那么我们需要调用官方提供给我们的 this.async() 这个 api 来实现）生成一个 `callback` 函数，再用这个 `callback`` 将处理后的内容输出出去
 
 > 相对于 `Loader` 而言，`Plugin` 的编写就灵活了许多。 `webpack` 在运行的生命周期中会广播出许多事件，`Plugin` 可以监听这些事件，在合适的时机通过 `Webpack` 提供的 `API` 改变输出结果
 

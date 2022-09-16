@@ -325,6 +325,8 @@ console.log('begin');
 
 >宏任务（macrotask ）和微任务（microtask ）
 
+同步代码的执行也属于宏任务
+
 >macrotask 和 microtask 表示异步任务的两种分类。
 
 

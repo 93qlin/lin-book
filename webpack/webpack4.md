@@ -38,6 +38,7 @@
 - [抽取公共代码](#%E6%8A%BD%E5%8F%96%E5%85%AC%E5%85%B1%E4%BB%A3%E7%A0%81)
 - [懒加载(延迟加载)](#%E6%87%92%E5%8A%A0%E8%BD%BD%E5%BB%B6%E8%BF%9F%E5%8A%A0%E8%BD%BD)
 - [热更新(当页面改变只更新改变的部分，不重新打包)](#%E7%83%AD%E6%9B%B4%E6%96%B0%E5%BD%93%E9%A1%B5%E9%9D%A2%E6%94%B9%E5%8F%98%E5%8F%AA%E6%9B%B4%E6%96%B0%E6%94%B9%E5%8F%98%E7%9A%84%E9%83%A8%E5%88%86%E4%B8%8D%E9%87%8D%E6%96%B0%E6%89%93%E5%8C%85)
+- [过nginx的配置，让浏览器直接解析.gz文件，可以大大提升文件加载的速度]
 - [tapable介绍 - SyncHook](#tapable%E4%BB%8B%E7%BB%8D---synchook)
 - [tapable介绍 - SyncBailHook](#tapable%E4%BB%8B%E7%BB%8D---syncbailhook)
 - [tapable介绍 - SyncWaterfallHook](#tapable%E4%BB%8B%E7%BB%8D---syncwaterfallhook)
@@ -65,6 +66,43 @@
 - [文件列表插件](#%E6%96%87%E4%BB%B6%E5%88%97%E8%A1%A8%E6%8F%92%E4%BB%B6)
 - [内联的`webpack`插件](#%E5%86%85%E8%81%94%E7%9A%84webpack%E6%8F%92%E4%BB%B6)
 - [打包后自动发布](#%E6%89%93%E5%8C%85%E5%90%8E%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83)
+
+## webpack优化
+（1）打包速度优化
+
+1、使用高版本的webpack和Node.js
+
+2、多进程打包：happyPack或thread-loader
+
+3、多进程并行压缩：parallel-uglify-plugin、uglifyjs-webpack-plugin 开启 parallel 参数、terser-webpack-plugin 开启 parallel 参数
+
+4、预编译资源模块：DLLPlugin
+
+5、缓存（babel-loader、terser-webpack-plugin、cache-loader）
+
+6、exclude、include缩小构建目标，noParse忽略、IgnorePlugin
+
+7、resolve配置减少文件搜索范围（alias、modules、extensions、mainFields）
+
+（2）打包体积优化
+
+1、Tree-shaking擦除无用代码
+
+2、Scope Hoisting优化代码
+> Scope Hoisting可以分析模块之间的依赖关系，最大程度地把零散的模块合并到一个函数中去，如此以来减少了函数声明代码，从而使得输出代码体积更小，内存的开销也变小了
+
+3、图片压缩（image-webpack-loader）
+
+4、公共资源提取（CommonsChunkPlugin）
+
+5、动态Polyfill
+>动态 polyfill 指的是根据不同的浏览器，动态载入需要的 polyfill。 Polyfill.io 通过尝试使用 polyfill 重新创建缺少的功能，可以更轻松地支持不同的浏览器，并且可以大幅度的减少构建体积
+
+6、分包设置Externals，使用 html-webpack-externals- plugin，将 react、react-dom 基础包通过 cdn 引入，不打入 bundle 中
+
+7、删除无用CSS代码（purgecss-webpack-plugin）
+
+8、JS、CSS压缩（UglifyJsPlugin(3)、terser-webpack-plugin(4)、optimize-css-assets-webpack-plugin）
 
 ## 安装前先npm初始化
 
@@ -1606,7 +1644,36 @@ if (module.hot) {
 }
 
 ```
+## 过nginx的配置，让浏览器直接解析.gz文件，可以大大提升文件加载的速度
 
+> 安装compression-webpack-plugin插件。前端将文件打包成.gz文件，然后通过nginx的配置，让浏览器直接解析.gz文件，可以大大提升文件加载的速度。
+
+npm使用下面命令安装
+```
+npm install --save-dev compression-webpack-plugin
+```
+yarn使用下面命令安装
+```
+yarn add compression-webpack-plugin --save-dev
+```
+二、接下来要去修改vue的配置文件 vue.config.js
+
+```
+const CompressionWebpackPlugin = require("compression-webpack-plugin");
+  chainWebpack: config => {
+    // 生产环境，开启js\css压缩
+    if (process.env.NODE_ENV === "production") {
+      config.plugin("compressionPlugin").use(
+        new CompressionWebpackPlugin({
+          test: /\.(js|css|less)$/, // 匹配文件名
+          threshold: 10240, // 对超过10k的数据压缩
+          minRatio: 0.8,
+          deleteOriginalAssets: true // 删除源文件
+        })
+      );
+    }
+  }
+```
 ## tapable介绍 - SyncHook
 
 [tapable](https://juejin.im/post/5abf33f16fb9a028e46ec352)

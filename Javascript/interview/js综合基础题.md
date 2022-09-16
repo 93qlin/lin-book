@@ -431,7 +431,7 @@ console.log('start')
 执行函数中的同步代码async1 start，之后碰到了await，它会阻塞async1后面代码的执行，因此会先去执行async2中的同步代码async2，然后跳出async1
 跳出async1函数后，执行同步代码start
 在一轮宏任务全部执行完之后，再来执行刚刚await后面的内容async1 end。
-
+同步代码的执行也属于宏任务
 在这里，你可以理解为「紧跟着await后面的语句相当于放到了new Promise中，下一行及之后的语句相当于放在Promise.then中」。
  ## AST抽象语法树
 
